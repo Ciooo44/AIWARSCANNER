@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import TheaterMap from "./TheaterMap";
 import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
+import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
   CRISIS_TIMELINE,
-  NEWS_ITEMS,
+  NEWS_ITEMS as STATIC_NEWS,
   KEY_ACTORS,
   REGIONAL_POSITIONS,
   CATEGORY_COLORS,
@@ -236,12 +237,21 @@ function AssetDetail({ asset, onClose }) {
 }
 
 // ── News Feed ──────────────────────────────────────────────────
-function NewsFeed({ filter, onFilterChange }) {
-  const filtered = filter === "all" ? NEWS_ITEMS : NEWS_ITEMS.filter(n => n.category === filter);
+function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
+  const filtered = filter === "all" ? news : news.filter(n => n.category === filter);
   return (
     <div style={{ background: "#0d1117", padding: 16, minHeight: 400 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 6 }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1 }}>◆ LIVE INTELLIGENCE FEED</div>
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1 }}>
+            ◆ {isLive ? '🔴 LIVE' : '📋 CACHED'} INTELLIGENCE FEED
+          </div>
+          {isLive && lastUpdated && (
+            <div style={{ fontSize: 8, color: "#00e676", marginTop: 2 }}>
+              Updated: {new Date(lastUpdated).toLocaleTimeString()}
+            </div>
+          )}
+        </div>
         <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
           {["all", "military", "diplomacy", "analysis", "intelligence"].map(f => (
             <button key={f} onClick={() => onFilterChange(f)} style={{
@@ -445,11 +455,26 @@ export default function App() {
   const [activeLayer, setActiveLayer] = useState("all");
   const [newsFilter, setNewsFilter] = useState("all");
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [liveNews, setLiveNews] = useState(null);
+  const [lastNewsUpdate, setLastNewsUpdate] = useState(null);
 
+  // Fetch live news on mount and refresh every 5 minutes
+  useEffect(() => {
+    const stopRefresh = startNewsRefresh((news) => {
+      setLiveNews(news);
+      setLastNewsUpdate(new Date().toISOString());
+    });
+    return stopRefresh;
+  }, []);
+
+  // Clock timer
   useEffect(() => {
     const interval = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // Use live news if available, otherwise static
+  const newsItems = liveNews || STATIC_NEWS;
 
   return (
     <div style={{ minHeight: "100vh", background: "#030810" }}>
@@ -497,7 +522,13 @@ export default function App() {
 
         {/* News + Timeline/Forces — two column */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
-          <NewsFeed filter={newsFilter} onFilterChange={setNewsFilter} />
+          <NewsFeed 
+            news={newsItems} 
+            filter={newsFilter} 
+            onFilterChange={setNewsFilter}
+            isLive={!!liveNews}
+            lastUpdated={lastNewsUpdate}
+          />
           <div style={{ background: "#0d1117", padding: 16, display: "flex", flexDirection: "column", gap: 20 }}>
             <Timeline />
             <ForceComparison />
