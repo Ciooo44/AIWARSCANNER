@@ -8,17 +8,103 @@ import {
   KEY_ACTORS,
   REGIONAL_POSITIONS,
   CATEGORY_COLORS,
+  US_NAVAL_ASSETS,
+  US_BASES,
+  IRAN_ASSETS,
 } from "./data";
 
-// ── Header ─────────────────────────────────────────────────────
+// ── Escalation Gauge ───────────────────────────────────────────
+function EscalationGauge() {
+  const level = 87;
+  const circumference = 2 * Math.PI * 54;
+  const offset = circumference - (level / 100) * circumference * 0.75;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <svg width="130" height="100" viewBox="0 0 130 110">
+        <defs>
+          <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00e676" />
+            <stop offset="35%" stopColor="#ffd600" />
+            <stop offset="65%" stopColor="#ff6d00" />
+            <stop offset="100%" stopColor="#ff1744" />
+          </linearGradient>
+        </defs>
+        <circle cx="65" cy="65" r="54" fill="none" stroke="#1a2332" strokeWidth="8"
+          strokeDasharray={circumference * 0.75} strokeDashoffset={0}
+          strokeLinecap="round" transform="rotate(135, 65, 65)" />
+        <circle cx="65" cy="65" r="54" fill="none" stroke="url(#gaugeGrad)" strokeWidth="8"
+          strokeDasharray={circumference * 0.75} strokeDashoffset={offset}
+          strokeLinecap="round" transform="rotate(135, 65, 65)"
+          style={{ transition: "stroke-dashoffset 1s ease" }} />
+        <text x="65" y="58" textAnchor="middle" fill="#ff1744" fontSize="26" fontWeight="700" fontFamily="'JetBrains Mono', monospace">{level}</text>
+        <text x="65" y="76" textAnchor="middle" fill="#8b949e" fontSize="8" fontFamily="'JetBrains Mono', monospace" letterSpacing="1">ESCALATION</text>
+      </svg>
+      <div style={{ fontSize: 7, color: "#ff8a80", letterSpacing: 1, marginTop: -6 }}>CRITICAL THRESHOLD: 90</div>
+    </div>
+  );
+}
+
+// ── Trump Deadline Countdown ───────────────────────────────────
+function DeadlineCountdown() {
+  const [timeLeft, setTimeLeft] = useState({});
+
+  useEffect(() => {
+    const deadline = new Date("2026-03-05T00:00:00Z");
+    const update = () => {
+      const diff = deadline - new Date();
+      if (diff <= 0) { setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
+      });
+    };
+    update();
+    const iv = setInterval(update, 1000);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div style={{ textAlign: "center" }}>
+      <div style={{ fontSize: 8, color: "#ff6d00", letterSpacing: 1, marginBottom: 8 }}>⏱ TRUMP ULTIMATUM COUNTDOWN</div>
+      <div style={{ display: "flex", gap: 5, justifyContent: "center" }}>
+        {[
+          { v: timeLeft.days, l: "DAYS" },
+          { v: timeLeft.hours, l: "HRS" },
+          { v: timeLeft.minutes, l: "MIN" },
+          { v: timeLeft.seconds, l: "SEC" },
+        ].map((b, i) => (
+          <div key={i} style={{
+            background: "#161b22", border: "1px solid #ff174430", borderRadius: 4,
+            padding: "5px 7px", minWidth: 40, textAlign: "center",
+          }}>
+            <div style={{
+              fontSize: 17, fontWeight: 700,
+              color: (timeLeft.days || 0) <= 5 ? "#ff1744" : "#ffd600",
+              fontVariantNumeric: "tabular-nums",
+            }}>{String(b.v ?? 0).padStart(2, "0")}</div>
+            <div style={{ fontSize: 6, color: "#6e7681", letterSpacing: 1 }}>{b.l}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize: 7, color: "#484f58", marginTop: 5 }}>EST. DEADLINE: ~MAR 5, 2026</div>
+    </div>
+  );
+}
+
+// ── Header (sticky) ────────────────────────────────────────────
 function Header({ currentTime }) {
   return (
     <div style={{
-      background: "linear-gradient(180deg, #0d1117 0%, #030810 100%)",
+      background: "linear-gradient(180deg, #0d1117 0%, #0d1117ee 100%)",
       borderBottom: "1px solid #1a2332",
       padding: "12px 20px",
       display: "flex", alignItems: "center", justifyContent: "space-between",
       flexWrap: "wrap", gap: 10,
+      position: "sticky", top: 0, zIndex: 100,
+      backdropFilter: "blur(12px)",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
         <div style={{
@@ -36,26 +122,10 @@ function Header({ currentTime }) {
           </div>
         </div>
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-        <div style={{
-          background: CURRENT_THREAT.bg,
-          border: `1px solid ${CURRENT_THREAT.color}`,
-          borderRadius: 4, padding: "4px 12px",
-          display: "flex", alignItems: "center", gap: 8,
-        }}>
-          <div style={{
-            width: 6, height: 6, borderRadius: "50%",
-            background: CURRENT_THREAT.color,
-            animation: "blink 1s infinite",
-          }} />
-          <span style={{ color: CURRENT_THREAT.color, fontSize: 11, fontWeight: 600, letterSpacing: 1 }}>
-            THREAT LEVEL: {CURRENT_THREAT.label}
-          </span>
-        </div>
-        <div style={{ fontSize: 11, color: "#8b949e", textAlign: "right" }}>
-          <div style={{ color: "#e6edf3" }}>{currentTime.toUTCString().slice(0, -4)} UTC</div>
-          <div>ZULU TIME</div>
-        </div>
+
+      <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+        <EscalationGauge />
+        <DeadlineCountdown />
       </div>
     </div>
   );
@@ -95,7 +165,7 @@ function StatsBar() {
     { label: "CARRIER GROUPS", value: "2", sub: "CVN-72 + CVN-78", color: "#2979ff" },
     { label: "US BASES ACTIVE", value: "11", sub: "MIDDLE EAST", color: "#00e676" },
     { label: "IRAN NUCLEAR", value: "4", sub: "SITES MONITORED", color: "#ff1744" },
-    { label: "TRUMP DEADLINE", value: "~10d", sub: "ULTIMATUM ISSUED", color: "#ffd600" },
+    { label: "TRUMP DEADLINE", value: "~12d", sub: "ULTIMATUM ISSUED", color: "#ffd600" },
     { label: "HORMUZ STATUS", value: "DRILLS", sub: "20% GLOBAL OIL", color: "#ff6d00" },
   ];
   return (
@@ -421,27 +491,9 @@ export default function App() {
 
           <TheaterMap onAssetSelect={setSelectedAsset} activeLayer={activeLayer} />
 
-          {/* Legend */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 10, padding: "8px 0" }}>
-            {[
-              { color: "#2979ff", shape: "■", label: "US Military Base" },
-              { color: "#2979ff", shape: "●", label: "US Carrier Group" },
-              { color: "#00b0ff", shape: "●", label: "US Warship" },
-              { color: "#7c4dff", shape: "●", label: "US Submarine" },
-              { color: "#ff1744", shape: "●", label: "Iran Nuclear Site" },
-              { color: "#e040fb", shape: "●", label: "Iran Military / Naval" },
-              { color: "#ffd600", shape: "●", label: "Economic Target" },
-              { color: "#ff6d00", shape: "●", label: "Chokepoint" },
-            ].map((l, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 9, color: "#8b949e" }}>
-                <span style={{ color: l.color, fontSize: 10 }}>{l.shape}</span> {l.label}
-              </div>
-            ))}
-          </div>
+          {/* Selected Asset Detail */}
+          <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
-
-        {/* Selected Asset Detail */}
-        <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
 
         {/* News + Timeline/Forces — two column */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
