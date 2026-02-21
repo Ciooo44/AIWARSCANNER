@@ -186,14 +186,31 @@ function NewsFeed({ filter, onFilterChange }) {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2, maxHeight: 450, overflow: "auto" }}>
         {filtered.map((n, i) => (
-          <div key={i} style={{
-            padding: "10px 12px",
-            background: i === 0 ? "#161b2280" : "transparent",
-            borderLeft: `2px solid ${CATEGORY_COLORS[n.category] || "#30363d"}`,
-            borderRadius: "0 4px 4px 0",
-          }}>
+          <a 
+            key={i}
+            href={n.url || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "10px 12px",
+              background: i === 0 ? "#161b2280" : "transparent",
+              borderLeft: `2px solid ${CATEGORY_COLORS[n.category] || "#30363d"}`,
+              borderRadius: "0 4px 4px 0",
+              textDecoration: "none",
+              display: "block",
+              transition: "all 0.2s",
+              cursor: "pointer"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#21262d";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = i === 0 ? "#161b2280" : "transparent";
+            }}
+          >
             <div style={{ fontSize: 11, color: "#e6edf3", lineHeight: 1.4, fontWeight: i === 0 ? 600 : 400 }}>
               {n.title}
+              <span style={{ marginLeft: 6, fontSize: 10, opacity: 0.6 }}>↗</span>
             </div>
             <div style={{ display: "flex", gap: 8, marginTop: 4, alignItems: "center", flexWrap: "wrap" }}>
               <span style={{ fontSize: 9, color: CATEGORY_COLORS[n.category], textTransform: "uppercase", letterSpacing: 0.5 }}>
@@ -209,7 +226,7 @@ function NewsFeed({ filter, onFilterChange }) {
                 }}>BREAKING</span>
               )}
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
