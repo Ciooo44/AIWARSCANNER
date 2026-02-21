@@ -1,19 +1,42 @@
-// Client-side news fetcher
-// NOTE: RSS feeds require CORS proxy. Using static fallback for now.
+// Client-side news fetcher using Supabase
+import { fetchNewsFromSupabase, subscribeToNews } from './supabase.js';
 
-import { NEWS_ITEMS } from "./data.js";
-
-// For now, return static news
-// TODO: Implement CORS proxy or serverless function for RSS feeds
+// Use Supabase for live news
 export async function fetchLiveNews() {
-  // Return null to use static news
-  return null;
+  try {
+    const news = await fetchNewsFromSupabase(20);
+    return news;
+  } catch (error) {
+    console.error('Failed to fetch live news:', error);
+    return null;
+  }
 }
 
-// Auto-refresh placeholder
+// Auto-refresh with realtime subscription
 export function startNewsRefresh(callback) {
-  // Static news only for now
-  return () => {};
+  // Initial fetch
+  fetchLiveNews().then(news => {
+    if (news) callback(news);
+  });
+  
+  // Subscribe to realtime updates
+  const subscription = subscribeToNews((newItem) => {
+    callback(currentNews => {
+      // Add new item to beginning, remove duplicates
+      const filtered = currentNews?.filter(n => n.url !== newItem.url) || [];
+      return [newItem, ...filtered].slice(0, 20);
+    });
+  });
+  
+  // Return cleanup function
+  return () => {
+    subscription.unsubscribe();
+  };
 }
 
-export const isNewsFresh = () => false;
+// Check if news is fresh
+export function isNewsFresh(lastUpdated) {
+  if (!lastUpdated) return false;
+  const age = Date.now() - new Date(lastUpdated).getTime();
+  return age < 10 * 60 * 1000; // 10 minutes
+}
