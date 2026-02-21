@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TheaterMap from "./TheaterMap";
+import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
 import {
   CURRENT_THREAT,
   CRISIS_TIMELINE,
@@ -433,6 +434,9 @@ export default function App() {
             <ForceComparison />
           </div>
         </div>
+
+        {/* AI War Prediction Panel */}
+        <WarPredictionPanel />
 
         <KeyActorsPanel />
         <RegionalPanel />
