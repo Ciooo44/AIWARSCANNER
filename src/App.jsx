@@ -6,6 +6,7 @@ import LiveNewsTV from "./components/LiveNewsTV.jsx";
 import IranLiveCams from "./components/IranLiveCams.jsx";
 import IranianTargets from "./components/IranianTargets.jsx";
 import PredictionMarkets from "./components/PredictionMarkets.jsx";
+import SatelliteTracker from "./components/SatelliteTracker.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -578,6 +579,9 @@ export default function App() {
           {/* Selected Asset Detail */}
           <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
+
+        {/* Satellite Imagery Tracker */}
+        <SatelliteTracker />
 
         {/* News + Timeline/Forces — two column */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
