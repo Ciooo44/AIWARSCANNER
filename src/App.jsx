@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TheaterMap from "./TheaterMap";
 import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
+import WarEconomyDashboard from "./components/WarEconomyDashboard.jsx";
 import LiveFlightRadar from "./components/LiveFlightRadar.jsx";
 import LiveNewsTV from "./components/LiveNewsTV.jsx";
 import IranLiveCams from "./components/IranLiveCams.jsx";
@@ -615,6 +616,9 @@ export default function App({ navigateTo }) {
 
         {/* AI War Prediction Panel */}
         <WarPredictionPanel />
+
+        {/* War Economy Dashboard */}
+        <WarEconomyDashboard />
 
         {/* Prediction Markets */}
         <PredictionMarkets />
