@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import TheaterMap from "./TheaterMap";
 import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
+import LiveFlightRadar from "./components/LiveFlightRadar.jsx";
+import LiveNewsTV from "./components/LiveNewsTV.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -533,6 +535,9 @@ export default function App() {
         {/* AI War Prediction Panel */}
         <WarPredictionPanel />
 
+        {/* Live Flight Radar */}
+        <LiveFlightRadar />
+
         <KeyActorsPanel />
         <RegionalPanel />
 
@@ -550,6 +555,9 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {/* Live News TV Widget */}
+      <LiveNewsTV />
     </div>
   );
 }
