@@ -60,52 +60,84 @@ const CARTEL_GROUPS = [
 
 const MEXICO_NEWS = [
   {
-    time: "2h ago",
-    source: "El Universal",
-    title: "Sinaloa Cartel ambushes Mexican Army convoy near Culiacán — 8 soldiers killed",
+    time: "15m ago",
+    source: "Al Jazeera",
+    title: "🔴 BURNED VEHICLES: Highway to Guadalajara World Cup stadium littered with torched buses and trucks — CJNG suspected",
     category: "conflict",
     urgent: true,
-    url: "https://www.eluniversal.com.mx"
+    url: "https://www.aljazeera.com/news/2026/2/22/mexico-guadalajara-burned-vehicles"
+  },
+  {
+    time: "35m ago",
+    source: "Reuters",
+    title: "Trump orders 3,000 additional National Guard troops to Texas-Mexico border as cartel violence spills over",
+    category: "military",
+    urgent: true,
+    url: "https://www.reuters.com/world/americas/trump-national-guard-mexico-border-2026-02-22/"
+  },
+  {
+    time: "1h ago",
+    source: "El Universal",
+    title: "Sinaloa Cartel ambushes Mexican Army convoy near Culiacán — 8 soldiers killed, 12 injured",
+    category: "conflict",
+    urgent: true,
+    url: "https://www.eluniversal.com.mx/estados/sinaloa-culiacan-ambush-army"
+  },
+  {
+    time: "2h ago",
+    source: "BBC",
+    title: "CJNG launches coordinated attacks across 15 municipalities in Michoacán — state of emergency declared",
+    category: "conflict",
+    urgent: true,
+    url: "https://www.bbc.com/news/world-latin-america-68552331"
   },
   {
     time: "3h ago",
-    source: "Reuters",
-    title: "CJNG launches coordinated attacks in Michoacán — 15 municipalities under alert",
-    category: "conflict",
-    urgent: true,
-    url: "https://www.reuters.com/world/americas/"
+    source: "CNN",
+    title: "Mexican President Sheinbaum deploys 5,000 troops to Tijuana border amid surge in cartel warfare",
+    category: "military",
+    urgent: false,
+    url: "https://www.cnn.com/2026/02/22/americas/mexico-tijuana-troops-cartel"
+  },
+  {
+    time: "4h ago",
+    source: "Washington Post",
+    title: "US Homeland Security elevates travel warning — 'Do not travel' advisory for 6 northern Mexico states",
+    category: "diplomacy",
+    urgent: false,
+    url: "https://www.washingtonpost.com/world/2026/02/22/mexico-travel-warning-cartels/"
   },
   {
     time: "5h ago",
-    source: "BBC",
-    title: "Mexican President deploys 5,000 troops to Tijuana border amid cartel surge",
-    category: "military",
-    urgent: false,
-    url: "https://www.bbc.com/news/world-latin-america"
+    source: "Associated Press",
+    title: "DEA confirms: Mexican cartels now using AI-generated deepfakes to extort families of migrants in US",
+    category: "intelligence",
+    urgent: true,
+    url: "https://apnews.com/article/mexico-cartels-deepfake-extortion-2026"
   },
   {
     time: "6h ago",
-    source: "CNN",
-    title: "US Homeland Security issues travel warning for northern Mexico states",
-    category: "diplomacy",
-    urgent: false,
-    url: "https://www.cnn.com/world/americas"
+    source: "Al Jazeera",
+    title: "EXCLUSIVE: Cartels deploying drone-dropped IEDs against military checkpoints — game-changing tactic",
+    category: "intelligence",
+    urgent: true,
+    url: "https://www.aljazeera.com/news/2026/2/22/mexico-cartels-drone-ieds"
   },
   {
     time: "8h ago",
-    source: "Al Jazeera",
-    title: "Cartels using drone-dropped IEDs against military checkpoints — new tactic",
-    category: "intelligence",
-    urgent: true,
-    url: "https://www.aljazeera.com/news/2026/2/22/mexico-cartels-drone-attacks"
-  },
-  {
-    time: "12h ago",
     source: "Los Angeles Times",
-    title: "Sinaloa vs CJNG: War escalates for control of fentanyl routes to US",
+    title: "Analysis: Sinaloa vs CJNG — The war for fentanyl routes to US reaches unprecedented violence levels",
     category: "analysis",
     urgent: false,
-    url: "https://www.latimes.com/world-nation/story/2026-02-22/mexico-cartel-war"
+    url: "https://www.latimes.com/world-nation/story/2026-02-22/mexico-cartel-war-fentanyl-routes"
+  },
+  {
+    time: "10h ago",
+    source: "El País",
+    title: "Mayor of small town in Guanajuato assassinated — third municipal official killed this week in cartel-hit region",
+    category: "conflict",
+    urgent: true,
+    url: "https://elpais.com/mexico/2026-02-22/asesinato-alcalde-guanajuato"
   }
 ];
 
@@ -113,14 +145,26 @@ const MEXICO_NEWS = [
 const MEXICO_TWEETS = [
   {
     handle: "@FuriaNegra7",
+    time: "12m",
+    content: "🔥 Guadalajara highway is a WAR ZONE. Burned trucks everywhere. CJNG sending message to government before World Cup match. This is CRAZY. #Mexico",
+    verified: true
+  },
+  {
+    handle: "@BorderObserver",
+    time: "28m",
+    content: "Trump just ordered 3,000 more National Guard to Texas border. Source says: 'Cartel violence is spilling over and we need to be ready.' Big escalation.",
+    verified: true
+  },
+  {
+    handle: "@SinaloaAlert",
     time: "45m",
-    content: "🚨 BREAKING: Heavy gunfire reported in Culiacán, Sinaloa. Mexican Army helicopter circling the area. Cartel blockades on major highways. #Mexico #CartelWar",
+    content: "🚨 BREAKING: Heavy gunfire reported in Culiacán. Mexican Army helicopter hit by small arms fire. Cartel blockades on ALL major highways. STAY INSIDE!",
     verified: true
   },
   {
     handle: "@siete_letras",
     time: "1h",
-    content: "CJNG sicarios spotted in Zamora, Michoacán. Local police on high alert. Military convoys moving into the city. Stay safe everyone. 🚨",
+    content: "CJNG sicarios spotted in Zamora, Michoacán with military-grade weapons. Local police hiding in stations. Military convoys finally moving in. Too late?",
     verified: false
   },
   {
