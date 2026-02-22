@@ -4,6 +4,7 @@ import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
 import LiveFlightRadar from "./components/LiveFlightRadar.jsx";
 import LiveNewsTV from "./components/LiveNewsTV.jsx";
 import IranLiveCams from "./components/IranLiveCams.jsx";
+import IranianTargets from "./components/IranianTargets.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -567,6 +568,9 @@ export default function App() {
 
         <KeyActorsPanel />
         <RegionalPanel />
+
+        {/* Iranian High-Value Targets */}
+        <IranianTargets />
 
         {/* Footer */}
         <div style={{
