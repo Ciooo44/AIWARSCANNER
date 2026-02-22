@@ -160,23 +160,28 @@ function Header({ currentTime }) {
 function AlertTicker() {
   return (
     <div style={{
-      background: "linear-gradient(90deg, #ff174415 0%, #ff174408 50%, #ff174415 100%)",
-      borderBottom: "1px solid #ff174440",
-      padding: "8px 20px",
-      display: "flex", alignItems: "center", gap: 10, overflow: "hidden",
+      background: "linear-gradient(90deg, #ff174420 0%, #ff174410 50%, #ff174420 100%)",
+      borderBottom: "2px solid #ff1744",
+      padding: "10px 20px",
+      display: "flex", alignItems: "center", gap: 12, overflow: "hidden",
     }}>
-      <span style={{ color: "#ff1744", fontWeight: 700, fontSize: 10, letterSpacing: 1, animation: "blink 1.5s infinite", whiteSpace: "nowrap" }}>
-        ⚠ FLASH
+      <span style={{ 
+        color: "#ff1744", fontWeight: 700, fontSize: 11, letterSpacing: 1, 
+        animation: "blink 1s infinite", whiteSpace: "nowrap",
+        padding: "4px 10px", background: "#ff174420", borderRadius: 4,
+        border: "1px solid #ff1744"
+      }}>
+        🔴 BREAKING
       </span>
       <div style={{ overflow: "hidden", flex: 1 }}>
         <div style={{
-          color: "#ff8a80", fontSize: 11, whiteSpace: "nowrap",
-          animation: "marquee 35s linear infinite",
+          color: "#ffabab", fontSize: 12, whiteSpace: "nowrap", fontWeight: 500,
+          animation: "marquee 30s linear infinite",
         }}>
+          🚨 CNN: US MILITARY PREPARED TO STRIKE IRAN AS EARLY AS THIS WEEKEND — WHITE HOUSE BRIEFED • FORCES IN POSITION • TRUMP HASN'T DECIDED YET • 
           TRUMP: IRAN HAS 10-15 DAYS TO MAKE DEAL OR FACE CONSEQUENCES • USS GERALD R. FORD TRANSITING TO ARABIAN SEA — 2ND CARRIER GROUP •
           LARGEST US AIRPOWER BUILDUP SINCE 2003 IRAQ INVASION • IRAN CLOSES STRAIT OF HORMUZ FOR IRGC LIVE-FIRE DRILLS •
-          POLAND ORDERS CITIZENS TO LEAVE IRAN • ALL US FORCES IN PLACE BY MID-MARCH • GENEVA TALKS: PROGRESS BUT NO DEAL •
-          UAE: NO MILITARY OPS FROM OUR TERRITORY • AXIOS: WAR LOOKS MOST LIKELY OPTION • IDF CHIEF: WAR WITHIN 2 WEEKS TO 2 MONTHS
+          POLAND ORDERS CITIZENS TO LEAVE IRAN • ALL US FORCES IN PLACE BY MID-MARCH
         </div>
       </div>
     </div>

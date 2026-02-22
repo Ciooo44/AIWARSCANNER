@@ -95,6 +95,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
+  { time: "NOW", source: "CNN", title: "🚨 BREAKING: US military prepared to strike Iran as early as THIS WEEKEND — White House briefed", category: "military", url: "https://cnn.com" },
   { time: "1h ago", source: "Al Jazeera", title: "Tracking the rapid US military build-up near Iran — full asset breakdown", category: "military", url: "https://aljazeera.com" },
   { time: "3h ago", source: "NBC News", title: "US pushes more weaponry into Middle East for possible strikes on Iran", category: "military", url: "https://nbcnews.com" },
   { time: "5h ago", source: "Bloomberg", title: "Trump tells reporters: Iran has 10 to 'pretty much maximum' 15 days to reach a deal", category: "diplomacy", url: "https://bloomberg.com" },
@@ -109,7 +110,6 @@ export const NEWS_ITEMS = [
   { time: "2d ago", source: "New York Times", title: "UAE tells Washington: We will not allow military ops from our territory", category: "diplomacy", url: "https://nytimes.com" },
   { time: "3d ago", source: "Reuters", title: "India seizes vessels linked to illicit Iranian oil shipments under sanctions pressure", category: "intelligence", url: "https://reuters.com" },
   { time: "3d ago", source: "IISS", title: "Iran has built multilayered defense: mines, missiles, submarines, drones around Hormuz", category: "analysis", url: "https://iiss.org" },
-  { time: "4d ago", source: "Al Jazeera", title: "B-2 stealth bombers at Diego Garcia — 'Watch for movement' says CSIS analyst", category: "military", url: "https://aljazeera.com" },
 ];
 
 // ── Key Actors ─────────────────────────────────────────────────
