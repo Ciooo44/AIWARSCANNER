@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import FentanylCorridorMap from '../components/FentanylCorridorMap';
 
 // Back button component
 function BackButton() {
@@ -382,6 +383,9 @@ export default function MexicoLive() {
           </div>
         </div>
       </div>
+
+      {/* Fentanyl Corridor Map */}
+      <FentanylCorridorMap />
 
       {/* Footer */}
       <div style={{
