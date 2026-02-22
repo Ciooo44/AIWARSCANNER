@@ -3,6 +3,7 @@ import TheaterMap from "./TheaterMap";
 import WarPredictionPanel from "./components/WarPredictionPanel.jsx";
 import LiveFlightRadar from "./components/LiveFlightRadar.jsx";
 import LiveNewsTV from "./components/LiveNewsTV.jsx";
+import IranLiveCams from "./components/IranLiveCams.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -537,6 +538,9 @@ export default function App() {
 
         {/* Live Flight Radar */}
         <LiveFlightRadar />
+
+        {/* Iran Live Cameras */}
+        <IranLiveCams />
 
         <KeyActorsPanel />
         <RegionalPanel />
