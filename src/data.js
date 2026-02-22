@@ -105,14 +105,14 @@ export const NEWS_ITEMS = [
 
 // ── Key Actors ─────────────────────────────────────────────────
 export const KEY_ACTORS = [
-  { name: "Donald Trump", role: "US President", stance: "10-15 days ultimatum — 'bad things will happen'", color: "#2979ff", stanceColor: "#ff6d00" },
-  { name: "Ali Khamenei", role: "Iran Supreme Leader", stance: "Warns confrontation could spark wider regional war", color: "#ff1744", stanceColor: "#ff1744" },
-  { name: "Steve Witkoff", role: "US Special Envoy", stance: "Leading Geneva nuclear talks — awaiting Iran's written proposal", color: "#2979ff", stanceColor: "#ffd600" },
-  { name: "Abbas Araghchi", role: "Iran Foreign Minister", stance: "'Some progress' but no deal — says Iran rebuilt June 2025 damage", color: "#ff1744", stanceColor: "#ffd600" },
-  { name: "Benjamin Netanyahu", role: "Israel Prime Minister", stance: "Will not allow Iran to re-establish missile/nuclear programs", color: "#00e676", stanceColor: "#00e676" },
-  { name: "Pete Hegseth", role: "US Secretary of Defense", stance: "All forces in place by mid-March — Iran will pay for Houthi support", color: "#2979ff", stanceColor: "#ff6d00" },
-  { name: "Masoud Pezeshkian", role: "Iran President", stance: "Diplomatic outreach to regional states — flurry of activity", color: "#ff1744", stanceColor: "#ffd600" },
-  { name: "Reza Pahlavi", role: "Iranian Opposition (exiled)", stance: "Calls for targeted military strikes against the regime", color: "#e040fb", stanceColor: "#e040fb" },
+  { name: "Donald Trump", role: "US President", stance: "10-15 days ultimatum — 'bad things will happen'", color: "#2979ff", stanceColor: "#ff6d00", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/440px-Donald_Trump_official_portrait.jpg" },
+  { name: "Ali Khamenei", role: "Iran Supreme Leader", stance: "Warns confrontation could spark wider regional war", color: "#ff1744", stanceColor: "#ff1744", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Ali_Khamenei_2023.jpg/440px-Ali_Khamenei_2023.jpg" },
+  { name: "Steve Witkoff", role: "US Special Envoy", stance: "Leading Geneva nuclear talks — awaiting Iran's written proposal", color: "#2979ff", stanceColor: "#ffd600", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Steve_Witkoff_2025.jpg/440px-Steve_Witkoff_2025.jpg" },
+  { name: "Abbas Araghchi", role: "Iran Foreign Minister", stance: "'Some progress' but no deal — says Iran rebuilt June 2025 damage", color: "#ff1744", stanceColor: "#ffd600", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Abbas_Arghchi_2024.jpg/440px-Abbas_Arghchi_2024.jpg" },
+  { name: "Benjamin Netanyahu", role: "Israel Prime Minister", stance: "Will not allow Iran to re-establish missile/nuclear programs", color: "#00e676", stanceColor: "#00e676", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Benjamin_Netanyahu_2023.jpg/440px-Benjamin_Netanyahu_2023.jpg" },
+  { name: "Pete Hegseth", role: "US Secretary of Defense", stance: "All forces in place by mid-March — Iran will pay for Houthi support", color: "#2979ff", stanceColor: "#ff6d00", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pete_Hegseth_2025.jpg/440px-Pete_Hegseth_2025.jpg" },
+  { name: "Masoud Pezeshkian", role: "Iran President", stance: "Diplomatic outreach to regional states — flurry of activity", color: "#ff1744", stanceColor: "#ffd600", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Masoud_Pezeshkian_2024.jpg/440px-Masoud_Pezeshkian_2024.jpg" },
+  { name: "Reza Pahlavi", role: "Iranian Opposition (exiled)", stance: "Calls for targeted military strikes against the regime", color: "#e040fb", stanceColor: "#e040fb", avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Reza_Pahlavi_2023.jpg/440px-Reza_Pahlavi_2023.jpg" },
 ];
 
 // ── Regional Positions ─────────────────────────────────────────

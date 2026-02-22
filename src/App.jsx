@@ -399,15 +399,29 @@ function KeyActorsPanel() {
   return (
     <div style={{ background: "#0d1117", padding: 16 }}>
       <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1, marginBottom: 12 }}>◆ KEY ACTORS & POSITIONS</div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 8 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
         {KEY_ACTORS.map((p, i) => (
           <div key={i} style={{
-            padding: 10, background: "#161b22", borderRadius: 6,
+            padding: 12, background: "#161b22", borderRadius: 8,
             border: "1px solid #1a2332", borderLeft: `3px solid ${p.color}`,
+            display: "flex", gap: 12, alignItems: "flex-start"
           }}>
-            <div style={{ fontSize: 11, color: "#e6edf3", fontWeight: 600 }}>{p.name}</div>
-            <div style={{ fontSize: 9, color: "#6e7681", marginTop: 2 }}>{p.role}</div>
-            <div style={{ fontSize: 9, color: p.stanceColor, marginTop: 4, fontStyle: "italic", lineHeight: 1.3 }}>"{p.stance}"</div>
+            {p.avatar && (
+              <img 
+                src={p.avatar} 
+                alt={p.name}
+                style={{
+                  width: 50, height: 50, borderRadius: "50%",
+                  objectFit: "cover", border: `2px solid ${p.color}`
+                }}
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            )}
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 12, color: "#e6edf3", fontWeight: 600 }}>{p.name}</div>
+              <div style={{ fontSize: 9, color: "#6e7681", marginTop: 2 }}>{p.role}</div>
+              <div style={{ fontSize: 10, color: p.stanceColor, marginTop: 4, fontStyle: "italic", lineHeight: 1.4 }}>"{p.stance}"</div>
+            </div>
           </div>
         ))}
       </div>
