@@ -108,12 +108,7 @@ function Header({ currentTime }) {
       backdropFilter: "blur(12px)",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        <div style={{
-          width: 10, height: 10, borderRadius: "50%",
-          background: CURRENT_THREAT.color,
-          boxShadow: `0 0 10px ${CURRENT_THREAT.color}`,
-          animation: "pulse 1.5s infinite",
-        }} />
+        <img src="/logo.jpg" alt="AIWARSCANNER" style={{ width: 40, height: 40, borderRadius: 8, objectFit: "cover" }} />
         <div>
           <div style={{ fontSize: 16, fontWeight: 700, color: "#e6edf3", letterSpacing: 2 }}>
             US — IRAN CONFLICT MONITOR
