@@ -327,7 +327,7 @@ export default function PredictionMarkets() {
         })}
       </div>
 
-      {/* Pizza Index Card */}
+      {/* Nothing Ever Happens Index */}
       <div style={{
         marginTop: 20, padding: 20, background: "linear-gradient(135deg, #161b22 0%, #1a2332 100%)",
         borderRadius: 12, border: "2px solid #30363d",
@@ -335,29 +335,27 @@ export default function PredictionMarkets() {
       }}>
         <div style={{
           width: 70, height: 70, borderRadius: "50%",
-          background: "#ffd60020", display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 36, border: "3px solid #ffd60040", animation: "pulse 2s infinite"
+          background: "#00e67620", display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: 36, border: "3px solid #00e67640"
         }}>
-          🍕
+          😴
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 14, color: "#e6edf3", fontWeight: 600, marginBottom: 4 }}>
-            Pentagon Pizza Index
+            Nothing Ever Happens Index
           </div>
           <div style={{ fontSize: 11, color: "#8b949e", lineHeight: 1.5 }}>
-            Late-night pizza delivery frequency at the Pentagon is a historically accurate predictor of 
-            major military operations. Spike = imminent action. 
-            <a href="https://www.pizzint.watch/" target="_blank" rel="noopener" style={{ color: "#ffd600", marginLeft: 4 }}>
-              pizzint.watch →
-            </a>
+            A satirical counter-indicator to balance prediction market anxiety. 
+            Historically, most geopolitical crises resolve without WWIII. 
+            Stay informed, not panicked.
           </div>
         </div>
         <div style={{
-          padding: "10px 20px", background: "#ffd60020", borderRadius: 8,
-          border: "1px solid #ffd60040", textAlign: "center"
+          padding: "10px 20px", background: "#00e67620", borderRadius: 8,
+          border: "1px solid #00e67640", textAlign: "center"
         }}>
           <div style={{ fontSize: 10, color: "#8b949e" }}>STATUS</div>
-          <div style={{ fontSize: 14, color: "#ffd600", fontWeight: 600 }}>🟡 MONITORING</div>
+          <div style={{ fontSize: 14, color: "#00e676", fontWeight: 600 }}>Nothing Ever Happens</div>
         </div>
       </div>
 
