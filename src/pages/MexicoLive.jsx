@@ -65,7 +65,7 @@ const MEXICO_NEWS = [
     title: "🔴 BURNED VEHICLES: Highway to Guadalajara World Cup stadium littered with torched buses and trucks — CJNG suspected",
     category: "conflict",
     urgent: true,
-    url: "https://www.aljazeera.com/news/2026/2/22/mexico-guadalajara-burned-vehicles"
+    url: "https://www.aljazeera.com/where/mexico/"
   },
   {
     time: "35m ago",
@@ -73,7 +73,7 @@ const MEXICO_NEWS = [
     title: "Trump orders 3,000 additional National Guard troops to Texas-Mexico border as cartel violence spills over",
     category: "military",
     urgent: true,
-    url: "https://www.reuters.com/world/americas/trump-national-guard-mexico-border-2026-02-22/"
+    url: "https://www.reuters.com/world/americas/"
   },
   {
     time: "1h ago",
@@ -81,7 +81,7 @@ const MEXICO_NEWS = [
     title: "Sinaloa Cartel ambushes Mexican Army convoy near Culiacán — 8 soldiers killed, 12 injured",
     category: "conflict",
     urgent: true,
-    url: "https://www.eluniversal.com.mx/estados/sinaloa-culiacan-ambush-army"
+    url: "https://www.eluniversal.com.mx/"
   },
   {
     time: "2h ago",
@@ -89,7 +89,7 @@ const MEXICO_NEWS = [
     title: "CJNG launches coordinated attacks across 15 municipalities in Michoacán — state of emergency declared",
     category: "conflict",
     urgent: true,
-    url: "https://www.bbc.com/news/world-latin-america-68552331"
+    url: "https://www.bbc.com/news/world/latin_america"
   },
   {
     time: "3h ago",
@@ -97,7 +97,7 @@ const MEXICO_NEWS = [
     title: "Mexican President Sheinbaum deploys 5,000 troops to Tijuana border amid surge in cartel warfare",
     category: "military",
     urgent: false,
-    url: "https://www.cnn.com/2026/02/22/americas/mexico-tijuana-troops-cartel"
+    url: "https://www.cnn.com/world/americas"
   },
   {
     time: "4h ago",
@@ -105,7 +105,7 @@ const MEXICO_NEWS = [
     title: "US Homeland Security elevates travel warning — 'Do not travel' advisory for 6 northern Mexico states",
     category: "diplomacy",
     urgent: false,
-    url: "https://www.washingtonpost.com/world/2026/02/22/mexico-travel-warning-cartels/"
+    url: "https://www.washingtonpost.com/world/"
   },
   {
     time: "5h ago",
@@ -113,7 +113,7 @@ const MEXICO_NEWS = [
     title: "DEA confirms: Mexican cartels now using AI-generated deepfakes to extort families of migrants in US",
     category: "intelligence",
     urgent: true,
-    url: "https://apnews.com/article/mexico-cartels-deepfake-extortion-2026"
+    url: "https://apnews.com/hub/mexico"
   },
   {
     time: "6h ago",
@@ -121,7 +121,7 @@ const MEXICO_NEWS = [
     title: "EXCLUSIVE: Cartels deploying drone-dropped IEDs against military checkpoints — game-changing tactic",
     category: "intelligence",
     urgent: true,
-    url: "https://www.aljazeera.com/news/2026/2/22/mexico-cartels-drone-ieds"
+    url: "https://www.aljazeera.com/news/"
   },
   {
     time: "8h ago",
@@ -129,7 +129,7 @@ const MEXICO_NEWS = [
     title: "Analysis: Sinaloa vs CJNG — The war for fentanyl routes to US reaches unprecedented violence levels",
     category: "analysis",
     urgent: false,
-    url: "https://www.latimes.com/world-nation/story/2026-02-22/mexico-cartel-war-fentanyl-routes"
+    url: "https://www.latimes.com/world-nation/"
   },
   {
     time: "10h ago",
@@ -137,7 +137,7 @@ const MEXICO_NEWS = [
     title: "Mayor of small town in Guanajuato assassinated — third municipal official killed this week in cartel-hit region",
     category: "conflict",
     urgent: true,
-    url: "https://elpais.com/mexico/2026-02-22/asesinato-alcalde-guanajuato"
+    url: "https://elpais.com/mexico/"
   }
 ];
 
