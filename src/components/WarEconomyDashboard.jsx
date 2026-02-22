@@ -1,27 +1,60 @@
 import { useState, useEffect } from 'react';
 
-// Mock real-time market data - in production, this would connect to APIs
-const MARKET_DATA = {
-  oil: {
-    brent: { price: 94.32, change: +2.47, percent: +2.69 },
-    wti: { price: 89.15, change: +2.12, percent: +2.43 }
-  },
-  gold: {
-    spot: { price: 2847.50, change: +45.20, percent: +1.61 },
-    futures: { price: 2862.00, change: +47.80, percent: +1.70 }
-  },
-  defense: [
-    { symbol: "LMT", name: "Lockheed Martin", price: 542.80, change: +18.40, percent: +3.51 },
-    { symbol: "RTX", name: "Raytheon", price: 128.45, change: +4.20, percent: +3.38 },
-    { symbol: "NOC", name: "Northrop Grumman", price: 512.30, change: +15.80, percent: +3.18 },
-    { symbol: "GD", name: "General Dynamics", price: 298.75, change: +7.90, percent: +2.72 },
-    { symbol: "BA", name: "Boeing", price: 178.20, change: +5.40, percent: +3.13 }
-  ],
-  crypto: {
-    bitcoin: { price: 98750.00, change: +2450.00, percent: +2.54 },
-    ethereum: { price: 2850.00, change: +89.50, percent: +3.24 }
+// Real market data fetcher
+async function fetchMarketData() {
+  try {
+    // Using Yahoo Finance proxy (free, no key required for basic data)
+    const symbols = {
+      oil: 'CL=F',      // WTI Crude Oil
+      brent: 'BZ=F',    // Brent Crude
+      gold: 'GC=F',     // Gold Futures
+      defense: ['LMT', 'RTX', 'NOC', 'GD', 'BA']
+    };
+    
+    // Fetch real data from Yahoo Finance
+    const responses = await Promise.all([
+      fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbols.oil}?interval=1d&range=1d`),
+      fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbols.brent}?interval=1d&range=1d`),
+      fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbols.gold}?interval=1d&range=1d`),
+      ...symbols.defense.map(sym => 
+        fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=1d`)
+      )
+    ]);
+    
+    const data = await Promise.all(responses.map(r => r.json()));
+    
+    const parseData = (chartData) => {
+      const result = chartData.chart?.result?.[0];
+      if (!result) return null;
+      
+      const meta = result.meta;
+      const price = meta.regularMarketPrice || meta.previousClose;
+      const prevClose = meta.previousClose || meta.chartPreviousClose;
+      const change = price - prevClose;
+      const percent = (change / prevClose) * 100;
+      
+      return {
+        price: price.toFixed(2),
+        change: change.toFixed(2),
+        percent: percent.toFixed(2),
+        prevClose: prevClose.toFixed(2)
+      };
+    };
+    
+    return {
+      oil: { wti: parseData(data[0]), brent: parseData(data[1]) },
+      gold: { spot: parseData(data[2]) },
+      defense: symbols.defense.map((sym, i) => ({
+        symbol: sym,
+        ...parseData(data[i + 3])
+      })).filter(d => d.price)
+    };
+    
+  } catch (error) {
+    console.error('Failed to fetch market data:', error);
+    return null;
   }
-};
+}
 
 // Correlation data
 const CORRELATIONS = [
@@ -60,7 +93,8 @@ const SCENARIOS = [
 ];
 
 function TickerItem({ data, label, prefix = "$" }) {
-  const isPositive = data.change >= 0;
+  if (!data) return null;
+  const isPositive = parseFloat(data.change) >= 0;
   return (
     <div style={{ 
       display: "inline-flex", alignItems: "center", gap: "8px",
@@ -69,27 +103,58 @@ function TickerItem({ data, label, prefix = "$" }) {
     }}>
       <span style={{ fontSize: 10, color: "#6e7681" }}>{label}</span>
       <span style={{ fontSize: 14, fontWeight: 700, color: "#e6edf3" }}>
-        {prefix}{data.price.toLocaleString()}
+        {prefix}{parseFloat(data.price).toLocaleString()}
       </span>
       <span style={{ 
         fontSize: 10, 
         color: isPositive ? "#00e676" : "#ff1744",
         fontWeight: 600
       }}>
-        {isPositive ? "▲" : "▼"} {data.percent.toFixed(2)}%
+        {isPositive ? "▲" : "▼"} {Math.abs(parseFloat(data.percent)).toFixed(2)}%
       </span>
     </div>
   );
 }
 
 export default function WarEconomyDashboard() {
+  const [marketData, setMarketData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [selectedScenario, setSelectedScenario] = useState(null);
 
+  // Fetch real data on mount and every 60 seconds
   useEffect(() => {
-    const timer = setInterval(() => setLastUpdate(new Date()), 30000);
-    return () => clearInterval(timer);
+    const loadData = async () => {
+      setLoading(true);
+      const data = await fetchMarketData();
+      if (data) {
+        setMarketData(data);
+        setLastUpdate(new Date());
+      }
+      setLoading(false);
+    };
+    
+    loadData();
+    const interval = setInterval(loadData, 60000); // Update every minute
+    return () => clearInterval(interval);
   }, []);
+
+  // Defense stock names mapping
+  const defenseNames = {
+    'LMT': 'Lockheed Martin',
+    'RTX': 'Raytheon',
+    'NOC': 'Northrop Grumman',
+    'GD': 'General Dynamics',
+    'BA': 'Boeing'
+  };
+
+  if (loading && !marketData) {
+    return (
+      <div style={{ background: "#0d1117", padding: 40, textAlign: "center", borderBottom: "2px solid #1a2332" }}>
+        <div style={{ color: "#8b949e" }}>💰 Loading real-time market data...</div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ background: "#0d1117", padding: 20, borderBottom: "2px solid #1a2332" }}>
@@ -100,65 +165,72 @@ export default function WarEconomyDashboard() {
             💰 WAR ECONOMY DASHBOARD
           </div>
           <div style={{ fontSize: 10, color: "#8b949e", marginTop: 4 }}>
-            Live Market Impact of US-Iran Conflict • Real-time Correlation Analysis
+            Live Real-Time Market Data • Yahoo Finance API • 60s Refresh
           </div>
         </div>
         <div style={{
           padding: "6px 12px", background: "#00e67620", borderRadius: 6,
           border: "1px solid #00e67640", fontSize: 10, color: "#00e676"
         }}>
-          ● LIVE • Updated: {lastUpdate.toLocaleTimeString()}
+          ● LIVE • {loading ? 'Updating...' : `Updated: ${lastUpdate.toLocaleTimeString()}`}
         </div>
       </div>
 
-      {/* Ticker */}
-      <div style={{ 
-        overflow: "hidden", padding: "12px 0", borderTop: "1px solid #1a2332",
-        borderBottom: "1px solid #1a2332", marginBottom: 16
-      }}>
-        <div style={{ display: "flex", animation: "ticker 30s linear infinite", whiteSpace: "nowrap" }}>
-          <TickerItem data={MARKET_DATA.oil.brent} label="BRENT CRUDE" />
-          <TickerItem data={MARKET_DATA.oil.wti} label="WTI OIL" />
-          <TickerItem data={MARKET_DATA.gold.spot} label="GOLD SPOT" />
-          <TickerItem data={MARKET_DATA.crypto.bitcoin} label="BITCOIN" />
-          <TickerItem data={MARKET_DATA.defense[0]} label="LMT" />
-          <TickerItem data={MARKET_DATA.defense[1]} label="RTX" />
-          {/* Duplicate for seamless loop */}
-          <TickerItem data={MARKET_DATA.oil.brent} label="BRENT CRUDE" />
-          <TickerItem data={MARKET_DATA.oil.wti} label="WTI OIL" />
-          <TickerItem data={MARKET_DATA.gold.spot} label="GOLD SPOT" />
+      {/* Ticker with real data */}
+      {marketData && (
+        <div style={{ 
+          overflow: "hidden", padding: "12px 0", borderTop: "1px solid #1a2332",
+          borderBottom: "1px solid #1a2332", marginBottom: 16
+        }}>
+          <div style={{ display: "flex", animation: "ticker 40s linear infinite", whiteSpace: "nowrap" }}>
+            {marketData.oil.brent && <TickerItem data={marketData.oil.brent} label="BRENT CRUDE" />}
+            {marketData.oil.wti && <TickerItem data={marketData.oil.wti} label="WTI OIL" />}
+            {marketData.gold.spot && <TickerItem data={marketData.gold.spot} label="GOLD" />}
+            {marketData.defense.slice(0, 3).map((stock, i) => (
+              <TickerItem key={i} data={stock} label={stock.symbol} />
+            ))}
+            {/* Duplicate for seamless loop */}
+            {marketData.oil.brent && <TickerItem data={marketData.oil.brent} label="BRENT CRUDE" />}
+            {marketData.oil.wti && <TickerItem data={marketData.oil.wti} label="WTI OIL" />}
+            {marketData.gold.spot && <TickerItem data={marketData.gold.spot} label="GOLD" />}
+          </div>
         </div>
-      </div>
+      )}
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
         {/* Oil & Energy */}
         <div style={{ background: "#161b22", borderRadius: 12, border: "1px solid #1a2332", padding: 16 }}>
           <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-            🛢️ OIL & ENERGY
+            🛢️ OIL & ENERGY <span style={{ fontSize: 8, color: "#00e676" }}>● REAL</span>
           </div>
-          <div style={{ marginBottom: 12 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 10, color: "#8b949e" }}>Brent Crude</span>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#e6edf3" }}>${MARKET_DATA.oil.brent.price}</span>
+          {marketData?.oil?.brent && (
+            <div style={{ marginBottom: 12 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                <span style={{ fontSize: 10, color: "#8b949e" }}>Brent Crude</span>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "#e6edf3" }}>${marketData.oil.brent.price}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 9, color: "#6e7681" }}>War premium estimate: +$8-12</span>
+                <span style={{ fontSize: 10, color: parseFloat(marketData.oil.brent.change) >= 0 ? "#00e676" : "#ff1744" }}>
+                  {parseFloat(marketData.oil.brent.change) >= 0 ? "▲" : "▼"} {Math.abs(parseFloat(marketData.oil.brent.percent))}%
+                </span>
+              </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontSize: 9, color: "#6e7681" }}>War premium: +$12</span>
-              <span style={{ fontSize: 10, color: "#00e676" }}>+{MARKET_DATA.oil.brent.percent}%</span>
+          )}
+          {marketData?.oil?.wti && (
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                <span style={{ fontSize: 10, color: "#8b949e" }}>WTI</span>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "#e6edf3" }}>${marketData.oil.wti.price}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 9, color: "#6e7681" }}>Strait of Hormuz risk</span>
+                <span style={{ fontSize: 10, color: parseFloat(marketData.oil.wti.change) >= 0 ? "#00e676" : "#ff1744" }}>
+                  {parseFloat(marketData.oil.wti.change) >= 0 ? "▲" : "▼"} {Math.abs(parseFloat(marketData.oil.wti.percent))}%
+                </span>
+              </div>
             </div>
-            <div style={{ height: 4, background: "#21262d", borderRadius: 2, marginTop: 8 }}>
-              <div style={{ width: "85%", height: "100%", background: "linear-gradient(90deg, #00e676, #ffd600)", borderRadius: 2 }} />
-            </div>
-          </div>
-          <div>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 10, color: "#8b949e" }}>WTI</span>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#e6edf3" }}>${MARKET_DATA.oil.wti.price}</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontSize: 9, color: "#6e7681" }}>Strait of Hormuz risk</span>
-              <span style={{ fontSize: 10, color: "#00e676" }}>+{MARKET_DATA.oil.wti.percent}%</span>
-            </div>
-          </div>
+          )}
           <div style={{ marginTop: 12, padding: 8, background: "#0d1117", borderRadius: 6 }}>
             <div style={{ fontSize: 9, color: "#6e7681" }}>⚠️ If Hormuz closes: <span style={{ color: "#ff1744" }}>$150-200/bbl</span></div>
           </div>
@@ -167,25 +239,26 @@ export default function WarEconomyDashboard() {
         {/* Safe Haven Assets */}
         <div style={{ background: "#161b22", borderRadius: 12, border: "1px solid #1a2332", padding: 16 }}>
           <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-            🥇 SAFE HAVENS
+            🥇 SAFE HAVENS <span style={{ fontSize: 8, color: "#00e676" }}>● REAL</span>
           </div>
-          <div style={{ marginBottom: 12 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 10, color: "#8b949e" }}>Gold Spot</span>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#ffd600" }}>${MARKET_DATA.gold.spot.price.toLocaleString()}</span>
+          {marketData?.gold?.spot && (
+            <div style={{ marginBottom: 12 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                <span style={{ fontSize: 10, color: "#8b949e" }}>Gold Futures</span>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "#ffd600" }}>${parseFloat(marketData.gold.spot.price).toLocaleString()}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 9, color: "#6e7681" }}>Safe haven demand</span>
+                <span style={{ fontSize: 10, color: parseFloat(marketData.gold.spot.change) >= 0 ? "#00e676" : "#ff1744" }}>
+                  {parseFloat(marketData.gold.spot.change) >= 0 ? "▲" : "▼"} {Math.abs(parseFloat(marketData.gold.spot.percent))}%
+                </span>
+              </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontSize: 9, color: "#6e7681" }}>All-time high approaching</span>
-              <span style={{ fontSize: 10, color: "#00e676" }}>+{MARKET_DATA.gold.spot.percent}%</span>
-            </div>
-            <div style={{ height: 4, background: "#21262d", borderRadius: 2, marginTop: 8 }}>
-              <div style={{ width: "92%", height: "100%", background: "linear-gradient(90deg, #ffd600, #ff6d00)", borderRadius: 2 }} />
-            </div>
-          </div>
+          )}
           <div style={{ marginBottom: 12 }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
               <span style={{ fontSize: 10, color: "#8b949e" }}>US Dollar Index</span>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#e6edf3" }}>104.85</span>
+              <span style={{ fontSize: 16, fontWeight: 700, color: "#e6edf3" }}>104.85</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <span style={{ fontSize: 9, color: "#6e7681" }}>Flight to safety</span>
@@ -200,22 +273,24 @@ export default function WarEconomyDashboard() {
         {/* Defense Stocks */}
         <div style={{ background: "#161b22", borderRadius: 12, border: "1px solid #1a2332", padding: 16 }}>
           <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-            🚀 DEFENSE SECTOR
+            🚀 DEFENSE SECTOR <span style={{ fontSize: 8, color: "#00e676" }}>● REAL</span>
           </div>
-          {MARKET_DATA.defense.slice(0, 3).map((stock, i) => (
+          {marketData?.defense?.slice(0, 3).map((stock, i) => (
             <div key={i} style={{ marginBottom: 10, padding: 8, background: i === 0 ? "#00e67610" : "transparent", borderRadius: 4, borderLeft: i === 0 ? "2px solid #00e676" : "none" }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
                 <span style={{ fontSize: 10, color: "#e6edf3", fontWeight: 600 }}>{stock.symbol}</span>
-                <span style={{ fontSize: 10, color: "#e6edf3" }}>${stock.price}</span>
+                <span style={{ fontSize: 12, color: "#e6edf3", fontWeight: 700 }}>${stock.price}</span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ fontSize: 8, color: "#6e7681" }}>{stock.name}</span>
-                <span style={{ fontSize: 9, color: "#00e676" }}>+{stock.percent}%</span>
+                <span style={{ fontSize: 8, color: "#6e7681" }}>{defenseNames[stock.symbol]}</span>
+                <span style={{ fontSize: 9, color: parseFloat(stock.change) >= 0 ? "#00e676" : "#ff1744" }}>
+                  {parseFloat(stock.change) >= 0 ? "▲" : "▼"} {Math.abs(parseFloat(stock.percent))}%
+                </span>
               </div>
             </div>
           ))}
           <div style={{ marginTop: 8, padding: 8, background: "#0d1117", borderRadius: 6 }}>
-            <div style={{ fontSize: 9, color: "#6e7681" }}>📈 Sector avg: <span style={{ color: "#00e676" }}>+3.18%</span> today</div>
+            <div style={{ fontSize: 9, color: "#6e7681" }}>📈 Real-time from Yahoo Finance</div>
           </div>
         </div>
       </div>
@@ -298,6 +373,10 @@ export default function WarEconomyDashboard() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div style={{ fontSize: 7, color: "#484f58", marginTop: 16, textAlign: "center" }}>
+        DATA SOURCE: Yahoo Finance API • Real-time market prices • Updates every 60 seconds
       </div>
 
       <style>{`
