@@ -403,25 +403,34 @@ function KeyActorsPanel() {
         {KEY_ACTORS.map((p, i) => (
           <div key={i} style={{
             padding: 12, background: "#161b22", borderRadius: 8,
-            border: "1px solid #1a2332", borderLeft: `3px solid ${p.color}`,
-            display: "flex", gap: 12, alignItems: "flex-start"
+            border: "1px solid #1a2332", borderLeft: `3px solid ${p.color}`
           }}>
-            {p.avatar && (
-              <img 
-                src={p.avatar} 
-                alt={p.name}
-                style={{
-                  width: 50, height: 50, borderRadius: "50%",
-                  objectFit: "cover", border: `2px solid ${p.color}`
-                }}
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-            )}
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 12, color: "#e6edf3", fontWeight: 600 }}>{p.name}</div>
-              <div style={{ fontSize: 9, color: "#6e7681", marginTop: 2 }}>{p.role}</div>
-              <div style={{ fontSize: 10, color: p.stanceColor, marginTop: 4, fontStyle: "italic", lineHeight: 1.4 }}>"{p.stance}"</div>
+            <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+              {p.avatar && (
+                <img 
+                  src={p.avatar} 
+                  alt={p.name}
+                  style={{
+                    width: 50, height: 50, borderRadius: "50%",
+                    objectFit: "cover", border: `2px solid ${p.color}`
+                  }}
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              )}
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 12, color: "#e6edf3", fontWeight: 600 }}>{p.name}</div>
+                <div style={{ fontSize: 9, color: "#6e7681", marginTop: 2 }}>{p.role}</div>
+                {p.twitter && p.twitter !== "—" && (
+                  <div style={{ fontSize: 9, color: "#1da1f2", marginTop: 2 }}>🐦 {p.twitter}</div>
+                )}
+              </div>
             </div>
+            <div style={{ fontSize: 10, color: p.stanceColor, marginTop: 8, fontStyle: "italic", lineHeight: 1.4, paddingTop: 8, borderTop: "1px solid #1a2332" }}>"{p.stance}"</div>
+            {p.note && (
+              <div style={{ fontSize: 9, color: "#8b949e", marginTop: 6, padding: "6px 8px", background: "#0d1117", borderRadius: 4, borderLeft: "2px solid #30363d" }}>
+                📝 {p.note}
+              </div>
+            )}
           </div>
         ))}
       </div>
