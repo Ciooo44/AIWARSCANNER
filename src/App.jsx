@@ -102,7 +102,7 @@ function DeadlineCountdown() {
 }
 
 // ── Header (sticky) ────────────────────────────────────────────
-function Header({ currentTime }) {
+function Header({ currentTime, navigateTo }) {
   return (
     <div style={{
       background: "linear-gradient(180deg, #0d1117 0%, #0d1117ee 100%)",
@@ -135,6 +135,18 @@ function Header({ currentTime }) {
         }}>
           📜 CA: B4gCEmvK9fQeKdYUiSzus9kb8RstXeTkJcM1q6mWpump
         </div>
+        <button
+          onClick={() => navigateTo && navigateTo('mexico')}
+          style={{
+            display: "flex", alignItems: "center", gap: 6,
+            padding: "6px 12px", background: "#ff174420",
+            borderRadius: 6, border: "1px solid #ff174440",
+            color: "#ff1744", textDecoration: "none",
+            fontSize: 11, fontWeight: 500, cursor: "pointer"
+          }}
+        >
+          🇲🇽 MEXICO LIVE
+        </button>
         <a 
           href="https://x.com/aiwarscanner" 
           target="_blank" 
@@ -510,7 +522,7 @@ function RegionalPanel() {
 }
 
 // ── Main App ───────────────────────────────────────────────────
-export default function App() {
+export default function App({ navigateTo }) {
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [activeLayer, setActiveLayer] = useState("all");
   const [newsFilter, setNewsFilter] = useState("all");
@@ -548,7 +560,7 @@ export default function App() {
         button:hover { filter: brightness(1.2); }
       `}</style>
 
-      <Header currentTime={currentTime} />
+      <Header currentTime={currentTime} navigateTo={navigateTo} />
       <AlertTicker />
       <StatsBar />
 
