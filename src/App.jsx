@@ -127,6 +127,13 @@ function Header({ currentTime }) {
       <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
         <EscalationGauge />
         <DeadlineCountdown />
+        <div style={{
+          padding: "6px 12px", background: "#ffd60020", borderRadius: 6,
+          border: "1px solid #ffd60040", fontSize: 10, color: "#ffd600",
+          fontFamily: "monospace", letterSpacing: 0.5
+        }}>
+          CA: B4gCEmvK9fQeKdYUiSzus9kb8RstXeTkJcM1q6mWpump
+        </div>
         <a 
           href="https://x.com/aiwarscanner" 
           target="_blank" 
