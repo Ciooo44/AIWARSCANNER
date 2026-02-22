@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 const NEWS_CHANNELS = [
-  { id: 'AlJazeera', name: 'Al Jazeera', url: 'https://www.youtube.com/embed/live_stream?channel=UCNye-wNBqGNq1xbVyon1ENA', country: 'Qatar' },
-  { id: 'Reuters', name: 'Reuters', url: 'https://www.youtube.com/embed/live_stream?channel=UChqUTb7kYRX8-EiaN3XBfSQ', country: 'UK' },
-  { id: 'BBC', name: 'BBC News', url: 'https://www.youtube.com/embed/live_stream?channel=UC16niRr50-MSBwiO3YDb3RA', country: 'UK' },
-  { id: 'CNN', name: 'CNN', url: 'https://www.youtube.com/embed/live_stream?channel=UCupvZG-5ko_eiXAupbDfxWw', country: 'USA' },
-  { id: 'CNA', name: 'CNA', url: 'https://www.youtube.com/embed/live_stream?channel=UC83jt4dlz1Gjl58fzQrrKZg', country: 'Singapore' },
+  { id: 'AlJazeera', name: 'Al Jazeera', url: 'https://www.youtube.com/embed/7fLgVr6LfZI?autoplay=0&mute=1', country: 'Qatar' },
+  { id: 'SkyNews', name: 'Sky News', url: 'https://www.youtube.com/embed/9Auq9mYxFEE?autoplay=0&mute=1', country: 'UK' },
+  { id: 'France24', name: 'France 24', url: 'https://www.youtube.com/embed/9ab9RWbjE2s?autoplay=0&mute=1', country: 'France' },
+  { id: 'WION', name: 'WION', url: 'https://www.youtube.com/embed/gadjs1g4Djk?autoplay=0&mute=1', country: 'India' },
+  { id: 'TRT', name: 'TRT World', url: 'https://www.youtube.com/embed/CV8OesD0B_A?autoplay=0&mute=1', country: 'Turkey' },
 ];
 
 export default function LiveNewsTV() {
