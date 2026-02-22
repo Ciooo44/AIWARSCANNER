@@ -154,7 +154,7 @@ export default function LiveFlightRadar() {
     };
 
     fetchFlights();
-    const interval = setInterval(fetchFlights, 30000); // 30 seconds
+    const interval = setInterval(fetchFlights, 300000); // 5 minutes
     return () => clearInterval(interval);
   }, [isLoaded]);
 
@@ -240,7 +240,7 @@ export default function LiveFlightRadar() {
           </div>
           {lastUpdate && (
             <div style={{ fontSize: 9, color: error ? "#ff6d00" : "#00e676", marginTop: 2 }}>
-              {error ? `⚠️ ${error}` : `Tracking ${flights.length} aircraft • ${new Date(lastUpdate).toLocaleTimeString()}`}
+              {error ? `⚠️ ${error}` : `Tracking ${flights.length} aircraft • Updates every 5 min • ${new Date(lastUpdate).toLocaleTimeString()}`}
             </div>
           )}
         </div>
