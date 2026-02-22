@@ -5,6 +5,7 @@ import LiveFlightRadar from "./components/LiveFlightRadar.jsx";
 import LiveNewsTV from "./components/LiveNewsTV.jsx";
 import IranLiveCams from "./components/IranLiveCams.jsx";
 import IranianTargets from "./components/IranianTargets.jsx";
+import PredictionMarkets from "./components/PredictionMarkets.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -583,6 +584,9 @@ export default function App() {
 
         {/* AI War Prediction Panel */}
         <WarPredictionPanel />
+
+        {/* Prediction Markets */}
+        <PredictionMarkets />
 
         {/* Live Flight Radar */}
         <LiveFlightRadar />
