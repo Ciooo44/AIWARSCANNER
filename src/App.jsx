@@ -138,11 +138,14 @@ function Header({ currentTime, navigateTo }) {
         <button
           onClick={() => navigateTo && navigateTo('mexico')}
           style={{
-            display: "flex", alignItems: "center", gap: 6,
-            padding: "6px 12px", background: "#ff174420",
-            borderRadius: 6, border: "1px solid #ff174440",
+            display: "flex", alignItems: "center", gap: 8,
+            padding: "10px 20px", background: "#ff174430",
+            borderRadius: 8, border: "2px solid #ff1744",
             color: "#ff1744", textDecoration: "none",
-            fontSize: 11, fontWeight: 500, cursor: "pointer"
+            fontSize: 13, fontWeight: 700, cursor: "pointer",
+            boxShadow: "0 0 12px #ff174440",
+            textTransform: "uppercase",
+            letterSpacing: 1
           }}
         >
           🇲🇽 MEXICO LIVE
