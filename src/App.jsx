@@ -132,7 +132,7 @@ function Header({ currentTime }) {
           border: "1px solid #ffd60040", fontSize: 10, color: "#ffd600",
           fontFamily: "monospace", letterSpacing: 0.5
         }}>
-          CA: B4gCEmvK9fQeKdYUiSzus9kb8RstXeTkJcM1q6mWpump
+          📜 CA: B4gCEmvK9fQeKdYUiSzus9kb8RstXeTkJcM1q6mWpump
         </div>
         <a 
           href="https://x.com/aiwarscanner" 
