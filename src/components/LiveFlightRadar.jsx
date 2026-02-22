@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 // FlightRadar24 API Configuration
 const FR24_API_URL = 'https://fr24api.flightradar24.com/api/v1/live/flight-positions/full';
-const FR24_API_TOKEN = '019c846f-5ffb-7087-93f7-945392cf441c';
 
-// Sandbox token for testing
+// Your provided API tokens
+const FR24_MAIN_TOKEN = '019c846f-5ffb-7087-93f7-945392cf441c';
+const FR24_MAIN_SECRET = 'yPFfAXqKrhUCXySAfGQXwYB7q6RJg0456p5fGJxaf38209a4';
+
 const FR24_SANDBOX_TOKEN = '019c846d-2f31-705b-9ff1-83ec145a5b88';
+const FR24_SANDBOX_SECRET = 'qhFfkMEtw7yE0yqJK0x6fb1QY0YpKjHpXuZ2T0Tccc41fcd3';
 
 export default function LiveFlightRadar() {
   const mapRef = useRef(null);
@@ -82,7 +85,7 @@ export default function LiveFlightRadar() {
           `${FR24_API_URL}?bounds=${bounds.north},${bounds.south},${bounds.east},${bounds.west}`,
           {
             headers: {
-              'Authorization': `Bearer ${FR24_API_TOKEN}|yPFfAXqKrhUCXySAfGQXwYB7q6RJg0456p5fGJxaf38209a4`,
+              'Authorization': `Bearer ${FR24_MAIN_TOKEN}|${FR24_MAIN_SECRET}`,
               'Accept': 'application/json',
               'Accept-Version': 'v1'
             }
@@ -95,7 +98,7 @@ export default function LiveFlightRadar() {
             `${FR24_API_URL}?bounds=${bounds.north},${bounds.south},${bounds.east},${bounds.west}`,
             {
               headers: {
-                'Authorization': `Bearer ${FR24_SANDBOX_TOKEN}|qhFfkMEtw7yE0yqJK0x6fb1QY0YpKjHpXuZ2T0Tccc41fcd3`,
+                'Authorization': `Bearer ${FR24_SANDBOX_TOKEN}|${FR24_SANDBOX_SECRET}`,
                 'Accept': 'application/json',
                 'Accept-Version': 'v1'
               }
