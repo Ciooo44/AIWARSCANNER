@@ -7,7 +7,7 @@ const IRAN_TARGETS = [
     name: "Hossein Salami", 
     role: "IRGC Commander-in-Chief", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hossein_Salami_2019.jpg/440px-Hossein_Salami_2019.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "HIGH"
   },
   { 
@@ -15,7 +15,7 @@ const IRAN_TARGETS = [
     name: "Amir Ali Hajizadeh", 
     role: "IRGC Aerospace Force Commander", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Amir_Ali_Hajizadeh.jpg/440px-Amir_Ali_Hajizadeh.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "HIGH"
   },
   { 
@@ -23,7 +23,7 @@ const IRAN_TARGETS = [
     name: "Esmail Qaani", 
     role: "Quds Force Commander", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Esmail_Qaani_2020.jpg/440px-Esmail_Qaani_2020.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "HIGH"
   },
   { 
@@ -31,7 +31,7 @@ const IRAN_TARGETS = [
     name: "Mohammad Reza Ashtiani", 
     role: "Defense Minister", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mohammad_Reza_Ashtiani_2021.jpg/440px-Mohammad_Reza_Ashtiani_2021.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "MEDIUM"
   },
   { 
@@ -39,7 +39,7 @@ const IRAN_TARGETS = [
     name: "Mohammad Eslami", 
     role: "Nuclear Chief (AEOI)", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Mohammad_Eslami_2021.jpg/440px-Mohammad_Eslami_2021.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "HIGH"
   },
   { 
@@ -47,7 +47,7 @@ const IRAN_TARGETS = [
     name: "Abdolrahim Mousavi", 
     role: "Artesh (Army) Commander", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Abdolrahim_Mousavi_2021.jpg/440px-Abdolrahim_Mousavi_2021.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "MEDIUM"
   },
   { 
@@ -55,7 +55,7 @@ const IRAN_TARGETS = [
     name: "Gholam Ali Rashid", 
     role: "Khatam al-Anbiya Commander", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Gholam_Ali_Rashid.jpg/440px-Gholam_Ali_Rashid.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "HIGH"
   },
   { 
@@ -63,7 +63,7 @@ const IRAN_TARGETS = [
     name: "Fereydoon Abbasi", 
     role: "Nuclear Scientist", 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fereydoon_Abbasi_2011.jpg/440px-Fereydoon_Abbasi_2011.jpg",
-    status: "LIVE",
+    status: "ALIVE",
     priority: "MEDIUM"
   },
 ];
@@ -109,14 +109,11 @@ export default function IranianTargets() {
               fontSize: 8,
               fontWeight: "bold",
               letterSpacing: 0.5,
-              background: target.status === "LIVE" ? "#00e67620" : "#ff174420",
-              color: target.status === "LIVE" ? "#00e676" : "#ff1744",
-              border: `1px solid ${target.status === "LIVE" ? "#00e67640" : "#ff174440"}`,
+              background: target.status === "ALIVE" ? "#00e67620" : "#ff174420",
+              color: target.status === "ALIVE" ? "#00e676" : "#ff1744",
+              border: `1px solid ${target.status === "ALIVE" ? "#00e67640" : "#ff174440"}`,
               zIndex: 10
             }}>
-              {target.status === "ELIMINATED" && (
-                <span style={{ textDecoration: "line-through" }}>✕ </span>
-              )}
               {target.status}
             </div>
 
@@ -152,8 +149,8 @@ export default function IranianTargets() {
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  opacity: target.status === "ELIMINATED" ? 0.4 : 1,
-                  filter: target.status === "ELIMINATED" ? "grayscale(100%)" : "none"
+                  opacity: target.status === "ELIMINATED" ? 0.3 : 1,
+                  filter: target.status === "ELIMINATED" ? "grayscale(100%) brightness(0.5)" : "none"
                 }}
                 onError={(e) => {
                   e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23161b22'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='%23333' font-size='30'%3E👤%3C/text%3E%3C/svg%3E";
