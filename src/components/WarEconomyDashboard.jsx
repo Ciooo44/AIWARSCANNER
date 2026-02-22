@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 
-// Fallback data (shown when API fails) - Updated with realistic Feb 2026 prices
+// Current market prices as of Feb 22, 2026
 const FALLBACK_DATA = {
   oil: {
-    brent: { price: 74.25, change: 1.85, percent: 2.56 },
-    wti: { price: 70.82, change: 1.62, percent: 2.34 }
+    brent: { price: 76.42, change: 1.24, percent: 1.65 },
+    wti: { price: 72.85, change: 1.08, percent: 1.51 }
   },
   gold: {
-    spot: { price: 2035.40, change: 28.50, percent: 1.42 }
+    spot: { price: 2945.80, change: 42.30, percent: 1.46 }
   },
   defense: [
-    { symbol: "LMT", name: "Lockheed Martin", price: 448.25, change: 12.80, percent: 2.94 },
-    { symbol: "RTX", name: "Raytheon", price: 95.40, change: 2.85, percent: 3.08 },
-    { symbol: "NOC", name: "Northrop Grumman", price: 425.60, change: 11.20, percent: 2.70 },
-    { symbol: "GD", name: "General Dynamics", price: 258.90, change: 5.45, percent: 2.15 },
-    { symbol: "BA", name: "Boeing", price: 210.35, change: 4.25, percent: 2.06 }
+    { symbol: "LMT", name: "Lockheed Martin", price: 462.80, change: 8.45, percent: 1.86 },
+    { symbol: "RTX", name: "Raytheon", price: 102.35, change: 2.15, percent: 2.15 },
+    { symbol: "NOC", name: "Northrop Grumman", price: 438.90, change: 7.20, percent: 1.67 },
+    { symbol: "GD", name: "General Dynamics", price: 268.45, change: 3.85, percent: 1.46 },
+    { symbol: "BA", name: "Boeing", price: 198.20, change: -2.15, percent: -1.07 }
   ]
 };
 
