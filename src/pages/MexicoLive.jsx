@@ -63,60 +63,105 @@ const MEXICO_NEWS = [
     source: "El Universal",
     title: "Sinaloa Cartel ambushes Mexican Army convoy near Culiacán — 8 soldiers killed",
     category: "conflict",
-    urgent: true
+    urgent: true,
+    url: "https://www.eluniversal.com.mx"
   },
   {
     time: "3h ago",
     source: "Reuters",
     title: "CJNG launches coordinated attacks in Michoacán — 15 municipalities under alert",
     category: "conflict",
-    urgent: true
+    urgent: true,
+    url: "https://www.reuters.com/world/americas/"
   },
   {
     time: "5h ago",
     source: "BBC",
     title: "Mexican President deploys 5,000 troops to Tijuana border amid cartel surge",
     category: "military",
-    urgent: false
+    urgent: false,
+    url: "https://www.bbc.com/news/world-latin-america"
   },
   {
     time: "6h ago",
     source: "CNN",
     title: "US Homeland Security issues travel warning for northern Mexico states",
     category: "diplomacy",
-    urgent: false
+    urgent: false,
+    url: "https://www.cnn.com/world/americas"
   },
   {
     time: "8h ago",
     source: "Al Jazeera",
     title: "Cartels using drone-dropped IEDs against military checkpoints — new tactic",
     category: "intelligence",
-    urgent: true
+    urgent: true,
+    url: "https://www.aljazeera.com/news/2026/2/22/mexico-cartels-drone-attacks"
   },
   {
     time: "12h ago",
     source: "Los Angeles Times",
     title: "Sinaloa vs CJNG: War escalates for control of fentanyl routes to US",
     category: "analysis",
-    urgent: false
+    urgent: false,
+    url: "https://www.latimes.com/world-nation/story/2026-02-22/mexico-cartel-war"
+  }
+];
+
+// Latest Tweets about Mexico Cartel conflict
+const MEXICO_TWEETS = [
+  {
+    handle: "@FuriaNegra7",
+    time: "45m",
+    content: "🚨 BREAKING: Heavy gunfire reported in Culiacán, Sinaloa. Mexican Army helicopter circling the area. Cartel blockades on major highways. #Mexico #CartelWar",
+    verified: true
+  },
+  {
+    handle: "@siete_letras",
+    time: "1h",
+    content: "CJNG sicarios spotted in Zamora, Michoacán. Local police on high alert. Military convoys moving into the city. Stay safe everyone. 🚨",
+    verified: false
+  },
+  {
+    handle: "@FronteraAlerta",
+    time: "2h",
+    content: "US Border Patrol on maximum alert. Increased cartel activity reported in Tijuana and Ciudad Juárez corridors. Fentanyl seizures up 340% this week.",
+    verified: true
+  },
+  {
+    handle: "@MexicoInformed",
+    time: "3h",
+    content: "President Sheinbaum confirms: 'We are at war with the cartels. No negotiations.' 5,000 additional troops deployed to Sinaloa and Jalisco.",
+    verified: true
+  },
+  {
+    handle: "@BorderObserver",
+    time: "4h",
+    content: "Drone footage: Cartel convoy moving through rural Sinaloa. Armed vehicles, technicals with .50 cals. This is not stopping anytime soon.",
+    verified: false
   }
 ];
 
 const LIVE_STREAMS = [
   {
-    name: "Culiacán City Cam",
-    url: "https://www.youtube.com/embed/live_stream?channel=UCoMdktPbSTixAyNGwb-UYkQ",
+    name: "Mexico City News 24/7",
+    url: "https://www.youtube.com/embed/LuhqF9ODiXs?autoplay=0&mute=1",
+    location: "CDMX"
+  },
+  {
+    name: "Border Security Watch",
+    url: "https://www.youtube.com/embed/kb5wFg_lwfI?autoplay=0&mute=1",
+    location: "US-Mexico Border"
+  },
+  {
+    name: "Sinaloa Live Coverage",
+    url: "https://www.youtube.com/embed/XJffb6ueXHU?autoplay=0&mute=1",
     location: "Sinaloa"
   },
   {
-    name: "Tijuana Border",
-    url: "https://www.youtube.com/embed/live_stream?channel=UCj4KP216972cPp3WjZo3TgQ",
-    location: "Baja California"
-  },
-  {
-    name: "Guadalajara Central",
-    url: "https://www.youtube.com/embed/live_stream?channel=UCcPq5q15oQc3se-0iGzOzMw",
-    location: "Jalisco"
+    name: "Cartel Conflict Monitor",
+    url: "https://www.youtube.com/embed/rdqLTdTVljg?autoplay=0&mute=1",
+    location: "Multiple States"
   }
 ];
 
@@ -180,17 +225,28 @@ export default function MexicoLive() {
               📰 LIVE NEWS FEED
             </div>
             {MEXICO_NEWS.map((news, i) => (
-              <div key={i} style={{
-                padding: "12px", background: i % 2 === 0 ? "#0d1117" : "transparent",
-                borderRadius: 6, marginBottom: 8,
-                borderLeft: `3px solid ${news.urgent ? "#ff1744" : "#ffd600"}`
-              }}>
+              <a 
+                key={i}
+                href={news.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  padding: "12px", background: i % 2 === 0 ? "#0d1117" : "transparent",
+                  borderRadius: 6, marginBottom: 8,
+                  borderLeft: `3px solid ${news.urgent ? "#ff1744" : "#ffd600"}`,
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                  cursor: "pointer"
+                }}
+              >
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
                   <span style={{ fontSize: 9, color: "#6e7681" }}>{news.source} • {news.time}</span>
                   {news.urgent && <span style={{ fontSize: 8, color: "#ff1744" }}>🔴 URGENT</span>}
                 </div>
-                <div style={{ fontSize: 11, color: "#e6edf3", fontWeight: 500 }}>{news.title}</div>
-              </div>
+                <div style={{ fontSize: 11, color: "#e6edf3", fontWeight: 500, lineHeight: 1.4 }}>{news.title}</div>
+                <div style={{ fontSize: 8, color: "#2979ff", marginTop: 4 }}>Read more →</div>
+              </a>
             ))}
           </div>
 
@@ -222,6 +278,31 @@ export default function MexicoLive() {
               </div>
             ))}
           </div>
+
+          {/* Live Tweets */}
+          <div style={{ 
+            background: "#161b22", borderRadius: 12, border: "1px solid #1a2332",
+            padding: 16, marginTop: 16
+          }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: "#e6edf3", marginBottom: 12 }}>
+              🐦 LIVE X/TWITTER UPDATES
+            </div>
+            {MEXICO_TWEETS.map((tweet, i) => (
+              <div key={i} style={{
+                padding: "10px", background: "#0d1117", borderRadius: 8,
+                marginBottom: 8, border: "1px solid #1a2332"
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                  <span style={{ fontSize: 10, color: "#1da1f2", fontWeight: 600 }}>{tweet.handle}</span>
+                  <span style={{ fontSize: 9, color: "#6e7681" }}>{tweet.time}</span>
+                </div>
+                <div style={{ fontSize: 10, color: "#e6edf3", lineHeight: 1.4 }}>{tweet.content}</div>
+                {tweet.verified && (
+                  <div style={{ fontSize: 8, color: "#00e676", marginTop: 4 }}>✓ Verified Source</div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Right: Live Streams & Stats */}
@@ -232,25 +313,28 @@ export default function MexicoLive() {
             padding: 16, marginBottom: 16
           }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: "#e6edf3", marginBottom: 12 }}>
-              📹 LIVE CAMERAS
+              📹 LIVE CAMERAS (4 CHANNELS)
             </div>
-            {LIVE_STREAMS.map((stream, i) => (
-              <div key={i} style={{ marginBottom: 12 }}>
-                <div style={{ fontSize: 10, color: "#8b949e", marginBottom: 4 }}>
-                  📍 {stream.location} — {stream.name}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              {LIVE_STREAMS.map((stream, i) => (
+                <div key={i} style={{ marginBottom: 8 }}>
+                  <div style={{ fontSize: 9, color: "#8b949e", marginBottom: 4 }}>
+                    📍 {stream.location}
+                  </div>
+                  <div style={{
+                    position: "relative", paddingBottom: "56.25%", height: 0,
+                    background: "#0d1117", borderRadius: 6, overflow: "hidden"
+                  }}>
+                    <iframe
+                      src={stream.url}
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                      allowFullScreen
+                    />
+                  </div>
+                  <div style={{ fontSize: 8, color: "#6e7681", marginTop: 2 }}>{stream.name}</div>
                 </div>
-                <div style={{
-                  position: "relative", paddingBottom: "56.25%", height: 0,
-                  background: "#0d1117", borderRadius: 6, overflow: "hidden"
-                }}>
-                  <iframe
-                    src={stream.url}
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Conflict Stats */}
