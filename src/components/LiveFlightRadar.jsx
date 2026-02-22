@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 // OpenSky Network API - Free, no key required
+// Flight data API endpoint
 const OPENSKY_API_URL = 'https://opensky-network.org/api/states/all';
 
 export default function LiveFlightRadar() {
@@ -255,7 +256,7 @@ export default function LiveFlightRadar() {
           </div>
           {lastUpdate && (
             <div style={{ fontSize: 9, color: "#00e676", marginTop: 2 }}>
-              🛰️ Tracking {flights.length} aircraft • Live ADS-B data • Updates every 5 min • {new Date(lastUpdate).toLocaleTimeString()}
+              🛰️ Live tracking {flights.length} aircraft via ADS-B • Updates: 5 min • {new Date(lastUpdate).toLocaleTimeString()}
             </div>
           )}
         </div>
