@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
-// FlightRadar24 API Configuration
-const FR24_API_URL = 'https://fr24api.flightradar24.com/api/v1/live/flight-positions/full';
-
-// Your provided API tokens
-const FR24_MAIN_TOKEN = '019c846f-5ffb-7087-93f7-945392cf441c';
-const FR24_MAIN_SECRET = 'yPFfAXqKrhUCXySAfGQXwYB7q6RJg0456p5fGJxaf38209a4';
-
-const FR24_SANDBOX_TOKEN = '019c846d-2f31-705b-9ff1-83ec145a5b88';
-const FR24_SANDBOX_SECRET = 'qhFfkMEtw7yE0yqJK0x6fb1QY0YpKjHpXuZ2T0Tccc41fcd3';
+// OpenSky Network API - Free, no key required
+const OPENSKY_API_URL = 'https://opensky-network.org/api/states/all';
 
 export default function LiveFlightRadar() {
   const mapRef = useRef(null);
@@ -67,93 +60,95 @@ export default function LiveFlightRadar() {
     };
   }, [isLoaded]);
 
-  // Fetch flights from FlightRadar24 API
+  // Fetch flights from OpenSky Network
   useEffect(() => {
     if (!isLoaded) return;
 
     const fetchFlights = async () => {
       try {
         // Bounding box for Middle East theater
-        const bounds = {
-          north: 42.0,
-          south: 10.0,
-          east: 75.0,
-          west: 25.0
-        };
-
-        const response = await fetch(
-          `${FR24_API_URL}?bounds=${bounds.north},${bounds.south},${bounds.east},${bounds.west}`,
-          {
-            headers: {
-              'Authorization': `Bearer ${FR24_MAIN_TOKEN}|${FR24_MAIN_SECRET}`,
-              'Accept': 'application/json',
-              'Accept-Version': 'v1'
-            }
-          }
-        );
+        // lamin, lamax, lomin, lomax
+        const url = `${OPENSKY_API_URL}?lamin=10&lamax=42&lomin=25&lomax=75`;
+        
+        const response = await fetch(url);
 
         if (!response.ok) {
-          // Try sandbox token if main fails
-          const sandboxResponse = await fetch(
-            `${FR24_API_URL}?bounds=${bounds.north},${bounds.south},${bounds.east},${bounds.west}`,
-            {
-              headers: {
-                'Authorization': `Bearer ${FR24_SANDBOX_TOKEN}|${FR24_SANDBOX_SECRET}`,
-                'Accept': 'application/json',
-                'Accept-Version': 'v1'
-              }
-            }
-          );
-          
-          if (!sandboxResponse.ok) {
-            throw new Error(`API Error: ${response.status}`);
-          }
-          
-          const data = await sandboxResponse.json();
-          processFlightData(data);
-          return;
+          throw new Error(`OpenSky API Error: ${response.status}`);
         }
 
         const data = await response.json();
-        processFlightData(data);
+        
+        // Transform OpenSky data format
+        // states: [icao24, callsign, origin_country, time_position, time_velocity, 
+        //          longitude, latitude, altitude, on_ground, velocity, heading, ...]
+        if (data && data.states) {
+          const processedFlights = data.states
+            .filter(state => state[6] && state[5]) // Has lat/lon
+            .map(state => {
+              const callsign = (state[1] || '').trim();
+              const country = state[2] || '';
+              const lat = state[6];
+              const lon = state[5];
+              const altitude = state[7]; // meters
+              const velocity = state[9]; // m/s
+              const heading = state[10];
+              const onGround = state[8];
+              
+              // Detect military flights
+              const isMilitary = detectMilitary(callsign, country);
+              
+              return {
+                icao24: state[0],
+                callsign: callsign || 'Unknown',
+                country: country,
+                lat: lat,
+                lon: lon,
+                altitude: altitude ? Math.round(altitude * 3.28084) : null, // Convert to feet
+                velocity: velocity ? Math.round(velocity * 3.6) : null, // Convert to km/h
+                heading: heading ? Math.round(heading) : null,
+                onGround: onGround,
+                isMilitary: isMilitary,
+                aircraftType: guessAircraftType(callsign, altitude, country)
+              };
+            });
+          
+          setFlights(processedFlights);
+          setLastUpdate(new Date().toISOString());
+          setError(null);
+        }
         
       } catch (err) {
-        console.error('FlightRadar24 API error:', err);
-        setError('Using demo data - API limit reached');
+        console.error('OpenSky API error:', err);
+        setError('Using demo data - API unavailable');
         // Fallback to demo data
         useDemoData();
       }
     };
 
-    const processFlightData = (data) => {
-      if (data && data.data) {
-        const processedFlights = data.data.map(flight => ({
-          callsign: flight.callsign || flight.registration || 'Unknown',
-          icao24: flight.hex,
-          lat: flight.lat,
-          lon: flight.lon,
-          altitude: flight.altitude,
-          velocity: flight.speed,
-          heading: flight.track,
-          aircraft_type: flight.aircraft_type || flight.type,
-          registration: flight.registration,
-          origin: flight.origin,
-          destination: flight.destination,
-          airline: flight.airline
-        }));
-        
-        setFlights(processedFlights);
-        setLastUpdate(new Date().toISOString());
-        setError(null);
-      }
+    const detectMilitary = (callsign, country) => {
+      if (!callsign) return false;
+      const milPrefixes = ['RCH', 'HOOK', 'REACH', 'SAM', 'SPAR', 'CARGO', 'GRIM', 'DRACO', 'KING'];
+      return milPrefixes.some(prefix => callsign.startsWith(prefix));
+    };
+
+    const guessAircraftType = (callsign, altitude, country) => {
+      if (!callsign) return 'Unknown';
+      if (callsign.startsWith('RCH')) return 'C-17/C-5';
+      if (callsign.startsWith('HOOK')) return 'E-3 AWACS';
+      if (callsign.startsWith('REACH')) return 'KC-135/KC-10';
+      if (callsign.startsWith('SAM')) return 'C-130';
+      if (altitude && altitude > 10000) return 'Commercial Jet';
+      return 'Unknown';
     };
 
     const useDemoData = () => {
       // Demo military flights in the region
       setFlights([
-        { callsign: 'RCH452', lat: 25.25, lon: 51.60, altitude: 32000, velocity: 850, heading: 45, aircraft_type: 'C-17', origin: 'Al Udeid', destination: 'Incirlik' },
-        { callsign: 'HOOK01', lat: 26.5, lon: 56.3, altitude: 28000, velocity: 750, heading: 180, aircraft_type: 'E-3', origin: 'Prince Sultan', destination: 'Gulf' },
-        { callsign: 'REACH789', lat: 24.0, lon: 50.5, altitude: 35000, velocity: 900, heading: 90, aircraft_type: 'KC-135', origin: 'Al Udeid', destination: 'Arabian Sea' },
+        { callsign: 'RCH452', icao24: 'ae1234', lat: 25.25, lon: 51.60, altitude: 32000, velocity: 850, heading: 45, isMilitary: true, aircraftType: 'C-17', country: 'United States' },
+        { callsign: 'HOOK01', icao24: 'ae5678', lat: 26.5, lon: 56.3, altitude: 28000, velocity: 750, heading: 180, isMilitary: true, aircraftType: 'E-3 AWACS', country: 'United States' },
+        { callsign: 'REACH789', icao24: 'ae9012', lat: 24.0, lon: 50.5, altitude: 35000, velocity: 900, heading: 90, isMilitary: true, aircraftType: 'KC-135', country: 'United States' },
+        { callsign: 'QTR123', icao24: '06a123', lat: 25.2, lon: 51.6, altitude: 38000, velocity: 850, heading: 270, isMilitary: false, aircraftType: 'Commercial', country: 'Qatar' },
+        { callsign: 'UAE456', icao24: '896123', lat: 24.4, lon: 54.5, altitude: 36000, velocity: 820, heading: 135, isMilitary: false, aircraftType: 'Commercial', country: 'UAE' },
       ]);
       setLastUpdate(new Date().toISOString());
     };
@@ -176,13 +171,8 @@ export default function LiveFlightRadar() {
     flights.forEach(flight => {
       if (!flight.lat || !flight.lon) return;
 
-      // Military indicators
-      const isMilitary = flight.callsign?.match(/^(RCH|HOOK|REACH|SAM|SPAR|CARGO)/);
-      const isTanker = flight.aircraft_type?.includes('KC-') || flight.callsign?.includes('REACH');
-      const isAWACS = flight.aircraft_type?.includes('E-3') || flight.callsign?.includes('HOOK');
-      
-      const color = isMilitary ? '#ff1744' : isTanker ? '#ffd600' : '#00e676';
-      const size = isMilitary ? 24 : 20;
+      const color = flight.isMilitary ? '#ff1744' : flight.callsign?.startsWith('K') ? '#ffd600' : '#00e676';
+      const size = flight.isMilitary ? 24 : 20;
 
       const marker = L.marker([flight.lat, flight.lon], {
         icon: L.divIcon({
@@ -214,16 +204,16 @@ export default function LiveFlightRadar() {
         <div style="font-family: 'JetBrains Mono', monospace; min-width: 220px;">
           <div style="background: #0d1117; color: #e6edf3; padding: 12px; border-radius: 8px; border: 1px solid #30363d;">
             <div style="font-weight: bold; color: ${color}; margin-bottom: 8px; font-size: 14px;">
-              ${isMilitary ? '🎖️ ' : ''}${flight.callsign}
+              ${flight.isMilitary ? '🎖️ ' : ''}${flight.callsign}
             </div>
             <div style="font-size: 11px; color: #8b949e; line-height: 1.6;">
-              ${flight.aircraft_type ? `Type: ${flight.aircraft_type}<br/>` : ''}
+              Country: ${flight.country}<br/>
+              ${flight.aircraftType ? `Type: ${flight.aircraftType}<br/>` : ''}
               Alt: ${flight.altitude ? Math.round(flight.altitude) : 'N/A'} ft<br/>
               Spd: ${flight.velocity ? Math.round(flight.velocity) : 'N/A'} km/h<br/>
               HDG: ${flight.heading || 'N/A'}°<br/>
-              ${flight.origin ? `From: ${flight.origin}<br/>` : ''}
-              ${flight.destination ? `To: ${flight.destination}<br/>` : ''}
-              ${flight.registration ? `Reg: ${flight.registration}<br/>` : ''}
+              ICAO: ${flight.icao24}<br/>
+              ${flight.onGround ? '🛬 On Ground' : '✈️ Airborne'}
             </div>
           </div>
         </div>
@@ -246,7 +236,7 @@ export default function LiveFlightRadar() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
         <div>
           <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1 }}>
-            ✈️ LIVE FLIGHT RADAR — FLIGHTRADAR24 API
+            ✈️ LIVE FLIGHT RADAR — OPENSKY NETWORK
           </div>
           {lastUpdate && (
             <div style={{ fontSize: 9, color: error ? "#ff6d00" : "#00e676", marginTop: 2 }}>
