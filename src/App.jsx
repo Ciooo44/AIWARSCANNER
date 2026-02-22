@@ -408,15 +408,22 @@ function KeyActorsPanel() {
           }}>
             <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
               {p.avatar && (
-                <img 
-                  src={p.avatar} 
-                  alt={p.name}
-                  style={{
-                    width: 50, height: 50, borderRadius: "50%",
-                    objectFit: "cover", border: `2px solid ${p.color}`
-                  }}
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
+                <div style={{
+                  width: 60, height: 60, borderRadius: "50%",
+                  overflow: "hidden", flexShrink: 0,
+                  border: `3px solid ${p.color}`,
+                  boxShadow: `0 0 10px ${p.color}40`
+                }}>
+                  <img 
+                    src={p.avatar} 
+                    alt={p.name}
+                    style={{
+                      width: "100%", height: "100%",
+                      objectFit: "cover"
+                    }}
+                    onError={(e) => { e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='%23212529'/%3E%3Ctext x='30' y='35' text-anchor='middle' fill='%236e7681' font-size='24'%3E👤%3C/text%3E%3C/svg%3E"; }}
+                  />
+                </div>
               )}
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 12, color: "#e6edf3", fontWeight: 600 }}>{p.name}</div>
