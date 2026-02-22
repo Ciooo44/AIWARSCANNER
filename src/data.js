@@ -82,6 +82,15 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 19, 2026", event: "Poland orders citizens to leave Iran immediately", severity: "high" },
   { date: "Feb 20, 2026", event: "Iran closes Strait of Hormuz sections for IRGC live-fire military drills", severity: "critical" },
   { date: "Feb 20, 2026", event: "UAE declares: No military operations from our territory or airspace", severity: "high" },
+  { date: "Feb 21, 2026", event: "Pezeshkian: 'Iran will not bow down to US pressure in nuclear talks'", severity: "critical" },
+  { date: "Feb 21, 2026", event: "Pakistan strikes Afghanistan — cross-border tensions escalate regionally", severity: "elevated" },
+  { date: "Feb 22, 2026", event: "AIWARSCANNER launches real-time conflict monitoring dashboard", severity: "info" },
+  { date: "Feb 22, 2026", event: "Trump raises US global tariff to 15% after Supreme Court ruling — economic uncertainty", severity: "elevated" },
+  { date: "Feb 22, 2026", event: "Gulf states reaffirm: No military bases for US operations against Iran", severity: "high" },
+  { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — potential military action window opens", severity: "critical" },
+  { date: "Mar 7, 2026", event: "🔮 PREDICTED: Polymarket 33% probability — US strikes Iran by this date", severity: "prediction" },
+  { date: "Mar 15, 2026", event: "🔮 PREDICTED: Polymarket 42% probability — US strikes Iran by this date", severity: "prediction" },
+  { date: "Mar 31, 2026", event: "🔮 PREDICTED: Polymarket 21% probability — Khamenei out as Supreme Leader", severity: "prediction" },
 ];
 
 // ── Live News Feed ─────────────────────────────────────────────
