@@ -222,48 +222,61 @@ export default function WarEconomyDashboard() {
 
         {/* Crypto - BTC/ETH/SOL */}
         <div style={{ background: "#161b22", borderRadius: "12px", border: "1px solid #1a2332", padding: "16px" }}>
-          <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px" }}>
-            ₿ CRYPTO MARKET
+          <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
+            ₿ CRYPTO MARKET <span style={{fontSize: "9px", color: "#f7931a"}}>● LIVE</span>
           </div>
+          
+          {/* Bitcoin - Main */}
           {marketData.bitcoin && (
-            <div style={{ marginBottom: "8px", padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "11px", color: "#8b949e" }}>BTC</span>
-                <span style={{ fontSize: "16px", fontWeight: 700, color: "#f7931a" }}>
+            <div style={{ marginBottom: "10px", padding: "12px", background: "#0d1117", borderRadius: "8px", borderLeft: "3px solid #f7931a" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+                <span style={{ fontSize: "12px", color: "#8b949e", fontWeight: 600 }}>₿ Bitcoin</span>
+                <span style={{ fontSize: "20px", fontWeight: 700, color: "#f7931a" }}>
                   ${formatNumber(marketData.bitcoin.price)}
                 </span>
-                <span style={{ fontSize: "10px", color: getChangeColor(marketData.bitcoin.change) }}>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "9px", color: "#6e7681" }}>BTC/USD</span>
+                <span style={{ fontSize: "11px", color: getChangeColor(marketData.bitcoin.change), fontWeight: 600 }}>
                   {getChangeArrow(marketData.bitcoin.change)} {formatNumber(Math.abs(marketData.bitcoin.percent))}%
                 </span>
               </div>
             </div>
           )}
-          {marketData.ethereum && (
-            <div style={{ marginBottom: "8px", padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "11px", color: "#8b949e" }}>ETH</span>
-                <span style={{ fontSize: "16px", fontWeight: 700, color: "#627eea" }}>
+          
+          {/* ETH & SOL Row */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+            {marketData.ethereum && (
+              <div style={{ padding: "10px", background: "#0d1117", borderRadius: "6px" }}>
+                <div style={{ fontSize: "10px", color: "#8b949e", marginBottom: "2px" }}>Ξ Ethereum</div>
+                <div style={{ fontSize: "14px", fontWeight: 700, color: "#627eea" }}>
                   ${formatNumber(marketData.ethereum.price)}
-                </span>
-                <span style={{ fontSize: "10px", color: getChangeColor(marketData.ethereum.change) }}>
+                </div>
+                <div style={{ fontSize: "9px", color: getChangeColor(marketData.ethereum.change) }}>
                   {getChangeArrow(marketData.ethereum.change)} {formatNumber(Math.abs(marketData.ethereum.percent))}%
-                </span>
+                </div>
               </div>
-            </div>
-          )}
-          {marketData.solana && (
-            <div style={{ padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "11px", color: "#8b949e" }}>SOL</span>
-                <span style={{ fontSize: "16px", fontWeight: 700, color: "#14f195" }}>
+            )}
+            {marketData.solana && (
+              <div style={{ padding: "10px", background: "#0d1117", borderRadius: "6px" }}>
+                <div style={{ fontSize: "10px", color: "#8b949e", marginBottom: "2px" }}>◎ Solana</div>
+                <div style={{ fontSize: "14px", fontWeight: 700, color: "#14f195" }}>
                   ${formatNumber(marketData.solana.price)}
-                </span>
-                <span style={{ fontSize: "10px", color: getChangeColor(marketData.solana.change) }}>
+                </div>
+                <div style={{ fontSize: "9px", color: getChangeColor(marketData.solana.change) }}>
                   {getChangeArrow(marketData.solana.change)} {formatNumber(Math.abs(marketData.solana.percent))}%
-                </span>
+                </div>
               </div>
+            )}
+          </div>
+          
+          {/* Total Market Info */}
+          <div style={{ marginTop: "10px", padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px" }}>
+              <span style={{ color: "#6e7681" }}>Total Crypto Market Cap</span>
+              <span style={{ color: "#00e676", fontWeight: 600 }}>$2.85T</span>
             </div>
-          )}
+          </div>
         </div>
 
         {/* Defense Stocks */}
