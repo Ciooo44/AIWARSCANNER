@@ -35,29 +35,29 @@ const CORRELATIONS = [
   { pair: "Bitcoin vs Safe Havens", correlation: -0.34, trend: "down" }
 ];
 
-// War scenarios impact
+// War scenarios impact - Updated for current prices (Gold $5,161, Oil $74)
 const SCENARIOS = [
   {
     name: "Diplomatic Resolution",
     probability: 33,
-    oilImpact: "$75-80 (-15%)",
-    goldImpact: "$2,600 (-9%)",
+    oilImpact: "$63-70 (-15%)",
+    goldImpact: "$4,697 (-9%)",
     defenseImpact: "-5% to -8%",
     marketImpact: "S&P 500 +3%"
   },
   {
     name: "Limited Surgical Strikes",
     probability: 42,
-    oilImpact: "$110-130 (+40%)",
-    goldImpact: "$3,000 (+5%)",
+    oilImpact: "$104-130 (+40%)",
+    goldImpact: "$5,420 (+5%)",
     defenseImpact: "+15% to +25%",
     marketImpact: "S&P 500 -8%"
   },
   {
     name: "Full Regional War",
     probability: 25,
-    oilImpact: "$180-220 (+130%)",
-    goldImpact: "$3,500 (+23%)",
+    oilImpact: "$170-220 (+130%)",
+    goldImpact: "$6,349 (+23%)",
     defenseImpact: "+35% to +50%",
     marketImpact: "S&P 500 -20%"
   }

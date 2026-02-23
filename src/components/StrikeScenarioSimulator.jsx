@@ -25,7 +25,7 @@ const SCENARIOS = [
     metrics: {
       sorties: '300-500',
       missiles: '200-400',
-      oilImpact: '$90-120/barrel (+25-40%)',
+      oilImpact: '$90-105/barrel (+25-40%)',
       usCasualties: '5-50',
       iranCasualties: '500-2,000',
       nuclearDelay: '2-5 years'
@@ -63,7 +63,7 @@ const SCENARIOS = [
     metrics: {
       sorties: '2,000-4,000',
       missiles: '1,000-2,000',
-      oilImpact: '$120-180/barrel (+70-100%)',
+      oilImpact: '$125-150/barrel (+70-100%)',
       usCasualties: '100-500',
       iranCasualties: '5,000-15,000',
       nuclearDelay: '10-15 years'
@@ -102,7 +102,7 @@ const SCENARIOS = [
     metrics: {
       sorties: '5,000-10,000+',
       missiles: '3,000-5,000+',
-      oilImpact: '$180-300/barrel (+150-200%)',
+      oilImpact: '$185-220/barrel (+150-200%)',
       usCasualties: '500-2,000+',
       iranCasualties: '50,000-200,000+',
       nuclearDelay: 'Indefinite (regime-dependent)'
