@@ -9,6 +9,7 @@ import IranianTargets from "./components/IranianTargets.jsx";
 import PredictionMarkets from "./components/PredictionMarkets.jsx";
 import SatelliteTracker from "./components/SatelliteTracker.jsx";
 import StrikeScenarioSimulator from "./components/StrikeScenarioSimulator.jsx";
+import EvacuationTracker from "./components/EvacuationTracker.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -360,6 +361,33 @@ function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
   );
 }
 
+// ── Telegram Banner ────────────────────────────────────────────
+function TelegramBanner() {
+  return (
+    <a href="https://t.me/WSCNalert" target="_blank" rel="noopener noreferrer"
+       style={{
+         display: "flex", alignItems: "center", justifyContent: "center",
+         gap: 10, padding: "10px 16px",
+         background: "linear-gradient(90deg, #0088cc20 0%, #0088cc10 50%, #0088cc20 100%)",
+         borderBottom: "1px solid #0088cc40",
+         textDecoration: "none", cursor: "pointer",
+       }}>
+      <span style={{ fontSize: 14 }}>✈️</span>
+      <span style={{ fontSize: 10, color: "#0088cc", fontWeight: 600, letterSpacing: 1 }}>
+        JOIN TELEGRAM WAR ROOM
+      </span>
+      <span style={{ fontSize: 8, color: "#8b949e" }}>
+        — instant alerts when strikes begin
+      </span>
+      <span style={{
+        fontSize: 8, padding: "2px 6px", background: "#0088cc20",
+        color: "#0088cc", borderRadius: 2, border: "1px solid #0088cc40",
+        animation: "pulse 2s infinite",
+      }}>@WSCNalert</span>
+    </a>
+  );
+}
+
 // ── Timeline ───────────────────────────────────────────────────
 function Timeline() {
   const [expanded, setExpanded] = useState(false);
@@ -633,6 +661,7 @@ export default function App({ navigateTo }) {
 
       <Header currentTime={currentTime} navigateTo={navigateTo} />
       <AlertTicker />
+      <TelegramBanner />
       <StatsBar />
 
       <div style={{ display: "flex", flexDirection: "column", gap: 1, background: "#1a2332" }}>
@@ -662,6 +691,9 @@ export default function App({ navigateTo }) {
           {/* Selected Asset Detail */}
           <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
+
+        {/* Evacuation Tracker — TIME SENSITIVE */}
+        <EvacuationTracker />
 
         {/* Prediction Markets — POLYMARKET */}
         <PredictionMarkets />
