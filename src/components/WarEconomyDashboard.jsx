@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 
-// Real market prices as of Feb 23, 2026 - Source: Yahoo Finance
+// Real market prices as of Feb 23, 2026 - Live data from Saxo/XAUUSD
 const FALLBACK_DATA = {
   oil: {
     brent: { price: 74.35, change: -0.85, percent: -1.13 },
     wti: { price: 70.42, change: -0.72, percent: -1.01 }
   },
   gold: {
-    spot: { price: 2938.50, change: -7.30, percent: -0.25 }
+    spot: { price: 5161.60, change: 54.63, percent: 1.07 }
   },
   bitcoin: {
-    price: 88245.00, change: 1240.50, percent: 1.43
+    price: 66300.00, change: -1240.00, percent: -1.84
+  },
+  ethereum: {
+    price: 1920.00, change: -45.00, percent: -2.29
+  },
+  solana: {
+    price: 80.63, change: -2.15, percent: -2.60
   },
   defense: [
     { symbol: "LMT", name: "Lockheed Martin", price: 448.25, change: -14.55, percent: -3.15 },
@@ -188,13 +194,13 @@ export default function WarEconomyDashboard() {
         {/* Gold */}
         <div style={{ background: "#161b22", borderRadius: "12px", border: "1px solid #1a2332", padding: "16px" }}>
           <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px" }}>
-            🥇 GOLD
+            🥇 GOLD <span style={{fontSize: "9px", color: "#00e676"}}>● XAU/USD LIVE</span>
           </div>
           {marketData.gold.spot && (
             <div style={{ padding: "10px", background: "#0d1117", borderRadius: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: "12px", color: "#8b949e" }}>Spot Price</span>
-                <span style={{ fontSize: "24px", fontWeight: 700, color: "#ffd600" }}>
+                <span style={{ fontSize: "22px", fontWeight: 700, color: "#ffd600" }}>
                   ${formatNumber(marketData.gold.spot.price)}
                 </span>
               </div>
@@ -208,43 +214,56 @@ export default function WarEconomyDashboard() {
           )}
           <div style={{ marginTop: "12px", display: "grid", gap: "8px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "6px 10px", background: "#0d1117", borderRadius: "6px" }}>
-              <span style={{ fontSize: "11px", color: "#8b949e" }}>52-Week High</span>
-              <span style={{ fontSize: "11px", color: "#ffd600", fontWeight: 600 }}>$2,790</span>
+              <span style={{ fontSize: "11px", color: "#8b949e" }}>24h High</span>
+              <span style={{ fontSize: "11px", color: "#ffd600", fontWeight: 600 }}>$5,216.23</span>
             </div>
           </div>
         </div>
 
-        {/* Bitcoin */}
+        {/* Crypto - BTC/ETH/SOL */}
         <div style={{ background: "#161b22", borderRadius: "12px", border: "1px solid #1a2332", padding: "16px" }}>
           <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px" }}>
-            ₿ BITCOIN
+            ₿ CRYPTO MARKET
           </div>
           {marketData.bitcoin && (
-            <div style={{ padding: "10px", background: "#0d1117", borderRadius: "8px" }}>
+            <div style={{ marginBottom: "8px", padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "12px", color: "#8b949e" }}>BTC/USD</span>
-                <span style={{ fontSize: "22px", fontWeight: 700, color: "#f7931a" }}>
+                <span style={{ fontSize: "11px", color: "#8b949e" }}>BTC</span>
+                <span style={{ fontSize: "16px", fontWeight: 700, color: "#f7931a" }}>
                   ${formatNumber(marketData.bitcoin.price)}
                 </span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "4px" }}>
-                <span style={{ fontSize: "10px", color: "#6e7681" }}>24h change</span>
-                <span style={{ fontSize: "12px", color: getChangeColor(marketData.bitcoin.change), fontWeight: 600 }}>
+                <span style={{ fontSize: "10px", color: getChangeColor(marketData.bitcoin.change) }}>
                   {getChangeArrow(marketData.bitcoin.change)} {formatNumber(Math.abs(marketData.bitcoin.percent))}%
                 </span>
               </div>
             </div>
           )}
-          <div style={{ marginTop: "12px", display: "grid", gap: "8px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "6px 10px", background: "#0d1117", borderRadius: "6px" }}>
-              <span style={{ fontSize: "11px", color: "#8b949e" }}>Market Cap</span>
-              <span style={{ fontSize: "11px", color: "#f7931a", fontWeight: 600 }}>$1.74T</span>
+          {marketData.ethereum && (
+            <div style={{ marginBottom: "8px", padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "11px", color: "#8b949e" }}>ETH</span>
+                <span style={{ fontSize: "16px", fontWeight: 700, color: "#627eea" }}>
+                  ${formatNumber(marketData.ethereum.price)}
+                </span>
+                <span style={{ fontSize: "10px", color: getChangeColor(marketData.ethereum.change) }}>
+                  {getChangeArrow(marketData.ethereum.change)} {formatNumber(Math.abs(marketData.ethereum.percent))}%
+                </span>
+              </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "6px 10px", background: "#0d1117", borderRadius: "6px" }}>
-              <span style={{ fontSize: "11px", color: "#8b949e" }}>Dominance</span>
-              <span style={{ fontSize: "11px", color: "#00e676", fontWeight: 600 }}>52.4%</span>
+          )}
+          {marketData.solana && (
+            <div style={{ padding: "8px", background: "#0d1117", borderRadius: "6px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "11px", color: "#8b949e" }}>SOL</span>
+                <span style={{ fontSize: "16px", fontWeight: 700, color: "#14f195" }}>
+                  ${formatNumber(marketData.solana.price)}
+                </span>
+                <span style={{ fontSize: "10px", color: getChangeColor(marketData.solana.change) }}>
+                  {getChangeArrow(marketData.solana.change)} {formatNumber(Math.abs(marketData.solana.percent))}%
+                </span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Defense Stocks */}
