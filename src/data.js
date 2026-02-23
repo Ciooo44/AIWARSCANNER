@@ -15,7 +15,7 @@ export const CURRENT_THREAT = THREAT_LEVELS.CRITICAL;
 // ── US Naval Assets currently deployed to CENTCOM AOR ──────────
 export const US_NAVAL_ASSETS = [
   { id: "cvn72", name: "USS Abraham Lincoln (CVN-72)", type: "carrier", lat: 22.5, lon: 62.0, status: "deployed", details: "Carrier Strike Group — Arabian Sea. Departed San Diego Nov 2025, redirected from South China Sea.", icon: "⚓" },
-  { id: "cvn78", name: "USS Gerald R. Ford (CVN-78)", type: "carrier", lat: 34.5, lon: 20.0, status: "transiting", details: "World's largest carrier. Transiting Atlantic → Mediterranean → Arabian Sea. ETA: early March.", icon: "⚓" },
+  { id: "cvn78", name: "USS Gerald R. Ford (CVN-78)", type: "carrier", lat: 32.8, lon: 34.5, status: "deployed", details: "⚠️ APPROACHING ISRAEL — World's largest carrier now positioned off Israeli coast. Strike capability doubled with Lincoln CSG.", icon: "⚓" },
   { id: "ddg115", name: "USS Frank E. Petersen Jr. (DDG-115)", type: "destroyer", lat: 22.2, lon: 61.8, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
   { id: "ddg112", name: "USS Michael Murphy (DDG-112)", type: "destroyer", lat: 22.8, lon: 62.3, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
   { id: "ddg111", name: "USS Spruance (DDG-111)", type: "destroyer", lat: 23.0, lon: 61.5, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
@@ -96,7 +96,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
-  { time: "⚡ BREAKING", source: "Intelligence Report", title: "🚨🚨🚨 USS GERALD R. FORD APPROACHING ISRAEL — Second carrier strike group closing on Israeli coast, strike capability doubled", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
+  { time: "⚡ BREAKING", source: "Live Tracking", title: "🚨🚨🚨 USS GERALD R. FORD POSITIONED OFF ISRAEL — CVN-78 now 50km from Haifa coast. Dual carrier strike formation with Lincoln active.", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
   { time: "JUST NOW", source: "Die Welt", title: "🇩🇪 Iran warns of 'full force' response — Tehran: Even 'limited' attack will be answered with full harshness", category: "diplomacy", url: "https://www.welt.de/politik/ausland/article699c3ec8ee35d0f0647c4a06/iran-usa-konflikt-teheran-warnt-vor-voller-haerte-bei-jedem-angriff.html" },
   { time: "2m ago", source: "The New Arab", title: "Regional sources report heightened military activity near Iran border — potential strike preparations underway", category: "military", url: "https://x.com/The_NewArab/status/2025920604805701710" },
   { time: "8m ago", source: "Reuters", title: "Blinken arrives in Qatar for emergency consultations on Iran crisis — meeting with Al Thani in Doha", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
