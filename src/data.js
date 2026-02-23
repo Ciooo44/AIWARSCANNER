@@ -96,7 +96,8 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
-  { time: "⚡ BREAKING", source: "Live Tracking", title: "🚨🚨🚨 USS GERALD R. FORD POSITIONED OFF ISRAEL — CVN-78 now 50km from Haifa coast. Dual carrier strike formation with Lincoln active.", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
+  { time: "🔥 JUST IN", source: "NY Times / Times of Israel", title: "🚨🚨🚨 TRUMP PLAN REVEALED: Initial LIMITED strike on Iran, escalating to REGIME CHANGE if no results — NY Times reports", category: "military", url: "https://www.timesofisrael.com/liveblog_entry/ny-times-trump-weighing-initial-limited-iran-strike-but-going-for-regime-change-if-no-results/" },
+  { time: "⚡ BREAKING", source: "Live Tracking", title: "🚨 USS GERALD R. FORD POSITIONED OFF ISRAEL — CVN-78 now 50km from Haifa coast. Dual carrier strike formation with Lincoln active.", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
   { time: "JUST NOW", source: "Die Welt", title: "🇩🇪 Iran warns of 'full force' response — Tehran: Even 'limited' attack will be answered with full harshness", category: "diplomacy", url: "https://www.welt.de/politik/ausland/article699c3ec8ee35d0f0647c4a06/iran-usa-konflikt-teheran-warnt-vor-voller-haerte-bei-jedem-angriff.html" },
   { time: "2m ago", source: "The New Arab", title: "Regional sources report heightened military activity near Iran border — potential strike preparations underway", category: "military", url: "https://x.com/The_NewArab/status/2025920604805701710" },
   { time: "8m ago", source: "Reuters", title: "Blinken arrives in Qatar for emergency consultations on Iran crisis — meeting with Al Thani in Doha", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
