@@ -8,6 +8,7 @@ import IranLiveCams from "./components/IranLiveCams.jsx";
 import IranianTargets from "./components/IranianTargets.jsx";
 import PredictionMarkets from "./components/PredictionMarkets.jsx";
 import SatelliteTracker from "./components/SatelliteTracker.jsx";
+import StrikeScenarioSimulator from "./components/StrikeScenarioSimulator.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -619,6 +620,9 @@ export default function App({ navigateTo }) {
 
         {/* War Economy Dashboard */}
         <WarEconomyDashboard />
+
+        {/* Strike Scenario Simulator */}
+        <StrikeScenarioSimulator />
 
         {/* Prediction Markets */}
         <PredictionMarkets />
