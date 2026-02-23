@@ -598,11 +598,16 @@ export default function App({ navigateTo }) {
 
   // Fetch live news on mount and refresh every 5 minutes
   useEffect(() => {
-    const stopRefresh = startNewsRefresh((news) => {
-      setLiveNews(news);
-      setLastNewsUpdate(new Date().toISOString());
-    });
-    return stopRefresh;
+    // Temporarily disabled live news to show updated static news
+    // Cache-busting: force static news display
+    setLiveNews(null);
+    setLastNewsUpdate(new Date().toISOString());
+    
+    // const stopRefresh = startNewsRefresh((news) => {
+    //   setLiveNews(news);
+    //   setLastNewsUpdate(new Date().toISOString());
+    // });
+    // return stopRefresh;
   }, []);
 
   // Clock timer
