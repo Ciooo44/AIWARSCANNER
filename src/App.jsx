@@ -364,29 +364,90 @@ function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
 function Timeline() {
   const [expanded, setExpanded] = useState(false);
   const items = [...CRISIS_TIMELINE].reverse();
-  const severityColor = { critical: "#ff1744", high: "#ff6d00", elevated: "#ffd600" };
+  const severityColor = { 
+    critical: "#ff1744", 
+    high: "#ff6d00", 
+    elevated: "#ffd600",
+    prediction: "#00e676",
+    info: "#2979ff"
+  };
+
+  const getPredictionData = (event) => {
+    if (event.includes("Mar 1")) return { prob: "85%", label: "ACTION PROB", volume: "" };
+    if (event.includes("Mar 7")) return { prob: "33%", label: "POLYMARKET", volume: "$355M" };
+    if (event.includes("Mar 15")) return { prob: "42%", label: "POLYMARKET", volume: "$355M" };
+    if (event.includes("Mar 31")) return { prob: "21%", label: "POLYMARKET", volume: "$15M" };
+    return null;
+  };
 
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1, marginBottom: 12 }}>◆ CRISIS TIMELINE</div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 0, maxHeight: expanded ? 700 : 250, overflow: "auto", transition: "max-height 0.3s" }}>
-        {items.map((e, i) => (
-          <div key={i} style={{
-            display: "flex", gap: 10, padding: "7px 0",
-            borderLeft: `2px solid ${severityColor[e.severity] || "#ffd600"}`,
-            paddingLeft: 12,
-          }}>
-            <div style={{ minWidth: 85, fontSize: 9, color: "#6e7681", paddingTop: 1 }}>{e.date}</div>
-            <div style={{ fontSize: 10, color: "#c9d1d9", lineHeight: 1.4 }}>{e.event}</div>
-          </div>
-        ))}
+      <div style={{ fontSize: 14, fontWeight: 700, color: "#e6edf3", letterSpacing: 2, marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
+        ◆ CRISIS TIMELINE & PREDICTIONS
+      </div>
+      
+      {/* Key Predictions Cards */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10, marginBottom: 16 }}>
+        <div style={{ background: "#ff174420", borderRadius: 10, padding: 12, border: "1px solid #ff174440" }}>
+          <div style={{ fontSize: 10, color: "#ff6d00", marginBottom: 4 }}>⚠️ MAR 1 DEADLINE</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "#ff1744" }}>85%</div>
+          <div style={{ fontSize: 9, color: "#8b949e" }}>Action window opens</div>
+        </div>
+        <div style={{ background: "#00e67620", borderRadius: 10, padding: 12, border: "1px solid #00e67640" }}>
+          <div style={{ fontSize: 10, color: "#00e676", marginBottom: 4 }}>🔮 POLYMARKET MAR 15</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "#00e676" }}>42%</div>
+          <div style={{ fontSize: 9, color: "#8b949e" }}>US strikes by Mar 15</div>
+        </div>
+      </div>
+
+      {/* Timeline Events */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 0, maxHeight: expanded ? 800 : 320, overflow: "auto", transition: "max-height 0.3s" }}>
+        {items.map((e, i) => {
+          const prediction = getPredictionData(e.event);
+          const isPrediction = e.event.includes("🔮");
+          
+          return (
+            <div key={i} style={{
+              display: "flex", gap: 12, padding: "10px 0",
+              borderLeft: `3px solid ${severityColor[e.severity] || "#ffd600"}`,
+              paddingLeft: 14,
+              background: isPrediction ? "#00e67608" : "transparent",
+              borderRadius: "0 6px 6px 0",
+              marginBottom: 2,
+            }}>
+              <div style={{ minWidth: 90, fontSize: 10, color: "#6e7681", paddingTop: 2, fontWeight: isPrediction ? 600 : 400 }}>{e.date}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 11, color: isPrediction ? "#00e676" : "#e6edf3", lineHeight: 1.5, fontWeight: isPrediction ? 600 : 400 }}>
+                  {e.event.replace("🔮 ", "").replace("⚠️ ", "")}
+                </div>
+                {prediction && (
+                  <div style={{ display: "flex", gap: 8, marginTop: 6, alignItems: "center" }}>
+                    <span style={{ 
+                      fontSize: 12, fontWeight: 700, color: "#00e676",
+                      padding: "2px 8px", background: "#00e67620", borderRadius: 4,
+                    }}>{prediction.prob}</span>
+                    {prediction.volume && (
+                      <span style={{ fontSize: 9, color: "#8b949e" }}>Vol: {prediction.volume}</span>
+                    )}
+                  </div>
+                )}
+              </div>
+              {e.severity === "critical" && (
+                <span style={{ fontSize: 8, padding: "2px 6px", background: "#ff174420", color: "#ff1744", borderRadius: 3, height: "fit-content" }}>CRITICAL</span>
+              )}
+              {isPrediction && (
+                <span style={{ fontSize: 8, padding: "2px 6px", background: "#00e67620", color: "#00e676", borderRadius: 3, height: "fit-content" }}>PREDICTION</span>
+              )}
+            </div>
+          );
+        })}
       </div>
       <button onClick={() => setExpanded(!expanded)} style={{
-        background: "none", border: "1px solid #21262d", color: "#8b949e",
-        borderRadius: 4, padding: "4px 12px", fontSize: 9, fontFamily: "inherit",
-        marginTop: 8, width: "100%", letterSpacing: 0.5, cursor: "pointer",
+        background: "#161b22", border: "1px solid #30363d", color: "#8b949e",
+        borderRadius: 6, padding: "8px 16px", fontSize: 10, fontFamily: "inherit",
+        marginTop: 12, width: "100%", letterSpacing: 1, cursor: "pointer",
       }}>
-        {expanded ? "COLLAPSE ▲" : "EXPAND FULL TIMELINE ▼"}
+        {expanded ? "COLLAPSE TIMELINE ▲" : "EXPAND FULL TIMELINE ▼"}
       </button>
     </div>
   );

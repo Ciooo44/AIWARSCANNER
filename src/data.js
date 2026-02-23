@@ -87,10 +87,11 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 22, 2026", event: "AIWARSCANNER launches real-time conflict monitoring dashboard", severity: "info" },
   { date: "Feb 22, 2026", event: "Trump raises US global tariff to 15% after Supreme Court ruling — economic uncertainty", severity: "elevated" },
   { date: "Feb 22, 2026", event: "Gulf states reaffirm: No military bases for US operations against Iran", severity: "high" },
-  { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — potential military action window opens", severity: "critical" },
-  { date: "Mar 7, 2026", event: "🔮 PREDICTED: Polymarket 33% probability — US strikes Iran by this date", severity: "prediction" },
-  { date: "Mar 15, 2026", event: "🔮 PREDICTED: Polymarket 42% probability — US strikes Iran by this date", severity: "prediction" },
-  { date: "Mar 31, 2026", event: "🔮 PREDICTED: Polymarket 21% probability — Khamenei out as Supreme Leader", severity: "prediction" },
+  { date: "Feb 23, 2026", event: "US-Iran Geneva talks continue — Oman confirms Thursday meeting", severity: "elevated" },
+  { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
+  { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
+  { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability (+9%) US strikes by this date", severity: "prediction" },
+  { date: "Mar 31, 2026", event: "🔮 POLYMARKET: $15M volume — 21% probability Khamenei removal / regime change", severity: "prediction" },
 ];
 
 // ── Live News Feed ─────────────────────────────────────────────
