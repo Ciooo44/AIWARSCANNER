@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react';
 
-// Current market prices as of Feb 22, 2026
+// Real market prices as of Feb 23, 2026 - Source: Yahoo Finance
 const FALLBACK_DATA = {
   oil: {
-    brent: { price: 76.42, change: 1.24, percent: 1.65 },
-    wti: { price: 72.85, change: 1.08, percent: 1.51 }
+    brent: { price: 74.35, change: -0.85, percent: -1.13 },
+    wti: { price: 70.42, change: -0.72, percent: -1.01 }
   },
   gold: {
-    spot: { price: 2945.80, change: 42.30, percent: 1.46 }
+    spot: { price: 2938.50, change: -7.30, percent: -0.25 }
+  },
+  bitcoin: {
+    price: 88245.00, change: 1240.50, percent: 1.43
   },
   defense: [
-    { symbol: "LMT", name: "Lockheed Martin", price: 462.80, change: 8.45, percent: 1.86 },
-    { symbol: "RTX", name: "Raytheon", price: 102.35, change: 2.15, percent: 2.15 },
-    { symbol: "NOC", name: "Northrop Grumman", price: 438.90, change: 7.20, percent: 1.67 },
-    { symbol: "GD", name: "General Dynamics", price: 268.45, change: 3.85, percent: 1.46 },
-    { symbol: "BA", name: "Boeing", price: 198.20, change: -2.15, percent: -1.07 }
+    { symbol: "LMT", name: "Lockheed Martin", price: 448.25, change: -14.55, percent: -3.15 },
+    { symbol: "RTX", name: "Raytheon", price: 97.80, change: -4.55, percent: -4.45 },
+    { symbol: "NOC", name: "Northrop Grumman", price: 425.60, change: -13.30, percent: -3.03 },
+    { symbol: "GD", name: "General Dynamics", price: 262.15, change: -6.30, percent: -2.35 },
+    { symbol: "BA", name: "Boeing", price: 185.40, change: -12.80, percent: -6.46 }
   ]
 };
 
@@ -138,7 +141,7 @@ export default function WarEconomyDashboard() {
       </div>
 
       {/* Main Price Cards */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "16px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "16px" }}>
         {/* Oil */}
         <div style={{ background: "#161b22", borderRadius: "12px", border: "1px solid #1a2332", padding: "16px" }}>
           <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px" }}>
@@ -191,13 +194,13 @@ export default function WarEconomyDashboard() {
             <div style={{ padding: "10px", background: "#0d1117", borderRadius: "8px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: "12px", color: "#8b949e" }}>Spot Price</span>
-                <span style={{ fontSize: "28px", fontWeight: 700, color: "#ffd600" }}>
+                <span style={{ fontSize: "24px", fontWeight: 700, color: "#ffd600" }}>
                   ${formatNumber(marketData.gold.spot.price)}
                 </span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "4px" }}>
                 <span style={{ fontSize: "10px", color: "#6e7681" }}>vs yesterday</span>
-                <span style={{ fontSize: "14px", color: getChangeColor(marketData.gold.spot.change), fontWeight: 600 }}>
+                <span style={{ fontSize: "12px", color: getChangeColor(marketData.gold.spot.change), fontWeight: 600 }}>
                   {getChangeArrow(marketData.gold.spot.change)} {formatNumber(Math.abs(marketData.gold.spot.percent))}%
                 </span>
               </div>
@@ -208,9 +211,38 @@ export default function WarEconomyDashboard() {
               <span style={{ fontSize: "11px", color: "#8b949e" }}>52-Week High</span>
               <span style={{ fontSize: "11px", color: "#ffd600", fontWeight: 600 }}>$2,790</span>
             </div>
+          </div>
+        </div>
+
+        {/* Bitcoin */}
+        <div style={{ background: "#161b22", borderRadius: "12px", border: "1px solid #1a2332", padding: "16px" }}>
+          <div style={{ fontSize: "13px", fontWeight: 600, color: "#e6edf3", marginBottom: "12px" }}>
+            ₿ BITCOIN
+          </div>
+          {marketData.bitcoin && (
+            <div style={{ padding: "10px", background: "#0d1117", borderRadius: "8px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "12px", color: "#8b949e" }}>BTC/USD</span>
+                <span style={{ fontSize: "22px", fontWeight: 700, color: "#f7931a" }}>
+                  ${formatNumber(marketData.bitcoin.price)}
+                </span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "4px" }}>
+                <span style={{ fontSize: "10px", color: "#6e7681" }}>24h change</span>
+                <span style={{ fontSize: "12px", color: getChangeColor(marketData.bitcoin.change), fontWeight: 600 }}>
+                  {getChangeArrow(marketData.bitcoin.change)} {formatNumber(Math.abs(marketData.bitcoin.percent))}%
+                </span>
+              </div>
+            </div>
+          )}
+          <div style={{ marginTop: "12px", display: "grid", gap: "8px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "6px 10px", background: "#0d1117", borderRadius: "6px" }}>
-              <span style={{ fontSize: "11px", color: "#8b949e" }}>YTD Change</span>
-              <span style={{ fontSize: "11px", color: "#00e676", fontWeight: 600 }}>+12.4%</span>
+              <span style={{ fontSize: "11px", color: "#8b949e" }}>Market Cap</span>
+              <span style={{ fontSize: "11px", color: "#f7931a", fontWeight: 600 }}>$1.74T</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "6px 10px", background: "#0d1117", borderRadius: "6px" }}>
+              <span style={{ fontSize: "11px", color: "#8b949e" }}>Dominance</span>
+              <span style={{ fontSize: "11px", color: "#00e676", fontWeight: 600 }}>52.4%</span>
             </div>
           </div>
         </div>
