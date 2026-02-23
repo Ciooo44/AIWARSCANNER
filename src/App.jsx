@@ -300,7 +300,7 @@ function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
           )}
         </div>
         <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
-          {["all", "military", "diplomacy", "analysis", "intelligence"].map(f => (
+          {["all", "military", "diplomacy", "analysis", "intelligence", "economic"].map(f => (
             <button key={f} onClick={() => onFilterChange(f)} style={{
               background: filter === f ? "#21262d" : "transparent",
               border: `1px solid ${filter === f ? (CATEGORY_COLORS[f] || "#30363d") : "#1a2332"}`,
