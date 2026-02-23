@@ -658,8 +658,8 @@ export default function App({ navigateTo }) {
           <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
 
-        {/* Satellite Imagery Tracker */}
-        <SatelliteTracker />
+        {/* Prediction Markets — POLYMARKET */}
+        <PredictionMarkets />
 
         {/* News + Timeline/Forces — two column */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
@@ -685,8 +685,8 @@ export default function App({ navigateTo }) {
         {/* Strike Scenario Simulator */}
         <StrikeScenarioSimulator />
 
-        {/* Prediction Markets */}
-        <PredictionMarkets />
+        {/* Satellite Imagery Tracker */}
+        <SatelliteTracker />
 
         {/* Live Flight Radar */}
         <LiveFlightRadar />
