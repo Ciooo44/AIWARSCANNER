@@ -96,21 +96,21 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
-  { time: "JUST NOW", source: "The New Arab", title: "🚨 BREAKING: Regional sources report heightened military activity near Iran border — potential strike preparations underway", category: "military", url: "https://x.com/The_NewArab/status/2025920604805701710" },
-  { time: "5m ago", source: "Reuters", title: "Blinken arrives in Qatar for emergency consultations on Iran crisis — meeting with Al Thani in Doha", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
-  { time: "12m ago", source: "Al Jazeera", title: "IRGC conducts overnight missile drills near Natanz — satellite imagery shows increased activity", category: "military", url: "https://www.aljazeera.com/news/" },
-  { time: "18m ago", source: "BBC", title: "Russia warns US against 'dangerous escalation' — Lavrov: 'Iran strike would destabilize entire region'", category: "diplomacy", url: "https://www.bbc.com/news/world/middle_east" },
-  { time: "25m ago", source: "CNN", title: "🚨 DEFCON level raised at CENTCOM bases — personnel recall ordered for weekend", category: "military", url: "https://www.cnn.com/politics" },
-  { time: "32m ago", source: "Washington Post", title: "Iran dispatches Revolutionary Guard to nuclear sites — civilian evacuations reported near Fordow", category: "military", url: "https://www.washingtonpost.com/world/" },
-  { time: "45m ago", source: "Financial Times", title: "Oil traders brace for weekend volatility — Brent futures surge on strike speculation", category: "economic", url: "https://www.ft.com" },
+  { time: "⚡ BREAKING", source: "Intelligence Report", title: "🚨🚨🚨 USS GERALD R. FORD APPROACHING ISRAEL — Second carrier strike group closing on Israeli coast, strike capability doubled", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
+  { time: "JUST NOW", source: "Die Welt", title: "🇩🇪 Iran warns of 'full force' response — Tehran: Even 'limited' attack will be answered with full harshness", category: "diplomacy", url: "https://www.welt.de/politik/ausland/article699c3ec8ee35d0f0647c4a06/iran-usa-konflikt-teheran-warnt-vor-voller-haerte-bei-jedem-angriff.html" },
+  { time: "2m ago", source: "The New Arab", title: "Regional sources report heightened military activity near Iran border — potential strike preparations underway", category: "military", url: "https://x.com/The_NewArab/status/2025920604805701710" },
+  { time: "8m ago", source: "Reuters", title: "Blinken arrives in Qatar for emergency consultations on Iran crisis — meeting with Al Thani in Doha", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "15m ago", source: "Al Jazeera", title: "IRGC conducts overnight missile drills near Natanz — satellite imagery shows increased activity", category: "military", url: "https://www.aljazeera.com/news/" },
+  { time: "22m ago", source: "BBC", title: "Russia warns US against 'dangerous escalation' — Lavrov: 'Iran strike would destabilize entire region'", category: "diplomacy", url: "https://www.bbc.com/news/world/middle_east" },
+  { time: "30m ago", source: "CNN", title: "DEFCON level raised at CENTCOM bases — personnel recall ordered for weekend", category: "military", url: "https://www.cnn.com/politics" },
+  { time: "38m ago", source: "Washington Post", title: "Iran dispatches Revolutionary Guard to nuclear sites — civilian evacuations reported near Fordow", category: "military", url: "https://www.washingtonpost.com/world/" },
+  { time: "50m ago", source: "Financial Times", title: "Oil traders brace for weekend volatility — Brent futures surge on strike speculation", category: "economic", url: "https://www.ft.com" },
   { time: "1h ago", source: "BBC", title: "Trump 'curious why Iran has not capitulated' — US envoy Witkoff says president puzzled by lack of compromise", category: "diplomacy", url: "https://www.bbc.com/news/articles/cn5gk15rr70o" },
-  { time: "1h ago", source: "Al Jazeera", title: "Iran students stage first large anti-government protests since deadly crackdown — thousands honour those killed", category: "protest", url: "https://www.aljazeera.com/where/middle-east/" },
-  { time: "2h ago", source: "Reuters", title: "Geneva talks continue: Iran insists on 'nuclear only' negotiations while US demands broader concessions", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
-  { time: "3h ago", source: "Wall Street Journal", title: "B-2 stealth bombers repositioned to Diego Garcia as US intensifies preparations for potential strikes", category: "military", url: "https://www.wsj.com" },
-  { time: "4h ago", source: "CNN", title: "🚨 Pentagon: All military assets for potential Iran operation will be in place by March 15 deadline", category: "military", url: "https://www.cnn.com/world/americas" },
-  { time: "5h ago", source: "BBC", title: "Seven scenarios if US strikes Iran: From regime change to regional war — analysis by Frank Gardner", category: "analysis", url: "https://www.bbc.com/news/articles/ce3kenge1k9o" },
-  { time: "6h ago", source: "Al Jazeera", title: "Oman confirms US-Iran talks will continue in Geneva Thursday as mediators push for breakthrough", category: "diplomacy", url: "https://www.aljazeera.com/news/2026/2/22/oman-confirms-us-iran-talks-geneva-thursday" },
-  { time: "8h ago", source: "Reuters", title: "Strait of Hormuz: Iran tests naval mines and anti-ship missiles in provocative display of force", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "2h ago", source: "Wall Street Journal", title: "B-2 stealth bombers repositioned to Diego Garcia as US intensifies preparations for potential strikes", category: "military", url: "https://www.wsj.com" },
+  { time: "3h ago", source: "CNN", title: "Pentagon: All military assets for potential Iran operation will be in place by March 15 deadline", category: "military", url: "https://www.cnn.com/world/americas" },
+  { time: "4h ago", source: "Al Jazeera", title: "Oman confirms US-Iran talks will continue in Geneva Thursday as mediators push for breakthrough", category: "diplomacy", url: "https://www.aljazeera.com/news/2026/2/22/oman-confirms-us-iran-talks-geneva-thursday" },
+  { time: "5h ago", source: "Reuters", title: "Strait of Hormuz: Iran tests naval mines and anti-ship missiles in provocative display of force", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "6h ago", source: "BBC", title: "Seven scenarios if US strikes Iran: From regime change to regional war — analysis", category: "analysis", url: "https://www.bbc.com/news/articles/ce3kenge1k9o" },
 ];
 
 // ── Key Actors ─────────────────────────────────────────────────

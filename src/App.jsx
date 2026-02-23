@@ -287,31 +287,31 @@ function AssetDetail({ asset, onClose }) {
 function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
   const filtered = filter === "all" ? news : news.filter(n => n.category === filter);
   return (
-    <div style={{ background: "#0d1117", padding: 16, minHeight: 400 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 6 }}>
+    <div style={{ background: "#0d1117", padding: 20, minHeight: 500 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 8 }}>
         <div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#e6edf3", letterSpacing: 2 }}>
             ◆ {isLive ? '🔴 LIVE' : '📋 CACHED'} INTELLIGENCE FEED
           </div>
           {isLive && lastUpdated && (
-            <div style={{ fontSize: 8, color: "#00e676", marginTop: 2 }}>
+            <div style={{ fontSize: 10, color: "#00e676", marginTop: 4 }}>
               Updated: {new Date(lastUpdated).toLocaleTimeString()}
             </div>
           )}
         </div>
-        <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
           {["all", "military", "diplomacy", "analysis", "intelligence", "economic"].map(f => (
             <button key={f} onClick={() => onFilterChange(f)} style={{
               background: filter === f ? "#21262d" : "transparent",
               border: `1px solid ${filter === f ? (CATEGORY_COLORS[f] || "#30363d") : "#1a2332"}`,
               color: filter === f ? (CATEGORY_COLORS[f] || "#e6edf3") : "#6e7681",
-              borderRadius: 3, padding: "3px 8px", fontSize: 9, fontFamily: "inherit",
+              borderRadius: 4, padding: "4px 10px", fontSize: 10, fontFamily: "inherit",
               textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer",
             }}>{f}</button>
           ))}
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2, maxHeight: 450, overflow: "auto" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 4, maxHeight: 600, overflow: "auto" }}>
         {filtered.map((n, i) => (
           <a 
             key={i}
@@ -319,10 +319,10 @@ function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              padding: "10px 12px",
-              background: i === 0 ? "#161b2280" : "transparent",
-              borderLeft: `2px solid ${CATEGORY_COLORS[n.category] || "#30363d"}`,
-              borderRadius: "0 4px 4px 0",
+              padding: "14px 16px",
+              background: i === 0 ? "#ff174410" : "transparent",
+              borderLeft: `3px solid ${CATEGORY_COLORS[n.category] || "#30363d"}`,
+              borderRadius: "0 6px 6px 0",
               textDecoration: "none",
               display: "block",
               transition: "all 0.2s",
@@ -332,25 +332,25 @@ function NewsFeed({ news, filter, onFilterChange, isLive, lastUpdated }) {
               e.currentTarget.style.background = "#21262d";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = i === 0 ? "#161b2280" : "transparent";
+              e.currentTarget.style.background = i === 0 ? "#ff174410" : "transparent";
             }}
           >
-            <div style={{ fontSize: 11, color: "#e6edf3", lineHeight: 1.4, fontWeight: i === 0 ? 600 : 400 }}>
+            <div style={{ fontSize: 13, color: "#e6edf3", lineHeight: 1.5, fontWeight: i === 0 ? 700 : 500 }}>
               {n.title}
-              <span style={{ marginLeft: 6, fontSize: 10, opacity: 0.6 }}>↗</span>
+              <span style={{ marginLeft: 8, fontSize: 12, opacity: 0.6 }}>↗</span>
             </div>
-            <div style={{ display: "flex", gap: 8, marginTop: 4, alignItems: "center", flexWrap: "wrap" }}>
-              <span style={{ fontSize: 9, color: CATEGORY_COLORS[n.category], textTransform: "uppercase", letterSpacing: 0.5 }}>
+            <div style={{ display: "flex", gap: 10, marginTop: 6, alignItems: "center", flexWrap: "wrap" }}>
+              <span style={{ fontSize: 10, color: CATEGORY_COLORS[n.category], textTransform: "uppercase", letterSpacing: 0.5, fontWeight: 600 }}>
                 {n.category}
               </span>
-              <span style={{ fontSize: 9, color: "#6e7681" }}>{n.source}</span>
-              <span style={{ fontSize: 9, color: "#484f58" }}>{n.time}</span>
+              <span style={{ fontSize: 10, color: "#6e7681", fontWeight: 500 }}>{n.source}</span>
+              <span style={{ fontSize: 10, color: "#8b949e", fontWeight: 600 }}>{n.time}</span>
               {i === 0 && (
                 <span style={{
-                  fontSize: 8, padding: "2px 6px", background: "#ff174420",
-                  color: "#ff1744", borderRadius: 3, border: "1px solid #ff174440",
-                  animation: "blink 2s infinite", letterSpacing: 0.5,
-                }}>BREAKING</span>
+                  fontSize: 9, padding: "3px 8px", background: "#ff174420",
+                  color: "#ff1744", borderRadius: 4, border: "1px solid #ff174440",
+                  animation: "blink 2s infinite", letterSpacing: 0.5, fontWeight: 700,
+                }}>🔴 BREAKING</span>
               )}
             </div>
           </a>
