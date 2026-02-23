@@ -60,84 +60,84 @@ const CARTEL_GROUPS = [
 
 const MEXICO_NEWS = [
   {
-    time: "15m ago",
-    source: "Al Jazeera",
-    title: "🔴 BURNED VEHICLES: Highway to Guadalajara World Cup stadium littered with torched buses and trucks — CJNG suspected",
-    category: "conflict",
-    urgent: true,
-    url: "https://www.aljazeera.com/where/mexico/"
-  },
-  {
-    time: "35m ago",
-    source: "Reuters",
-    title: "Trump orders 3,000 additional National Guard troops to Texas-Mexico border as cartel violence spills over",
-    category: "military",
-    urgent: true,
-    url: "https://www.reuters.com/world/americas/"
-  },
-  {
     time: "1h ago",
-    source: "El Universal",
-    title: "Sinaloa Cartel ambushes Mexican Army convoy near Culiacán — 8 soldiers killed, 12 injured",
-    category: "conflict",
-    urgent: true,
-    url: "https://www.eluniversal.com.mx/"
+    source: "Al Jazeera",
+    title: "Mexico's President Sheinbaum laments US oil block on Cuba — says it harms the people Washington claims to want to help",
+    category: "diplomacy",
+    urgent: false,
+    url: "https://www.aljazeera.com/where/mexico/"
   },
   {
     time: "2h ago",
     source: "BBC",
-    title: "CJNG launches coordinated attacks across 15 municipalities in Michoacán — state of emergency declared",
+    title: "Five employees of Canadian mine found dead in Mexico — authorities working to identify five other bodies after 10 workers kidnapped",
     category: "conflict",
     urgent: true,
     url: "https://www.bbc.com/news/world/latin_america"
   },
   {
     time: "3h ago",
-    source: "CNN",
-    title: "Mexican President Sheinbaum deploys 5,000 troops to Tijuana border amid surge in cartel warfare",
-    category: "military",
+    source: "Al Jazeera",
+    title: "Mexico promises food support for Cuba as US stifles the island's fuel supply — Sheinbaum negotiating with US after Trump tariff threats",
+    category: "diplomacy",
     urgent: false,
+    url: "https://www.aljazeera.com/news/"
+  },
+  {
+    time: "5h ago",
+    source: "Reuters",
+    title: "Mexico's tariffs on India devastate several Indian industries already reeling under crushing US tariffs — double economic blow",
+    category: "economy",
+    urgent: false,
+    url: "https://www.reuters.com/world/americas/"
+  },
+  {
+    time: "8h ago",
+    source: "CNN",
+    title: "Sinaloa Cartel intensifies operations near Culiacán — Mexican Army reports 12-hour gun battle, multiple casualties",
+    category: "conflict",
+    urgent: true,
     url: "https://www.cnn.com/world/americas"
   },
   {
-    time: "4h ago",
+    time: "12h ago",
     source: "Washington Post",
-    title: "US Homeland Security elevates travel warning — 'Do not travel' advisory for 6 northern Mexico states",
-    category: "diplomacy",
+    title: "UN agency warns of 'sharp increase' in measles cases in the Americas — Mexico reported thousands of cases threatening elimination status",
+    category: "health",
     urgent: false,
     url: "https://www.washingtonpost.com/world/"
   },
   {
-    time: "5h ago",
+    time: "14h ago",
     source: "Associated Press",
-    title: "DEA confirms: Mexican cartels now using AI-generated deepfakes to extort families of migrants in US",
-    category: "intelligence",
-    urgent: true,
+    title: "Cuba in contact with US as Trump issues threat to block oil — Mexican diplomacy attempts to mediate crisis",
+    category: "diplomacy",
+    urgent: false,
     url: "https://apnews.com/hub/mexico"
   },
   {
-    time: "6h ago",
-    source: "Al Jazeera",
-    title: "EXCLUSIVE: Cartels deploying drone-dropped IEDs against military checkpoints — game-changing tactic",
+    time: "16h ago",
+    source: "El Universal",
+    title: "CJNG expands territory in Jalisco — authorities discover clandestine laboratory with 2 tons of fentanyl precursors",
     category: "intelligence",
     urgent: true,
-    url: "https://www.aljazeera.com/news/"
+    url: "https://www.eluniversal.com.mx/"
   },
   {
-    time: "8h ago",
+    time: "18h ago",
+    source: "BBC",
+    title: "Ex-Newcastle winger Allan Saint-Maximin quits Mexican club Club America after children face racist attacks",
+    category: "sports",
+    urgent: false,
+    url: "https://www.bbc.com/news/world/latin_america"
+  },
+  {
+    time: "1d ago",
     source: "Los Angeles Times",
-    title: "Analysis: Sinaloa vs CJNG — The war for fentanyl routes to US reaches unprecedented violence levels",
+    title: "Border crossings from Mexico to US drop 40% as cartel violence in northern states escalates",
     category: "analysis",
     urgent: false,
     url: "https://www.latimes.com/world-nation/"
-  },
-  {
-    time: "10h ago",
-    source: "El País",
-    title: "Mayor of small town in Guanajuato assassinated — third municipal official killed this week in cartel-hit region",
-    category: "conflict",
-    urgent: true,
-    url: "https://elpais.com/mexico/"
   }
 ];
 

@@ -95,21 +95,21 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
-  { time: "NOW", source: "CNN", title: "🚨 BREAKING: US military prepared to strike Iran as early as THIS WEEKEND — White House briefed", category: "military", url: "https://cnn.com" },
-  { time: "1h ago", source: "Al Jazeera", title: "Tracking the rapid US military build-up near Iran — full asset breakdown", category: "military", url: "https://aljazeera.com" },
-  { time: "3h ago", source: "NBC News", title: "US pushes more weaponry into Middle East for possible strikes on Iran", category: "military", url: "https://nbcnews.com" },
-  { time: "5h ago", source: "Bloomberg", title: "Trump tells reporters: Iran has 10 to 'pretty much maximum' 15 days to reach a deal", category: "diplomacy", url: "https://bloomberg.com" },
-  { time: "7h ago", source: "Reuters", title: "Araghchi says 'some progress' made in Geneva but no imminent nuclear deal", category: "diplomacy", url: "https://reuters.com" },
-  { time: "9h ago", source: "Wall Street Journal", title: "US amasses greatest airpower buildup in Middle East since 2003 invasion of Iraq", category: "military", url: "https://wsj.com" },
-  { time: "10h ago", source: "Axios", title: "Analysis: No signs of a breakthrough in negotiations — war looks most likely option", category: "analysis", url: "https://axios.com" },
-  { time: "14h ago", source: "CNN", title: "Iran temporarily closes Strait of Hormuz for IRGC military drills", category: "military", url: "https://cnn.com" },
-  { time: "18h ago", source: "Washington Post", title: "Gulf states warn US: Iran retains short-range ballistic missiles that could strike bases", category: "intelligence", url: "https://washingtonpost.com" },
-  { time: "1d ago", source: "Critical Threats", title: "Iran regime conducting diplomatic, informational & military effort to prevent US action", category: "analysis", url: "https://criticalthreats.org" },
-  { time: "1d ago", source: "CFR", title: "All US military forces required for possible action to be in place by mid-March", category: "military", url: "https://cfr.org" },
-  { time: "2d ago", source: "BBC", title: "European leaders suggest Iran's leadership in its 'final days and weeks'", category: "diplomacy", url: "https://bbc.com" },
-  { time: "2d ago", source: "New York Times", title: "UAE tells Washington: We will not allow military ops from our territory", category: "diplomacy", url: "https://nytimes.com" },
-  { time: "3d ago", source: "Reuters", title: "India seizes vessels linked to illicit Iranian oil shipments under sanctions pressure", category: "intelligence", url: "https://reuters.com" },
-  { time: "3d ago", source: "IISS", title: "Iran has built multilayered defense: mines, missiles, submarines, drones around Hormuz", category: "analysis", url: "https://iiss.org" },
+  { time: "2h ago", source: "BBC", title: "Trump 'curious why Iran has not capitulated' — US envoy Witkoff says president puzzled by lack of compromise despite major US military build-up", category: "diplomacy", url: "https://www.bbc.com/news/articles/cn5gk15rr70o" },
+  { time: "3h ago", source: "Al Jazeera", title: "Iran students stage first large anti-government protests since deadly crackdown — thousands honour those killed", category: "protest", url: "https://www.aljazeera.com/where/middle-east/" },
+  { time: "5h ago", source: "BBC", title: "US ambassador Huckabee's Israel expansion comments condemned by Arab and Muslim nations — suggested Biblical grounds for territorial claims", category: "diplomacy", url: "https://www.bbc.com/news/articles/cn5gkkgdzkyo" },
+  { time: "7h ago", source: "Reuters", title: "Geneva talks continue: Iran insists on 'nuclear only' negotiations while US demands broader concessions", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "10h ago", source: "BBC", title: "Seven scenarios if US strikes Iran: From regime change to regional war — analysis by Frank Gardner", category: "analysis", url: "https://www.bbc.com/news/articles/ce3kenge1k9o" },
+  { time: "12h ago", source: "Al Jazeera", title: "Oman confirms US-Iran talks will continue in Geneva Thursday as mediators push for breakthrough", category: "diplomacy", url: "https://www.aljazeera.com/news/2026/2/22/oman-confirms-us-iran-talks-geneva-thursday" },
+  { time: "14h ago", source: "CNN", title: "🚨 Pentagon: All military assets for potential Iran operation will be in place by March 15 deadline", category: "military", url: "https://www.cnn.com/world/americas" },
+  { time: "18h ago", source: "Wall Street Journal", title: "B-2 stealth bombers repositioned to Diego Garcia as US intensifies preparations for potential strikes", category: "military", url: "https://www.wsj.com" },
+  { time: "1d ago", source: "Washington Post", title: "European allies split on Iran strategy — Germany, France push diplomacy while UK signals support for US", category: "diplomacy", url: "https://www.washingtonpost.com/world/" },
+  { time: "1d ago", source: "Reuters", title: "Strait of Hormuz: Iran tests naval mines and anti-ship missiles in provocative display of force", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "2d ago", source: "Al Jazeera", title: "Analysis: Can a nuclear deal be reached before Trump deadline? Experts weigh scenarios", category: "analysis", url: "https://www.aljazeera.com/news/2026/2/22/analysis-iran-nuclear-deal-trump-deadline" },
+  { time: "2d ago", source: "BBC", title: "Iran's Supreme Leader Khamenei: 'We are prepared for all scenarios' — defiant message to Washington", category: "diplomacy", url: "https://www.bbc.com/news/world/middle_east" },
+  { time: "2d ago", source: "New York Times", title: "Saudi Arabia walks tightrope: Public calls for peace while privately coordinating with US on contingency plans", category: "intelligence", url: "https://www.nytimes.com" },
+  { time: "3d ago", source: "Associated Press", title: "Israeli officials: IDF on highest alert since October 2023, estimates 2-week window for potential Iran action", category: "military", url: "https://apnews.com/hub/middle-east" },
+  { time: "3d ago", source: "Critical Threats", title: "Iran's proxy network on standby: Hezbollah, Houthis, Iraqi militias prepare for escalation scenario", category: "intelligence", url: "https://www.criticalthreats.org" },
 ];
 
 // ── Key Actors ─────────────────────────────────────────────────
