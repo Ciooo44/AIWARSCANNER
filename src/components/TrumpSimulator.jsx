@@ -125,7 +125,7 @@ Nuclear: ${outcome.nuclear}
 Verdict: "${outcome.verdict}"
 
 What would YOU do?
-aiwarscanner.vercel.app
+warscan.xyz
 
 $WSCN 🔴`;
 
@@ -614,7 +614,7 @@ $WSCN 🔴`;
             fontSize: 11,
             color: "#484f58"
           }}>
-            $WSCN — aiwarscanner.vercel.app
+            $WSCN — warscan.xyz
           </div>
         </div>
       </div>
