@@ -101,6 +101,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
+  { time: "🚨 BREAKING", source: "Iranian State Media", title: "🚨🇮🇷🇺🇸 IRAN SAYS NO: No to dismantling Fordow. No to shutting down Natanz. No to touching Isfahan Nuclear Center. Total rejection of US demands.", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "🔥 BREAKING", source: "BBC", title: "US-Iran talks end after 'significant progress' — Geneva mediator says indirect negotiations concluded", category: "diplomacy", url: "https://www.bbc.com/news/articles/cvg1vd95nl9o" },
   { time: "⚡ JUST IN", source: "BBC", title: "US embassy to provide passport services at West Bank settlements — Palestinian Authority condemns move", category: "diplomacy", url: "https://www.bbc.com/news/articles/cx2g78k148eo" },
   { time: "15m ago", source: "Al Jazeera", title: "What is Greater Israel, and how popular is it among Israelis? — US and Israeli comments trigger regional concerns", category: "analysis", url: "https://www.aljazeera.com/news/2026/2/26/what-is-greater-israel-and-how-popular-is-it-among-israelis" },
