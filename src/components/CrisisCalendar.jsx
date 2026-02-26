@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CRISIS_DATES = [
   {
-    date: "2026-02-24",
+    date: "2026-02-26",
     label: "TODAY",
-    title: "Feb 24: Protests spread, Lebanon embassy evacuating",
-    details: "Anti-government protests spread to Iranian universities. US Embassy Lebanon partially evacuating. USS Ford at Haifa. Israeli strikes kill 10+ in Lebanon.",
+    title: "🚨 IRAN SAID NO — Nuclear talks collapsed",
+    details: "Geneva talks ended. Iran REJECTED all demands: Fordow stays open, Natanz stays open, Isfahan stays open. Diplomatic path closed. Military option now primary.",
     status: "active",
     color: "#ff1744",
-    icon: "📍",
+    icon: "❌",
   },
   {
     date: "2026-02-27",
     label: "THU FEB 27",
-    title: "Geneva Nuclear Talks — Round 3",
-    details: "Last-ditch negotiations mediated by Oman. US led by envoy Steve Witkoff. Iran by FM Araghchi. If Iran's proposal is rejected, strikes could follow within days.",
-    status: "critical",
-    color: "#ff1744",
-    icon: "🕊️",
+    title: "Geneva Nuclear Talks — FAILED",
+    details: "Talks concluded with no agreement. Iran refused to dismantle Fordow, shut down Natanz, or halt activities at Isfahan. US: 'Significant progress' but no deal. War risk EXTREME.",
+    status: "past",
+    color: "#484f58",
+    icon: "💥",
   },
   {
     date: "2026-03-01",
@@ -76,42 +76,14 @@ const CRISIS_DATES = [
 ];
 
 const STRIKE_WINDOWS = [
-  { period: "This week (Feb 24-27)", probability: 25, bars: 4 },
-  { period: "Next week (Mar 1-7)", probability: 45, bars: 7, peak: true },
-  { period: "Mid-March (Mar 8-15)", probability: 20, bars: 3 },
-  { period: "Post-Ramadan (Apr 27+)", probability: 10, bars: 2 },
+  { period: "This week (Feb 26-28)", probability: 35, bars: 6 },
+  { period: "Next week (Mar 1-7)", probability: 55, bars: 9, peak: true },
+  { period: "Mid-March (Mar 8-15)", probability: 15, bars: 3 },
+  { period: "Post-Ramadan (Apr 27+)", probability: 5, bars: 1 },
 ];
 
 export default function CrisisCalendar() {
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  
-  // Find next critical event
-  const nextEvent = CRISIS_DATES.find(d => d.status === 'critical' || d.status === 'upcoming');
-  
-  useEffect(() => {
-    if (!nextEvent) return;
-    
-    const targetDate = new Date(nextEvent.date + "T00:00:00Z");
-    
-    const updateCountdown = () => {
-      const now = new Date();
-      const diff = targetDate - now;
-      
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        setCountdown({ days, hours, minutes, seconds });
-      }
-    };
-    
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, [nextEvent]);
 
   return (
     <div style={{ background: "#0d1117", padding: 24, borderBottom: "2px solid #1a2332" }}>
@@ -125,59 +97,31 @@ export default function CrisisCalendar() {
         </div>
       </div>
 
-      {/* Next Critical Event Countdown */}
-      {nextEvent && (
-        <div style={{
-          background: "linear-gradient(135deg, #ff174420 0%, #ff6d0020 100%)",
-          borderRadius: 16,
-          padding: 24,
-          marginBottom: 24,
-          border: "1px solid #ff174440",
-          textAlign: "center"
-        }}>
-          <div style={{ fontSize: 12, color: "#ff6d00", marginBottom: 12, fontWeight: 600, letterSpacing: 1 }}>
-            {nextEvent.icon} NEXT CRITICAL EVENT
-          </div>
-          <div style={{ fontSize: 24, fontWeight: 800, color: "#ff1744", marginBottom: 16 }}>
-            {nextEvent.title.split(" — ")[0]}
-          </div>
-          
-          {/* Countdown Timer */}
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 16,
-            marginBottom: 16
-          }}>
-            {[
-              { val: countdown.days, label: "DAYS" },
-              { val: countdown.hours, label: "HRS" },
-              { val: countdown.minutes, label: "MIN" },
-              { val: countdown.seconds, label: "SEC" }
-            ].map((item, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div style={{
-                  fontSize: 32,
-                  fontWeight: 700,
-                  color: "#e6edf3",
-                  background: "#0d1117",
-                  padding: "8px 16px",
-                  borderRadius: 8,
-                  border: "1px solid #ff174440",
-                  minWidth: 60
-                }}>
-                  {String(item.val).padStart(2, '0')}
-                </div>
-                <div style={{ fontSize: 9, color: "#8b949e", marginTop: 4 }}>{item.label}</div>
-              </div>
-            ))}
-          </div>
-          
-          <div style={{ fontSize: 13, color: "#c9d1d9", maxWidth: 600, margin: "0 auto", lineHeight: 1.5 }}>
-            {nextEvent.details}
-          </div>
+      {/* Iran Said No Alert */}
+      <div style={{
+        background: "linear-gradient(135deg, #ff1744 0%, #8b0000 100%)",
+        borderRadius: 16,
+        padding: 24,
+        marginBottom: 24,
+        border: "2px solid #ff6d00",
+        textAlign: "center"
+      }}>
+        <div style={{ fontSize: 14, color: "#fff", marginBottom: 8, fontWeight: 800, letterSpacing: 2 }}>
+          🚨 GENEVA TALKS COLLAPSED
         </div>
-      )}
+        <div style={{ fontSize: 28, fontWeight: 900, color: "#ffd600", marginBottom: 16 }}>
+          IRAN SAID NO
+        </div>
+        <div style={{ fontSize: 16, color: "#fff", marginBottom: 12, fontWeight: 600 }}>
+          ❌ NO to dismantling Fordow<br/>
+          ❌ NO to shutting down Natanz<br/>
+          ❌ NO to touching Isfahan
+        </div>
+        <div style={{ fontSize: 13, color: "#ffcccc", maxWidth: 600, margin: "0 auto", lineHeight: 1.5 }}>
+          Diplomatic path CLOSED. All nuclear facilities remain operational. 
+          Military option now primary. Strike window: March 1-7.
+        </div>
+      </div>
 
       {/* Timeline */}
       <div style={{ marginBottom: 24, overflow: "auto" }}>
