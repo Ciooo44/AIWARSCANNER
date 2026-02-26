@@ -5,19 +5,8 @@ const POLYMARKET_BETS = [
   {
     id: 1,
     question: "US strikes Iran by March 7?",
-    probability: 33,
-    volume: "$355M",
-    trend: "up",
-    change: "+5%",
-    url: "https://polymarket.com/event/us-strikes-iran-by",
-    category: "STRIKE TIMING",
-    icon: "🎯"
-  },
-  {
-    id: 2,
-    question: "US strikes Iran by March 15?",
-    probability: 42,
-    volume: "$355M",
+    probability: 41,
+    volume: "$378M",
     trend: "up",
     change: "+8%",
     url: "https://polymarket.com/event/us-strikes-iran-by",
@@ -25,12 +14,23 @@ const POLYMARKET_BETS = [
     icon: "🎯"
   },
   {
+    id: 2,
+    question: "US strikes Iran by March 15?",
+    probability: 52,
+    volume: "$378M",
+    trend: "up",
+    change: "+10%",
+    url: "https://polymarket.com/event/us-strikes-iran-by",
+    category: "STRIKE TIMING",
+    icon: "🎯"
+  },
+  {
     id: 3,
     question: "Khamenei out by March 31?",
-    probability: 21,
-    volume: "$15M",
-    trend: "stable",
-    change: "0%",
+    probability: 24,
+    volume: "$18M",
+    trend: "up",
+    change: "+3%",
     url: "https://polymarket.com/event/khamenei-out-as-supreme-leader-of-iran-by-march-31",
     category: "REGIME CHANGE",
     icon: "👑"
@@ -38,10 +38,10 @@ const POLYMARKET_BETS = [
   {
     id: 4,
     question: "Iran closes Strait of Hormuz >7 days?",
-    probability: 28,
-    volume: "$12M",
+    probability: 35,
+    volume: "$15M",
     trend: "up",
-    change: "+4%",
+    change: "+7%",
     url: "https://polymarket.com/event/hormuz",
     category: "HORMUZ",
     icon: "🌊"
@@ -49,8 +49,8 @@ const POLYMARKET_BETS = [
   {
     id: 5,
     question: "Israel strikes Iran independently?",
-    probability: 38,
-    volume: "$8M",
+    probability: 44,
+    volume: "$12M",
     trend: "up",
     change: "+6%",
     url: "https://polymarket.com/event/israel-iran",
