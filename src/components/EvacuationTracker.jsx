@@ -3,6 +3,18 @@
 
 const EVACUATIONS = [
   {
+    id: "china-evac",
+    country: "🇨🇳 CHINA",
+    flag: "CN",
+    location: "Iran — All Chinese citizens",
+    status: "LEAVE IMMEDIATELY",
+    statusColor: "#ff0000",
+    date: "Feb 27, 2026",
+    details: "BREAKING: Beijing orders ALL citizens to immediately evacuate Iran. China joins global evacuation wave. This is a MAJOR escalation signal — China rarely issues such urgent evacuation orders. War imminent.",
+    source: "Chinese State Media / MFA",
+    severity: "critical",
+  },
+  {
     id: "global-wave",
     country: "🌍 15+ COUNTRIES",
     flag: "UN",

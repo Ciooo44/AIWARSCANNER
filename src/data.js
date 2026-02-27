@@ -96,6 +96,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 27, 2026", event: "🚨 MASSIVE US AIRLIFT: Dozens of C-17s and C-130s surge toward Middle East — largest since Iraq 2003", severity: "critical" },
   { date: "Feb 27, 2026", event: "💀 KHAMENEI THREATENS TRUMP: 'Death to America means death to Trump and his team' — direct call for assassination", severity: "critical" },
   { date: "Feb 27, 2026", event: "🌍 GLOBAL EVACUATION WAVE: 15+ countries (US, UK, Germany, Canada, Australia, China, India, etc.) tell citizens to LEAVE IRAN NOW", severity: "critical" },
+  { date: "Feb 27, 2026", event: "🇨🇳 CHINA JOINS EVACUATION: Beijing orders all citizens to immediately evacuate Iran — major escalation signal", severity: "critical" },
   { date: "Feb 27, 2026", event: "🏠 ISRAEL OPENS ALL PUBLIC SHELTERS: Be'er Sheva deputy mayor warns 'could unfold this weekend'", severity: "critical" },
   { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
@@ -105,7 +106,8 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
-  { time: "🌍🚨 BREAKING", source: "FCDO / State Dept / Multiple", title: "🌍 GLOBAL EVACUATION WAVE: 15+ countries tell citizens to GET OUT OF IRAN NOW — Australia, Brazil, Canada, China, Germany, India, Poland, UK, US, and more. Coordinated rush before war.", category: "military", url: "https://www.bbc.com/news/world/middle-east" },
+  { time: "🇨🇳🚨 BREAKING", source: "China / State Media", title: "🇨🇳 CHINA ORDERS CITIZENS TO IMMEDIATELY EVACUATE IRAN — Beijing joins global evacuation wave, tells all citizens to leave now", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "🌍🚨 BREAKING", source: "FCDO / State Dept / Multiple", title: "🌍 GLOBAL EVACUATION WAVE: 15+ countries tell citizens to GET OUT OF IRAN NOW — Australia, Brazil, Canada, China, Germany, India, Poland, UK, US, and more. Coordinated rush before war.", category: "military", url: "https://www.bbc.com/news/world/middle-east" },"FCDO / State Dept / Multiple", title: "🌍 GLOBAL EVACUATION WAVE: 15+ countries tell citizens to GET OUT OF IRAN NOW — Australia, Brazil, Canada, China, Germany, India, Poland, UK, US, and more. Coordinated rush before war.", category: "military", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "💀🚨 BREAKING", source: "Iran State Media / Khamenei", title: "💀 KHAMENEI CALLS FOR TRUMP'S DEATH: 'Death to America means death to Trump and his team' — Supreme Leader's direct threat to US President", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "✈️🚨 JUST IN", source: "@sentdefender / OSINT", title: "✈️ INTENSE AIRLIFT OVER EUROPE: 10 C-17 Globemaster IIIs + 1 C-5 Super Galaxy active in the air — Part of growing US military buildup tied to Iran tensions", category: "military", url: "https://twitter.com/sentdefender" },
   { time: "🔥 BREAKING", source: "BBC", title: "Trump keeps world waiting on his plans for Iran after State of the Union — Thursday Geneva talks could be decisive", category: "diplomacy", url: "https://www.bbc.com/news/articles/cge821xwyz8o" },
