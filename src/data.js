@@ -15,7 +15,7 @@ export const CURRENT_THREAT = THREAT_LEVELS.CRITICAL;
 // ── US Naval Assets currently deployed to CENTCOM AOR ──────────
 export const US_NAVAL_ASSETS = [
   { id: "cvn72", name: "USS Abraham Lincoln (CVN-72)", type: "carrier", lat: 22.5, lon: 62.0, status: "deployed", details: "Carrier Strike Group — Arabian Sea. Departed San Diego Nov 2025, redirected from South China Sea.", icon: "⚓" },
-  { id: "cvn78", name: "USS Gerald R. Ford (CVN-78)", type: "carrier", lat: 32.8, lon: 34.5, status: "deployed", details: "⚠️ APPROACHING ISRAEL — World's largest carrier now positioned off Israeli coast. Strike capability doubled with Lincoln CSG.", icon: "⚓" },
+  { id: "cvn78", name: "USS Gerald R. Ford (CVN-78)", type: "carrier", lat: 32.8, lon: 34.5, status: "deployed", details: "🚨 POSITIONED OFF ISRAEL — Eastern Mediterranean. Outside Iran missile range but within strike range via aerial refueling. Command & control hub for ballistic missile defense + sustained ops. 48-hour war window.", icon: "⚓" },
   { id: "ddg115", name: "USS Frank E. Petersen Jr. (DDG-115)", type: "destroyer", lat: 22.2, lon: 61.8, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
   { id: "ddg112", name: "USS Michael Murphy (DDG-112)", type: "destroyer", lat: 22.8, lon: 62.3, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
   { id: "ddg111", name: "USS Spruance (DDG-111)", type: "destroyer", lat: 23.0, lon: 61.5, status: "deployed", details: "Abraham Lincoln CSG escort — Arleigh Burke-class", icon: "🚢" },
@@ -104,7 +104,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
   { time: "💀🚨 BREAKING", source: "Iran State Media / Khamenei", title: "💀 KHAMENEI CALLS FOR TRUMP'S DEATH: 'Death to America means death to Trump and his team' — Supreme Leader's direct threat to US President", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },
-  { time: "🚨⚡ BREAKING", source: "OSINT / Flight Tracking", title: "🚨 MASSIVE US AIRLIFT OVERNIGHT: Dozens of C-17s and C-130s flying toward Middle East — Largest logistical surge since Iraq 2003", category: "military", url: "https://twitter.com/search?q=US+airlift+Middle+East" },
+  { time: "⚓🚨 JUST IN", source: "Military Analysis", title: "⚓ USS FORD POSITIONING: Eastern Mediterranean — Outside Iran missile range, within strike range via aerial refueling. Command hub for missile defense + sustained ops. 48-hour window.", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
   { time: "🔥 BREAKING", source: "BBC", title: "Trump keeps world waiting on his plans for Iran after State of the Union — Thursday Geneva talks could be decisive", category: "diplomacy", url: "https://www.bbc.com/news/articles/cge821xwyz8o" },
   { time: "⚡ JUST IN", source: "BBC", title: "Yemen's Houthi rebels drive aid groups to the brink — Aid groups being squeezed out in rebel-controlled areas", category: "military", url: "https://www.bbc.com/news/articles/cj4z129dq8vo" },
   { time: "30m ago", source: "CNN", title: "Trump asks Supreme Court to remove immigration protections for thousands of Syrians", category: "diplomacy", url: "https://edition.cnn.com/2026/02/26/politics/syria-tps-supreme-court" },
