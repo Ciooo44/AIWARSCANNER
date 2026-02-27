@@ -12,6 +12,13 @@ import StrikeScenarioSimulator from "./components/StrikeScenarioSimulator.jsx";
 import EvacuationTracker from "./components/EvacuationTracker.jsx";
 import CrisisCalendar from "./components/CrisisCalendar.jsx";
 import TrumpSimulator from "./components/TrumpSimulator.jsx";
+
+// New enhanced UI components
+import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
+import WarRiskGauge from "./components/WarRiskGauge.jsx";
+import StrikeCountdown from "./components/StrikeCountdown.jsx";
+import SocialFeed from "./components/SocialFeed.jsx";
+import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -663,6 +670,15 @@ export default function App({ navigateTo }) {
       `}</style>
 
       <Header currentTime={currentTime} navigateTo={navigateTo} />
+      
+      {/* New Enhanced UI Components */}
+      <LiveAlertTicker />
+      
+      <div style={{ marginTop: 60 }}> {/* Spacer for fixed ticker */}
+        <WarRiskGauge />
+        <StrikeCountdown />
+      </div>
+      
       <AlertTicker />
       <TelegramBanner />
       <StatsBar />
@@ -695,6 +711,9 @@ export default function App({ navigateTo }) {
           <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
 
+        {/* Impact Visualization */}
+        <ImpactVisualization />
+
         {/* Crisis Calendar — Countdown to key dates */}
         <CrisisCalendar />
 
@@ -723,6 +742,9 @@ export default function App({ navigateTo }) {
 
         {/* Evacuation Tracker — TIME SENSITIVE */}
         <EvacuationTracker />
+
+        {/* Social Feed */}
+        <SocialFeed />
 
         {/* Prediction Markets — POLYMARKET */}
         <PredictionMarkets />
