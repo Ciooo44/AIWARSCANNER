@@ -2,22 +2,22 @@ import { useState } from 'react';
 
 const CRISIS_DATES = [
   {
-    date: "2026-02-26",
+    date: "2026-02-27",
     label: "TODAY",
-    title: "🚨 IRAN SAID NO — Nuclear talks collapsed",
-    details: "Geneva talks ended. Iran REJECTED all demands: Fordow stays open, Natanz stays open, Isfahan stays open. Diplomatic path closed. Military option now primary.",
+    title: "🚨 MASSIVE US AIRLIFT — War imminent",
+    details: "Dozens of C-17s and C-130s surging toward Middle East overnight. Largest logistical deployment since Iraq 2003. Equipment, troops, supplies flooding into region.",
     status: "active",
     color: "#ff1744",
-    icon: "❌",
+    icon: "✈️",
   },
   {
-    date: "2026-02-27",
-    label: "THU FEB 27",
-    title: "Geneva Nuclear Talks — FAILED",
-    details: "Talks concluded with no agreement. Iran refused to dismantle Fordow, shut down Natanz, or halt activities at Isfahan. US: 'Significant progress' but no deal. War risk EXTREME.",
+    date: "2026-02-26",
+    label: "YESTERDAY",
+    title: "🚨 IRAN SAID NO — Nuclear talks collapsed",
+    details: "Geneva talks ended. Iran REJECTED all demands: Fordow stays open, Natanz stays open, Isfahan stays open. Diplomatic path closed. Military option now primary.",
     status: "past",
-    color: "#484f58",
-    icon: "💥",
+    color: "#ff6d00",
+    icon: "❌",
   },
   {
     date: "2026-03-01",
