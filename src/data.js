@@ -94,6 +94,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 24, 2026", event: "US partially evacuates Beirut embassy — non-essential staff ordered out", severity: "critical" },
   { date: "Feb 24, 2026", event: "Israeli strikes kill at least 10 in Lebanon — deadliest since ceasefire ended", severity: "critical" },
   { date: "Feb 27, 2026", event: "🚨 MASSIVE US AIRLIFT: Dozens of C-17s and C-130s surge toward Middle East — largest since Iraq 2003", severity: "critical" },
+  { date: "Feb 27, 2026", event: "💀 KHAMENEI THREATENS TRUMP: 'Death to America means death to Trump and his team' — direct call for assassination", severity: "critical" },
   { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
   { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability (+9%) US strikes by this date", severity: "prediction" },
@@ -102,6 +103,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
+  { time: "💀🚨 BREAKING", source: "Iran State Media / Khamenei", title: "💀 KHAMENEI CALLS FOR TRUMP'S DEATH: 'Death to America means death to Trump and his team' — Supreme Leader's direct threat to US President", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "🚨⚡ BREAKING", source: "OSINT / Flight Tracking", title: "🚨 MASSIVE US AIRLIFT OVERNIGHT: Dozens of C-17s and C-130s flying toward Middle East — Largest logistical surge since Iraq 2003", category: "military", url: "https://twitter.com/search?q=US+airlift+Middle+East" },
   { time: "🔥 BREAKING", source: "BBC", title: "Trump keeps world waiting on his plans for Iran after State of the Union — Thursday Geneva talks could be decisive", category: "diplomacy", url: "https://www.bbc.com/news/articles/cge821xwyz8o" },
   { time: "⚡ JUST IN", source: "BBC", title: "Yemen's Houthi rebels drive aid groups to the brink — Aid groups being squeezed out in rebel-controlled areas", category: "military", url: "https://www.bbc.com/news/articles/cj4z129dq8vo" },

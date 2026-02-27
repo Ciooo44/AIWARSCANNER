@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-27",
     label: "TODAY",
+    title: "💀 KHAMENEI THREATENS TRUMP — 'Death to Trump'",
+    details: "Iran Supreme Leader directly calls for Trump's death: 'Death to America means death to Trump and his team.' Unprecedented personal threat. Retaliation almost certain.",
+    status: "active",
+    color: "#8b0000",
+    icon: "💀",
+  },
+  {
+    date: "2026-02-27",
+    label: "TODAY",
     title: "🚨 MASSIVE US AIRLIFT — War imminent",
     details: "Dozens of C-17s and C-130s surging toward Middle East overnight. Largest logistical deployment since Iraq 2003. Equipment, troops, supplies flooding into region.",
     status: "active",
@@ -97,29 +106,28 @@ export default function CrisisCalendar() {
         </div>
       </div>
 
-      {/* Iran Said No Alert */}
+      {/* Khamenei Death Threat Alert */}
       <div style={{
-        background: "linear-gradient(135deg, #ff1744 0%, #8b0000 100%)",
+        background: "linear-gradient(135deg, #8b0000 0%, #000000 100%)",
         borderRadius: 16,
         padding: 24,
         marginBottom: 24,
-        border: "2px solid #ff6d00",
+        border: "3px solid #ff1744",
         textAlign: "center"
       }}>
-        <div style={{ fontSize: 14, color: "#fff", marginBottom: 8, fontWeight: 800, letterSpacing: 2 }}>
-          🚨 GENEVA TALKS COLLAPSED
+        <div style={{ fontSize: 14, color: "#ff1744", marginBottom: 8, fontWeight: 800, letterSpacing: 2 }}>
+          💀 UNPRECEDENTED ESCALATION
         </div>
-        <div style={{ fontSize: 28, fontWeight: 900, color: "#ffd600", marginBottom: 16 }}>
-          IRAN SAID NO
+        <div style={{ fontSize: 32, fontWeight: 900, color: "#fff", marginBottom: 16, textShadow: "0 0 20px #ff1744" }}>
+          KHAMENEI THREATENS TRUMP
         </div>
-        <div style={{ fontSize: 16, color: "#fff", marginBottom: 12, fontWeight: 600 }}>
-          ❌ NO to dismantling Fordow<br/>
-          ❌ NO to shutting down Natanz<br/>
-          ❌ NO to touching Isfahan
+        <div style={{ fontSize: 18, color: "#ffd600", marginBottom: 12, fontWeight: 600, fontStyle: "italic" }}>
+          "Death to America means death to Trump and his team"
         </div>
         <div style={{ fontSize: 13, color: "#ffcccc", maxWidth: 600, margin: "0 auto", lineHeight: 1.5 }}>
-          Diplomatic path CLOSED. All nuclear facilities remain operational. 
-          Military option now primary. Strike window: March 1-7.
+          Iran Supreme Leader issues direct call for assassination of US President.<br/>
+          Personal threat = Assassination attempt risk EXTREME.<br/>
+          War now 90%+ likely within days.
         </div>
       </div>
 
