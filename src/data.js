@@ -95,6 +95,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 24, 2026", event: "Israeli strikes kill at least 10 in Lebanon — deadliest since ceasefire ended", severity: "critical" },
   { date: "Feb 27, 2026", event: "🚨 MASSIVE US AIRLIFT: Dozens of C-17s and C-130s surge toward Middle East — largest since Iraq 2003", severity: "critical" },
   { date: "Feb 27, 2026", event: "💀 KHAMENEI THREATENS TRUMP: 'Death to America means death to Trump and his team' — direct call for assassination", severity: "critical" },
+  { date: "Feb 27, 2026", event: "🏠 ISRAEL OPENS ALL PUBLIC SHELTERS: Be'er Sheva deputy mayor warns 'could unfold this weekend'", severity: "critical" },
   { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
   { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability (+9%) US strikes by this date", severity: "prediction" },
@@ -103,6 +104,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
+  { time: "🏠🚨 URGENT", source: "Anadolu Agency / Israel", title: "🚨 ISRAEL OPENS ALL PUBLIC SHELTERS in Be'er Sheva — Deputy mayor: 'So many precautions don't come without reason. Could unfold this weekend.'", category: "military", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "💀🚨 BREAKING", source: "Iran State Media / Khamenei", title: "💀 KHAMENEI CALLS FOR TRUMP'S DEATH: 'Death to America means death to Trump and his team' — Supreme Leader's direct threat to US President", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "⚓🚨 JUST IN", source: "Military Analysis", title: "⚓ USS FORD POSITIONING: Eastern Mediterranean — Outside Iran missile range, within strike range via aerial refueling. Command hub for missile defense + sustained ops. 48-hour window.", category: "military", url: "https://twitter.com/search?q=USS+Ford+Israel" },
   { time: "🔥 BREAKING", source: "BBC", title: "Trump keeps world waiting on his plans for Iran after State of the Union — Thursday Geneva talks could be decisive", category: "diplomacy", url: "https://www.bbc.com/news/articles/cge821xwyz8o" },

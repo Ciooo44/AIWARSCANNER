@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-27",
     label: "TODAY",
+    title: "🏠 ISRAEL OPENS ALL SHELTERS — 'This weekend'",
+    details: "Be'er Sheva deputy mayor opens all public shelters: 'So many precautions don't come without reason. The signs point in one direction, and it could unfold as soon as this weekend.' Imminent war signal.",
+    status: "active",
+    color: "#ff1744",
+    icon: "🏠",
+  },
+  {
+    date: "2026-02-27",
+    label: "TODAY",
     title: "💀 KHAMENEI THREATENS TRUMP — 'Death to Trump'",
     details: "Iran Supreme Leader directly calls for Trump's death: 'Death to America means death to Trump and his team.' Unprecedented personal threat. Retaliation almost certain.",
     status: "active",
