@@ -7,7 +7,7 @@ const SCENARIOS = [
     probability: 45,
     impact: {
       oil: { price: "$95-110", change: "+30%", color: "#ffd600" },
-      gold: { price: "$2,800", change: "+8%", color: "#ffd600" },
+      gold: { price: "$6,000", change: "+18%", color: "#ffd600" },
       sp500: { price: "-8%", change: "Crash", color: "#ff6d00" },
       casualties: { us: "5-50", iran: "500-2,000", color: "#ff6d00" },
       duration: "24-72 hours"
@@ -19,7 +19,7 @@ const SCENARIOS = [
     probability: 35,
     impact: {
       oil: { price: "$140-180", change: "+100%", color: "#ff6d00" },
-      gold: { price: "$3,200", change: "+25%", color: "#ff6d00" },
+      gold: { price: "$7,000", change: "+37%", color: "#ff6d00" },
       sp500: { price: "-15%", change: "Bear Market", color: "#ff1744" },
       casualties: { us: "100-500", iran: "5,000-15,000", color: "#ff1744" },
       duration: "7-21 days"
@@ -31,7 +31,7 @@ const SCENARIOS = [
     probability: 20,
     impact: {
       oil: { price: "$200-250", change: "+180%", color: "#ff1744" },
-      gold: { price: "$3,800", change: "+45%", color: "#ff1744" },
+      gold: { price: "$8,500", change: "+67%", color: "#ff1744" },
       sp500: { price: "-25%", change: "CRISIS", color: "#8b0000" },
       casualties: { us: "500-2,000", iran: "50,000+", color: "#8b0000" },
       duration: "21-90 days"

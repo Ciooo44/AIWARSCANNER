@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
-// Real market prices as of Feb 23, 2026 - Live data from Saxo/XAUUSD
+// Real market prices as of Feb 27, 2026 - Live data from Saxo/XAUUSD
 const FALLBACK_DATA = {
   oil: {
     brent: { price: 74.35, change: -0.85, percent: -1.13 },
     wti: { price: 70.42, change: -0.72, percent: -1.01 }
   },
   gold: {
-    spot: { price: 5161.60, change: 54.63, percent: 1.07 }
+    spot: { price: 5100.00, change: -61.60, percent: -1.19 }
   },
   bitcoin: {
     price: 66300.00, change: -1240.00, percent: -1.84
@@ -35,13 +35,13 @@ const CORRELATIONS = [
   { pair: "Bitcoin vs Safe Havens", correlation: -0.34, trend: "down" }
 ];
 
-// War scenarios impact - Updated for current prices (Gold $5,161, Oil $74)
+// War scenarios impact - Updated for current prices (Gold $5,100, Oil $74)
 const SCENARIOS = [
   {
     name: "Diplomatic Resolution",
     probability: 33,
     oilImpact: "$63-70 (-15%)",
-    goldImpact: "$4,697 (-9%)",
+    goldImpact: "$4,600 (-10%)",
     defenseImpact: "-5% to -8%",
     marketImpact: "S&P 500 +3%"
   },
@@ -49,7 +49,7 @@ const SCENARIOS = [
     name: "Limited Surgical Strikes",
     probability: 42,
     oilImpact: "$104-130 (+40%)",
-    goldImpact: "$5,420 (+5%)",
+    goldImpact: "$6,000 (+18%)",
     defenseImpact: "+15% to +25%",
     marketImpact: "S&P 500 -8%"
   },
@@ -57,7 +57,7 @@ const SCENARIOS = [
     name: "Full Regional War",
     probability: 25,
     oilImpact: "$170-220 (+130%)",
-    goldImpact: "$6,349 (+23%)",
+    goldImpact: "$7,000 (+37%)",
     defenseImpact: "+35% to +50%",
     marketImpact: "S&P 500 -20%"
   }
