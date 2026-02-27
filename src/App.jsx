@@ -20,6 +20,7 @@ import StrikeCountdown from "./components/StrikeCountdown.jsx";
 import SocialFeed from "./components/SocialFeed.jsx";
 import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
+import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -717,6 +718,9 @@ export default function App({ navigateTo }) {
 
         {/* Pentagon Pizza Index — The famous indicator */}
         <PentagonPizzaIndex />
+
+        {/* Force Comparison Counters — US vs Iran */}
+        <ForceComparisonCounters />
 
         {/* Crisis Calendar — Countdown to key dates */}
         <CrisisCalendar />
