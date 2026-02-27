@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-27",
     label: "TODAY",
+    title: "🌍 GLOBAL EVACUATION — 15+ countries",
+    details: "MASS COORDINATED EVACUATION: Australia, Brazil, Canada, China, Cyprus, Finland, Germany, India, Poland, Serbia, Singapore, South Korea, Sweden, UK, US ALL tell citizens to GET OUT OF IRAN NOW. Not routine — rush to clear civilians before war.",
+    status: "active",
+    color: "#8b0000",
+    icon: "🌍",
+  },
+  {
+    date: "2026-02-27",
+    label: "TODAY",
     title: "🏠 ISRAEL OPENS ALL SHELTERS — 'This weekend'",
     details: "Be'er Sheva deputy mayor opens all public shelters: 'So many precautions don't come without reason. The signs point in one direction, and it could unfold as soon as this weekend.' Imminent war signal.",
     status: "active",

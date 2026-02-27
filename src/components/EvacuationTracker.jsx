@@ -3,6 +3,18 @@
 
 const EVACUATIONS = [
   {
+    id: "global-wave",
+    country: "🌍 15+ COUNTRIES",
+    flag: "UN",
+    location: "Iran — Global evacuation wave",
+    status: "LEAVE IMMEDIATELY",
+    statusColor: "#8b0000",
+    date: "Feb 27, 2026",
+    details: "MASS COORDINATED EVACUATION: Australia, Brazil, Canada, China, Cyprus, Finland, Germany, India, Poland, Serbia, Singapore, South Korea, Sweden, UK, US all tell citizens to GET OUT NOW. Not routine advice — rush to clear civilians before war.",
+    source: "FCDO / State Dept / Multiple Govts",
+    severity: "critical",
+  },
+  {
     id: "us-lebanon",
     country: "🇺🇸 United States",
     flag: "US",
