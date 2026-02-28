@@ -92,6 +92,7 @@ export default function WarStartedBanner() {
           textShadow: "0 2px 10px rgba(0,0,0,0.8)"
         }}>
           <div style={{ marginBottom: 12, color: "#ff0000", fontSize: 32, animation: "blink 0.5s infinite" }}>🚨 DOZENS OF ROCKETS FIRED TOWARDS ISRAEL - IT HAS BEGUN 🚨</div>
+          <div style={{ marginBottom: 12, color: "#9c27b0", fontSize: 26 }}>🌐 IRAN INTERNET BLACKOUT: 4% Connectivity - Information blackout</div>
           <div style={{ marginBottom: 12, color: "#ffeb3b" }}>⚡ EXPLOSIONS: Tehran • Natanz • Fordow • Isfahan</div>
           <div style={{ marginBottom: 12, color: "#ff6d00" }}>🚀 IRAN RETALIATING: Ballistic missiles launched</div>
           <div style={{ marginBottom: 12, color: "#ff1744" }}>🚨 ISRAEL UNDER MASSIVE ROCKET ATTACK</div>

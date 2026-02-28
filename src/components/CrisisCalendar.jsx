@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
+    title: "🌐 IRAN INTERNET BLACKOUT",
+    details: "CONFIRMED: Network data shows Iran in near-total internet blackout. National connectivity at 4% of ordinary levels. Incident comes amid US and Israeli combat operations. Information blackout in effect.",
+    status: "active",
+    color: "#9c27b0",
+    icon: "🌐",
+  },
+  {
+    date: "2026-02-28",
+    label: "NOW",
     title: "🚨🚨🚨 ROCKET ATTACK ON ISRAEL",
     details: "IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran. Massive barrage underway. Israel's Iron Dome activating. US & Israel striking Iranian nuclear and military facilities. Full regional war escalating.",
     status: "active",
