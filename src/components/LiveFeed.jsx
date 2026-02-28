@@ -11,7 +11,8 @@ const LIVE_UPDATES = [
     text: "PALM HOTEL DUBAI STRUCK",
     details: "CONFIRMED: Iranian attack hit the 'Palm Hotel & Resort' in Dubai — Luxury civilian target struck — Multiple casualties reported",
     source: "Dubai Civil Defense / Breaking",
-    url: "https://www.reuters.com/world/middle-east/"
+    url: "https://www.reuters.com/world/middle-east/",
+    image: "/images/palm-hotel-dubai-struck.jpg"
   },
   {
     id: 2,
@@ -301,6 +302,20 @@ export default function LiveFeed() {
               }}>
                 {update.details}
               </div>
+              {update.image && (
+                <img 
+                  src={update.image} 
+                  alt={update.text}
+                  style={{
+                    width: "100%",
+                    maxWidth: 400,
+                    borderRadius: 8,
+                    marginTop: 8,
+                    marginBottom: 8,
+                    border: "2px solid #ff1744"
+                  }}
+                />
+              )}
               <a 
                 href={update.url}
                 target="_blank"
