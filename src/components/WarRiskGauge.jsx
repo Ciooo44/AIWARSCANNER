@@ -10,14 +10,11 @@ const RISK_FACTORS = {
 };
 
 export default function WarRiskGauge() {
-  const [riskScore, setRiskScore] = useState(87);
-  const [isHighAlert, setIsHighAlert] = useState(true);
+  const [riskScore, setRiskScore] = useState(100);
 
   useEffect(() => {
-    // Calculate risk based on active factors
-    const totalRisk = Object.values(RISK_FACTORS).reduce((a, b) => a + b, 0);
-    setRiskScore(Math.min(100, totalRisk));
-    setIsHighAlert(totalRisk > 80);
+    // War has started - risk is at maximum
+    setRiskScore(100);
   }, []);
 
   const getRiskColor = (score) => {
@@ -29,6 +26,7 @@ export default function WarRiskGauge() {
   };
 
   const getRiskLabel = (score) => {
+    if (score >= 100) return "🔴 ACTIVE COMBAT";
     if (score >= 90) return "EXTREME — IMMINENT";
     if (score >= 80) return "CRITICAL — LIKELY WITHIN DAYS";
     if (score >= 60) return "HIGH — ELEVATED PREPAREDNESS";
@@ -44,7 +42,7 @@ export default function WarRiskGauge() {
       margin: "16px 0",
       border: `3px solid ${getRiskColor(riskScore)}`,
       boxShadow: `0 0 30px ${getRiskColor(riskScore)}40`,
-      animation: isHighAlert ? "pulse 2s infinite" : "none"
+      animation: "pulse 2s infinite"
     }}>
       <div style={{
         display: "flex",
@@ -135,25 +133,23 @@ export default function WarRiskGauge() {
         ))}
       </div>
 
-      {isHighAlert && (
-        <div style={{
-          marginTop: 16,
-          padding: 12,
-          background: "#ff000020",
-          borderRadius: 8,
-          border: "1px solid #ff000040",
-          textAlign: "center",
-          animation: "blink 1s infinite"
+      <div style={{
+        marginTop: 16,
+        padding: 12,
+        background: "#ff000020",
+        borderRadius: 8,
+        border: "1px solid #ff000040",
+        textAlign: "center",
+        animation: "blink 1s infinite"
+      }}>
+        <span style={{
+          fontSize: 14,
+          fontWeight: 900,
+          color: "#ff0000"
         }}>
-          <span style={{
-            fontSize: 13,
-            fontWeight: 700,
-            color: "#ff1744"
-          }}>
-            🚨 STRIKE WINDOW: 24-48 HOURS
-          </span>
-        </div>
-      )}
+          🔴 WAR IN PROGRESS — HOUR 6
+        </span>
+      </div>
     </div>
   );
 }
