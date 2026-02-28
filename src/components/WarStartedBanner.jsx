@@ -37,39 +37,45 @@ export default function WarStartedBanner() {
       {/* Main content */}
       <div style={{ position: "relative", zIndex: 1 }}>
         <div style={{
-          fontSize: 72,
+          fontSize: 120,
           fontWeight: 900,
           color: "#fff",
-          letterSpacing: 8,
-          textShadow: "0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(255,0,0,0.5)",
-          marginBottom: 16,
-          animation: "shake 0.5s infinite"
+          letterSpacing: 12,
+          textShadow: "0 0 60px rgba(0,0,0,0.9), 0 0 120px rgba(255,0,0,0.8), 0 0 200px rgba(255,0,0,0.5)",
+          marginBottom: 24,
+          animation: "shake 0.3s infinite",
+          lineHeight: 1.1
         }}>
-          🔴 WAR STARTED 🔴
+          🔴🔴🔴<br/>
+          WAR STARTED
+          <br/>🔴🔴🔴
         </div>
 
         <div style={{
-          fontSize: 24,
-          fontWeight: 700,
+          fontSize: 48,
+          fontWeight: 900,
           color: "#ffeb3b",
-          marginBottom: 24,
-          textShadow: "0 0 20px rgba(255,235,59,0.5)"
+          marginBottom: 32,
+          textShadow: "0 0 40px rgba(255,235,59,0.8), 0 0 80px rgba(255,235,59,0.5)",
+          letterSpacing: 4
         }}>
           🇺🇸 U.S. STRIKES IRAN 🇮🇷
         </div>
 
         <div style={{
-          fontSize: 16,
+          fontSize: 28,
+          fontWeight: 700,
           color: "#fff",
-          marginBottom: 32,
-          maxWidth: 800,
-          margin: "0 auto 32px",
-          lineHeight: 1.6
+          marginBottom: 40,
+          maxWidth: 1000,
+          margin: "0 auto 40px",
+          lineHeight: 1.8,
+          textShadow: "0 2px 10px rgba(0,0,0,0.8)"
         }}>
-          <div style={{ marginBottom: 8 }}>⚡ Explosions reported in Tehran, Natanz, Fordow, Isfahan</div>
-          <div style={{ marginBottom: 8 }}>🚀 Iran launching ballistic missile retaliation</div>
-          <div style={{ marginBottom: 8 }}>🚨 Israel under massive missile attack</div>
-          <div>🛢️ Strait of Hormuz CLOSED • Oil at $180/barrel</div>
+          <div style={{ marginBottom: 12, color: "#ffeb3b" }}>⚡ EXPLOSIONS: Tehran • Natanz • Fordow • Isfahan</div>
+          <div style={{ marginBottom: 12, color: "#ff6d00" }}>🚀 IRAN RETALIATING: Ballistic missiles launched</div>
+          <div style={{ marginBottom: 12, color: "#ff1744" }}>🚨 ISRAEL UNDER ATTACK: Massive missile barrage</div>
+          <div style={{ color: "#ffd600" }}>🛢️ STRAIT OF HORMUZ CLOSED • OIL $180/BARREL</div>
         </div>
 
         <div style={{
