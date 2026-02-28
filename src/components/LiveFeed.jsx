@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "15:25",
+    icon: "🇸🇦",
+    color: "#00e676",
+    text: "SAUDI ARABIA JOINS US WAR EFFORT",
+    details: "Saudi Arabia announces it is ready to join US in the war against Iran — Gulf powerhouse officially entering the conflict",
+    source: "Saudi Government / Official",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "15:22",
     icon: "🚀",
     color: "#ff0000",

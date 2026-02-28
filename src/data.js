@@ -107,6 +107,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 28, 2026", event: "🛢️ OIL $195: Brent crude hits $195/barrel - Highest since 2008 crisis", severity: "critical" },
   { date: "Feb 28, 2026", event: "🌐 IRAN INTERNET BLACKOUT: National connectivity at 4% — Near-total blackout amid combat operations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚨🚨🚀 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🇸🇦 SAUDI ARABIA JOINS WAR: Saudi Arabia announces ready to join US war effort against Iran — Gulf coalition expands", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚀 IRAN MISSILE RETALIATION: Iran launches ballistic missile wave — Dubai reportedly hit — Major civilian casualties expected", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'United States is now at war with Iran. We will not stop until the threat is eliminated.' Official Oval Office address", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability war continues past this date", severity: "prediction" },
@@ -117,6 +118,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
+  { time: "🇸🇦🔴 15:25", source: "Saudi Government / Official", title: "🇸🇦 SAUDI ARABIA JOINS US WAR EFFORT: Saudi Arabia announces it is ready to join US in the war against Iran — Gulf powerhouse officially entering the conflict", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🚀🔴 15:22", source: "Iranian Military / Breaking", title: "🚀 IRAN BALLISTIC MISSILE RETALIATION: Iran launches first wave of ballistic missile retaliation against multiple targets — Dubai reportedly hit — Major escalation in progress", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇦🇪🔴 15:20", source: "Multiple / Regional", title: "🇦🇪 DUBAI HIT BY IRANIAN MISSILES: Reports indicate Iran has managed to hit Dubai with ballistic missiles — Major civilian center struck — Casualties expected", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "✈️🔴 12:34", source: "Israeli Officials", title: "✈️ ISRAELI OFFICIALS EVACUATING: Airplanes departing Ben Gurion Airport in fear of Iranian missile strikes targeting top Israeli leadership — Emergency evacuation underway", category: "military", url: "https://www.reuters.com/world/middle-east/" },
