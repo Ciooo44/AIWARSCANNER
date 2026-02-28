@@ -24,6 +24,7 @@ import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
 import WarStartedBanner from "./components/WarStartedBanner.jsx";
 import NothingEverHappensIndex from "./components/NothingEverHappensIndex.jsx";
 import LiveFeed from "./components/LiveFeed.jsx";
+import WarNewsSources from "./components/WarNewsSources.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -733,6 +734,9 @@ export default function App({ navigateTo }) {
 
         {/* Force Comparison Counters — US vs Iran */}
         <ForceComparisonCounters />
+
+        {/* War News Sources — Verified accounts and live sources */}
+        <WarNewsSources />
 
         {/* Crisis Calendar — Countdown to key dates */}
         <CrisisCalendar />
