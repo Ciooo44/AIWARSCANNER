@@ -108,10 +108,9 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 28, 2026", event: "🌐 IRAN INTERNET BLACKOUT: National connectivity at 4% — Near-total blackout amid combat operations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚨🚨🚀 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'United States is now at war with Iran. We will not stop until the threat is eliminated.' Official Oval Office address", severity: "critical" },
-  { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
-  { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
-  { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability (+9%) US strikes by this date", severity: "prediction" },
-  { date: "Mar 31, 2026", event: "🔮 POLYMARKET: $15M volume — 21% probability Khamenei removal / regime change", severity: "prediction" },
+  { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability war continues past this date", severity: "prediction" },
+  { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability regime change by this date", severity: "prediction" },
+  { date: "Mar 31, 2026", event: "🔮 POLYMARKET: $15M volume — 21% probability war ends by this date", severity: "prediction" },
 ];
 
 // ── Live News Feed ─────────────────────────────────────────────

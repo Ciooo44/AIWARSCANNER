@@ -66,55 +66,6 @@ function EscalationGauge() {
   );
 }
 
-// ── Trump Deadline Countdown ───────────────────────────────────
-function DeadlineCountdown() {
-  const [timeLeft, setTimeLeft] = useState({});
-
-  useEffect(() => {
-    const deadline = new Date("2026-03-05T00:00:00Z");
-    const update = () => {
-      const diff = deadline - new Date();
-      if (diff <= 0) { setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
-      setTimeLeft({
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000) / 60000),
-        seconds: Math.floor((diff % 60000) / 1000),
-      });
-    };
-    update();
-    const iv = setInterval(update, 1000);
-    return () => clearInterval(iv);
-  }, []);
-
-  return (
-    <div style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 8, color: "#ff6d00", letterSpacing: 1, marginBottom: 8 }}>⏱ TRUMP ULTIMATUM COUNTDOWN</div>
-      <div style={{ display: "flex", gap: 5, justifyContent: "center" }}>
-        {[
-          { v: timeLeft.days, l: "DAYS" },
-          { v: timeLeft.hours, l: "HRS" },
-          { v: timeLeft.minutes, l: "MIN" },
-          { v: timeLeft.seconds, l: "SEC" },
-        ].map((b, i) => (
-          <div key={i} style={{
-            background: "#161b22", border: "1px solid #ff174430", borderRadius: 4,
-            padding: "5px 7px", minWidth: 40, textAlign: "center",
-          }}>
-            <div style={{
-              fontSize: 17, fontWeight: 700,
-              color: (timeLeft.days || 0) <= 5 ? "#ff1744" : "#ffd600",
-              fontVariantNumeric: "tabular-nums",
-            }}>{String(b.v ?? 0).padStart(2, "0")}</div>
-            <div style={{ fontSize: 6, color: "#6e7681", letterSpacing: 1 }}>{b.l}</div>
-          </div>
-        ))}
-      </div>
-      <div style={{ fontSize: 7, color: "#484f58", marginTop: 5 }}>EST. DEADLINE: ~MAR 5, 2026</div>
-    </div>
-  );
-}
-
 // ── Header (sticky) ────────────────────────────────────────────
 function Header({ currentTime, navigateTo }) {
   return (
@@ -141,7 +92,6 @@ function Header({ currentTime, navigateTo }) {
 
       <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
         <EscalationGauge />
-        <DeadlineCountdown />
         <div style={{
           padding: "6px 12px", background: "#ffd60020", borderRadius: 6,
           border: "1px solid #ffd60040", fontSize: 10, color: "#ffd600",
@@ -225,8 +175,8 @@ function StatsBar() {
     { label: "CARRIER GROUPS", value: "2", sub: "CVN-72 + CVN-78", color: "#2979ff" },
     { label: "US BASES ACTIVE", value: "11", sub: "MIDDLE EAST", color: "#00e676" },
     { label: "IRAN NUCLEAR", value: "4", sub: "SITES MONITORED", color: "#ff1744" },
-    { label: "TRUMP DEADLINE", value: "~12d", sub: "ULTIMATUM ISSUED", color: "#ffd600" },
-    { label: "HORMUZ STATUS", value: "DRILLS", sub: "20% GLOBAL OIL", color: "#ff6d00" },
+    { label: "HORMUZ STATUS", value: "CLOSED", sub: "20% GLOBAL OIL", color: "#ff6d00" },
+    { label: "WAR STATUS", value: "ACTIVE", sub: "HOUR 6", color: "#ff1744" },
   ];
   return (
     <div style={{
@@ -428,14 +378,14 @@ function Timeline() {
       {/* Key Predictions Cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10, marginBottom: 16 }}>
         <div style={{ background: "#ff174420", borderRadius: 10, padding: 12, border: "1px solid #ff174440" }}>
-          <div style={{ fontSize: 10, color: "#ff6d00", marginBottom: 4 }}>⚠️ MAR 1 DEADLINE</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: "#ff1744" }}>85%</div>
-          <div style={{ fontSize: 9, color: "#8b949e" }}>Action window opens</div>
+          <div style={{ fontSize: 10, color: "#ff6d00", marginBottom: 4 }}>🔴 WAR IN PROGRESS</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "#ff1744" }}>HOUR 6</div>
+          <div style={{ fontSize: 9, color: "#8b949e" }}>Active combat</div>
         </div>
         <div style={{ background: "#00e67620", borderRadius: 10, padding: 12, border: "1px solid #00e67640" }}>
-          <div style={{ fontSize: 10, color: "#00e676", marginBottom: 4 }}>🔮 POLYMARKET MAR 15</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: "#00e676" }}>42%</div>
-          <div style={{ fontSize: 9, color: "#8b949e" }}>US strikes by Mar 15</div>
+          <div style={{ fontSize: 10, color: "#00e676", marginBottom: 4 }}>🔮 POLYMARKET</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "#00e676" }}>72%</div>
+          <div style={{ fontSize: 9, color: "#8b949e" }}>War >30 days</div>
         </div>
       </div>
 
