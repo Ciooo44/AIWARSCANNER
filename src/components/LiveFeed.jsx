@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "12:33",
+    icon: "🇨🇳",
+    color: "#ff0000",
+    text: "CHINA: 'US IS A WAR ADDICT'",
+    details: "China Foreign Ministry: 'US has 800 overseas military bases in 80+ countries. US is the main cause of international disorder, global turbulence, and regional instability.'",
+    source: "China Foreign Ministry",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "12:32",
     icon: "🚨",
     color: "#ff0000",
