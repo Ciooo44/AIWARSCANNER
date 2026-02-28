@@ -5,22 +5,22 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "17:39",
+    icon: "🇺🇸",
+    color: "#ff0000",
+    text: "IRANIAN DRONE HITS US NAVY BASE IN BAHRAIN",
+    details: "BREAKING: Iranian Shahed drone reportedly hit a U.S. Navy base in Bahrain — Major escalation — US personnel at risk — This is a direct attack on US forces",
+    source: "Regional / Breaking",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "17:38",
     icon: "🇹🇷",
     color: "#ff0000",
     text: "ERDOĞAN CONDEMNS STRIKES ON IRAN",
     details: "Turkish President Erdoğan: 'Unacceptable violations of international law — Serious threat to regional stability — Attacks must stop immediately — Return to diplomacy'",
     source: "ILRedAlert / Turkish Presidency",
-    url: "https://www.reuters.com/world/middle-east/"
-  },
-  {
-    id: 2,
-    time: "17:38",
-    icon: "🇩🇪",
-    color: "#ffd600",
-    text: "GERMANY DEMANDS IRAN STOP ATTACKS",
-    details: "Chancellor Merz to Iran: 'Stop retaliatory attacks. Germany calls on Iran to cease military strikes against Israel and other partners. Tehran must end the violence and return to a negotiated solution.'",
-    source: "German Chancellery / Official",
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
