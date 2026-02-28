@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "12:30",
+    icon: "🇸🇦",
+    color: "#00e676",
+    text: "SAUDI ARABIA MOBILIZES",
+    details: "Saudi Arabia deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, and Jordan - Gulf coalition forming",
+    source: "Saudi Foreign Ministry",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "10:45",
     icon: "🔥",
     color: "#ff0000",

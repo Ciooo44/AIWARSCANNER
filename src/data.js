@@ -98,6 +98,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 27, 2026", event: "🌍 GLOBAL EVACUATION WAVE: 15+ countries (US, UK, Germany, Canada, Australia, China, India, etc.) tell citizens to LEAVE IRAN NOW", severity: "critical" },
   { date: "Feb 27, 2026", event: "🇨🇳 CHINA JOINS EVACUATION: Beijing orders all citizens to immediately evacuate Iran — major escalation signal", severity: "critical" },
   { date: "Feb 27, 2026", event: "🏠 ISRAEL OPENS ALL PUBLIC SHELTERS: Be'er Sheva deputy mayor warns 'could unfold this weekend'", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🇸🇦 SAUDI ARABIA MOBILIZES: Deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, Jordan — Gulf coalition forming", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔥 NATANZ DESTROYED: Satellite imagery confirms complete destruction of Iran's main uranium enrichment plant", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚀 HEZBOLLAH JOINS: Lebanese Hezbollah launches rockets at northern Israel - Northern front opens", severity: "critical" },
   { date: "Feb 28, 2026", event: "🛢️ OIL $195: Brent crude hits $195/barrel - Highest since 2008 crisis", severity: "critical" },
@@ -113,7 +114,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
-  { time: "🔥🔥🔥 10:45", source: "Reuters / IAEA", title: "🔥 NATANZ NUCLEAR FACILITY DESTROYED: Satellite imagery confirms complete destruction of Iran's main uranium enrichment plant - IAEA confirms facility offline", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "🇸🇦🔴 12:30", source: "Saudi Foreign Ministry", title: "🇸🇦 SAUDI ARABIA MOBILIZES: Deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, and Jordan — Gulf coalition forming against Iranian threat", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇺🇸 10:30", source: "CNN / Biden Statement", title: "🇺🇸 BIDEN: 'WE STAND WITH ISRAEL' - Former President Biden issues statement supporting military action: 'No choice but to eliminate nuclear threat'", category: "diplomacy", url: "https://www.cnn.com/" },
   { time: "🚀🚨 10:15", source: "Al Jazeera", title: "🚀 HEZBOLLAH JOINS THE FIGHT: Lebanese Hezbollah launches rockets at northern Israel - IDF responding with artillery strikes - Northern front opens", category: "military", url: "https://www.aljazeera.com/" },
   { time: "📈 10:00", source: "Bloomberg", title: "🛢️ OIL HITS $195/BARREL: Brent crude surges to $195 - Highest since 2008 financial crisis - Global markets in panic mode", category: "economy", url: "https://www.bloomberg.com/" },

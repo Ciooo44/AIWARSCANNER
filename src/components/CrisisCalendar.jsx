@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
+    title: "🇸🇦 SAUDI ARABIA MOBILIZES",
+    details: "BREAKING: Saudi Arabia deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, and Jordan. Gulf coalition forming against Iranian threat. Major regional escalation.",
+    status: "active",
+    color: "#00e676",
+    icon: "🇸🇦",
+  },
+  {
+    date: "2026-02-28",
+    label: "NOW",
     title: "🔥 NATANZ FACILITY DESTROYED",
     details: "CONFIRMED: Satellite imagery shows complete destruction of Iran's main uranium enrichment plant at Natanz. IAEA confirms facility offline. Major strategic blow to Iranian nuclear program.",
     status: "active",
