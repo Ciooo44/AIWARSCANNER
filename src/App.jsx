@@ -11,7 +11,6 @@ import SatelliteTracker from "./components/SatelliteTracker.jsx";
 import EvacuationTracker from "./components/EvacuationTracker.jsx";
 // New enhanced UI components
 import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
-import WarRiskGauge from "./components/WarRiskGauge.jsx";
 import WarProgressTimer from "./components/WarProgressTimer.jsx";
 import SocialFeed from "./components/SocialFeed.jsx";
 import ImpactVisualization from "./components/ImpactVisualization.jsx";
@@ -682,7 +681,6 @@ export default function App({ navigateTo }) {
       <LiveAlertTicker />
       
       <div style={{ marginTop: 60 }}> {/* Spacer for fixed ticker */}
-        <WarRiskGauge />
         <WarProgressTimer />
       </div>
       
