@@ -11,8 +11,7 @@ const LIVE_UPDATES = [
     text: "PALM HOTEL DUBAI STRUCK",
     details: "CONFIRMED: Iranian attack hit the 'Palm Hotel & Resort' in Dubai — Luxury civilian target struck — Multiple casualties reported",
     source: "Dubai Civil Defense / Breaking",
-    url: "https://www.reuters.com/world/middle-east/",
-    image: "/images/palm-hotel-dubai-struck.jpg"
+    url: "https://www.reuters.com/world/middle-east/"
   },
   {
     id: 2,
