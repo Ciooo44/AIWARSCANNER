@@ -2,11 +2,20 @@ import { useState } from 'react';
 
 const CRISIS_DATES = [
   {
+    date: "2026-02-28",
+    label: "NOW",
+    title: "🔴🔴🔴 WAR STARTED — US strikes Iran",
+    details: "WAR BEGINS: US launches massive strikes on Iran. Explosions in Tehran, Natanz, Fordow, Isfahan. Iran retaliating with ballistic missiles. Israel under attack. Strait of Hormuz CLOSED. Oil $180. This is not a drill.",
+    status: "active",
+    color: "#ff0000",
+    icon: "🔴",
+  },
+  {
     date: "2026-02-27",
-    label: "TODAY",
+    label: "YESTERDAY",
     title: "🌍 GLOBAL EVACUATION — 15+ countries",
     details: "MASS COORDINATED EVACUATION: Australia, Brazil, Canada, China, Cyprus, Finland, Germany, India, Poland, Serbia, Singapore, South Korea, Sweden, UK, US ALL tell citizens to GET OUT OF IRAN NOW. Not routine — rush to clear civilians before war.",
-    status: "active",
+    status: "past",
     color: "#8b0000",
     icon: "🌍",
   },

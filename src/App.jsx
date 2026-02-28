@@ -21,6 +21,7 @@ import SocialFeed from "./components/SocialFeed.jsx";
 import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
 import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
+import WarStartedBanner from "./components/WarStartedBanner.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -672,6 +673,9 @@ export default function App({ navigateTo }) {
       `}</style>
 
       <Header currentTime={currentTime} navigateTo={navigateTo} />
+      
+      {/* WAR STARTED BANNER */}
+      <WarStartedBanner />
       
       {/* New Enhanced UI Components */}
       <LiveAlertTicker />

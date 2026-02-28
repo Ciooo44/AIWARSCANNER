@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 
-// War Risk Calculator
+// War Risk Calculator - WAR STARTED
 const RISK_FACTORS = {
-  iranRejection: 25,      // Iran said NO
-  khameneiThreat: 20,     // Death threat to Trump
-  israelShelters: 15,     // Israel opened shelters
-  usAirlift: 15,          // Massive airlift
-  ussFord: 10,            // Carrier positioned
-  talksCollapsed: 15      // Geneva failed
+  warStarted: 100,        // WAR HAS BEGUN
+  iranRetaliation: 95,    // Iran firing missiles
+  hormuzClosed: 90,       // Strait closed
+  oilSpike: 85,           // Oil at $180
+  regionalEscalation: 80  // Israel under attack
 };
 
 export default function WarRiskGauge() {
