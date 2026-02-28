@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "17:38",
+    icon: "🇩🇪",
+    color: "#ffd600",
+    text: "GERMANY DEMANDS IRAN STOP ATTACKS",
+    details: "Chancellor Merz to Iran: 'Stop retaliatory attacks. Germany calls on Iran to cease military strikes against Israel and other partners. Tehran must end the violence and return to a negotiated solution.'",
+    source: "German Chancellery / Official",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "17:37",
     icon: "🦁",
     color: "#2979ff",
@@ -14,7 +24,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
-    id: 2,
+    id: 3,
     time: "17:37",
     icon: "🛡️",
     color: "#00e676",

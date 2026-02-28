@@ -107,6 +107,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 28, 2026", event: "🛢️ OIL $195: Brent crude hits $195/barrel - Highest since 2008 crisis", severity: "critical" },
   { date: "Feb 28, 2026", event: "🌐 IRAN INTERNET BLACKOUT: National connectivity at 4% — Near-total blackout amid combat operations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚨🚨🚀 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🇩🇪 GERMANY DEMANDS IRAN STOP: Chancellor Merz calls on Iran to cease military strikes and return to negotiated solution", severity: "critical" },
   { date: "Feb 28, 2026", event: "🦁 OPERATION LION'S ROAR: Israeli Air Force names operation — 200 jets, 500 targets — LARGEST sortie in IAF history begins", severity: "critical" },
   { date: "Feb 28, 2026", event: "🛡️ MISSILE INTERCEPTED OVER TEL AVIV: Iranian ballistic missile intercepted by Israeli air defense — Iron Dome/Arrow successful", severity: "critical" },
   { date: "Feb 28, 2026", event: "🇸🇦 SAUDI ARABIA JOINS WAR: Saudi Arabia announces ready to join US war effort against Iran — Gulf coalition expands", severity: "critical" },
@@ -120,6 +121,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
+  { time: "🇩🇪🟡 17:38", source: "German Chancellery / Official", title: "🇩🇪 GERMANY DEMANDS IRAN STOP ATTACKS: Chancellor Merz to Iran: 'Stop retaliatory attacks. Germany calls on Iran to cease military strikes against Israel and other partners. Tehran must end the violence and return to a negotiated solution.'", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🦁🔵 17:37", source: "Israeli Air Force / Official", title: "🦁 OPERATION LION'S ROAR BEGINS: Israeli Air Force commander names operation — 200 jets, 500 targets — LARGEST sortie in IAF history — 'Genesis' was opening strike — This is NOT a one-day operation", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🛡️🟢 17:37", source: "IDF / Israeli Defense", title: "🛡️ IRANIAN MISSILE INTERCEPTED OVER TEL AVIV: Iranian ballistic missile intercepted over Tel Aviv by Israeli air defense — Major population center protected — Iron Dome/Arrow system successful", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🏨🔴 15:26", source: "Dubai Civil Defense / Breaking", title: "🏨 PALM HOTEL DUBAI STRUCK: CONFIRMED — Iranian attack hit the 'Palm Hotel & Resort' in Dubai — Luxury civilian target struck — Multiple casualties reported", category: "military", url: "https://www.reuters.com/world/middle-east/" },
