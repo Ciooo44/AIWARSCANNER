@@ -241,8 +241,45 @@ export default function LiveFlightRadar() {
 
   if (!isLoaded) {
     return (
-      <div style={{ width: "100%", height: "400px", background: "#030810", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12 }}>
-        <span style={{ color: "#8b949e" }}>Loading Flight Radar...</span>
+      <div style={{ 
+        width: "100%", 
+        height: "400px", 
+        background: "linear-gradient(135deg, #8b0000 0%, #1a0000 100%)", 
+        display: "flex", 
+        flexDirection: "column",
+        alignItems: "center", 
+        justifyContent: "center", 
+        borderRadius: 12,
+        border: "2px solid #ff1744"
+      }}>
+        <div style={{ fontSize: 32, marginBottom: 12 }}>✈️</div>
+        <div style={{ color: "#ff1744", fontSize: 16, fontWeight: 700, marginBottom: 8 }}>
+          🔴 WAR TIME FLIGHT TRACKING 🔴
+        </div>
+        <div style={{ color: "#8b949e", fontSize: 12 }}>
+          Loading military aircraft positions...
+        </div>
+        <div style={{ 
+          marginTop: 16, 
+          width: 200, 
+          height: 4, 
+          background: "#1a2332", 
+          borderRadius: 2,
+          overflow: "hidden"
+        }}>
+          <div style={{
+            width: "60%",
+            height: "100%",
+            background: "#ff1744",
+            animation: "loading 1.5s infinite ease-in-out"
+          }} />
+        </div>
+        <style>{`
+          @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+          }
+        `}</style>
       </div>
     );
   }
@@ -251,8 +288,8 @@ export default function LiveFlightRadar() {
     <div style={{ background: "#0d1117", padding: 16, borderBottom: "1px solid #1a2332" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
         <div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", letterSpacing: 1 }}>
-            ✈️ LIVE FLIGHT RADAR — OPENSKY NETWORK
+          <div style={{ fontSize: 14, fontWeight: 800, color: "#ff1744", letterSpacing: 2 }}>
+            🔴 WAR TIME FLIGHT RADAR — LIVE MILITARY TRACKING
           </div>
           {lastUpdate && (
             <div style={{ fontSize: 9, color: "#00e676", marginTop: 2 }}>
