@@ -9,8 +9,6 @@ import IranianTargets from "./components/IranianTargets.jsx";
 import PredictionMarkets from "./components/PredictionMarkets.jsx";
 import SatelliteTracker from "./components/SatelliteTracker.jsx";
 import EvacuationTracker from "./components/EvacuationTracker.jsx";
-import CrisisCalendar from "./components/CrisisCalendar.jsx";
-
 // New enhanced UI components
 import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
 import WarRiskGauge from "./components/WarRiskGauge.jsx";
@@ -737,9 +735,6 @@ export default function App({ navigateTo }) {
 
         {/* War News Sources — Verified accounts and live sources */}
         <WarNewsSources />
-
-        {/* Crisis Calendar — Countdown to key dates */}
-        <CrisisCalendar />
 
         {/* Evacuation Tracker — TIME SENSITIVE */}
         <EvacuationTracker />
