@@ -91,9 +91,9 @@ export default function WarStartedBanner() {
           lineHeight: 1.8,
           textShadow: "0 2px 10px rgba(0,0,0,0.8)"
         }}>
-          <div style={{ marginBottom: 12, color: "#ff0000", fontSize: 36, animation: "blink 0.5s infinite" }}>🚨 ABU DHABI CITY CENTRE STRUCK BY IRANIAN MISSILE 🚨</div>
-          <div style={{ marginBottom: 12, color: "#ff6d00", fontSize: 24 }}>🇮🇷 Iran now attacking: Israel • US • UAE — Multi-front war</div>
-          <div style={{ marginBottom: 12, color: "#00e676", fontSize: 22 }}>🇸🇦 Saudi Arabia mobilizes all resources for Gulf coalition</div>
+          <div style={{ marginBottom: 12, color: "#ff0000", fontSize: 36, animation: "blink 0.5s infinite" }}>✈️ ISRAELI OFFICIALS EVACUATING BEN GURION 🚨</div>
+          <div style={{ marginBottom: 12, color: "#ff6d00", fontSize: 24 }}>🇮🇷 Top Israeli leadership fleeing Iranian missile threat</div>
+          <div style={{ marginBottom: 12, color: "#ffd600", fontSize: 22 }}>🚨 ABU DHABI STRUCK • Multi-front war escalating</div>
           <div style={{ marginBottom: 12, color: "#ffeb3b" }}>⚡ EXPLOSIONS: Tehran • Natanz • Fordow • Isfahan</div>
           <div style={{ marginBottom: 12, color: "#ff6d00" }}>🚀 IRAN RETALIATING: Ballistic missiles launched</div>
           <div style={{ marginBottom: 12, color: "#ff1744" }}>🚨 ISRAEL UNDER MASSIVE ROCKET ATTACK</div>

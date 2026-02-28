@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
+    title: "✈️ ISRAELI LEADERSHIP EVACUATING",
+    details: "JUST IN: Israeli officials' airplanes evacuating from Ben Gurion Airport. Top leadership fleeing in fear of Iranian missile strikes. Emergency evacuation of government officials underway.",
+    status: "active",
+    color: "#ff0000",
+    icon: "✈️",
+  },
+  {
+    date: "2026-02-28",
+    label: "NOW",
     title: "🇨🇳 CHINA: 'US IS A WAR ADDICT'",
     details: "China Foreign Ministry issues blistering condemnation: 'US has been at war for 224 of its 240-year history. 800 overseas military bases in 80+ countries. US is main cause of international disorder and regional instability.'",
     status: "active",

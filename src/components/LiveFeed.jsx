@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "12:34",
+    icon: "✈️",
+    color: "#ff0000",
+    text: "ISRAELI OFFICIALS EVACUATING",
+    details: "JUST IN: Israeli officials' airplanes evacuating from Ben Gurion Airport in fear of Iranian missile strikes against top Israeli leadership",
+    source: "Israeli Officials",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "12:33",
     icon: "🇨🇳",
     color: "#ff0000",
@@ -14,7 +24,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
-    id: 2,
+    id: 3,
     time: "12:32",
     icon: "🚨",
     color: "#ff0000",
