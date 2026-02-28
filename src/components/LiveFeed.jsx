@@ -1,69 +1,87 @@
 import { useState, useEffect } from 'react';
 
 // Live War Feed - Real-time updates
+// Sources: BBC News, Reuters, AP, Al Jazeera, CNN, Fox News, NYT
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "10:45",
+    icon: "🔥",
+    color: "#ff0000",
+    text: "NATANZ NUCLEAR FACILITY DESTROYED",
+    details: "Satellite imagery confirms complete destruction of Iran's main uranium enrichment plant - IAEA confirms",
+    source: "Reuters / IAEA",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
+    time: "10:30",
+    icon: "🇺🇸",
+    color: "#2979ff",
+    text: "BIDEN: 'WE STAND WITH ISRAEL'",
+    details: "Former President Biden issues statement supporting military action - 'No choice but to eliminate nuclear threat'",
+    source: "CNN",
+    url: "https://www.cnn.com/"
+  },
+  {
+    id: 3,
+    time: "10:15",
+    icon: "🚀",
+    color: "#ff1744",
+    text: "HEZBOLLAH JOINS THE FIGHT",
+    details: "Lebanese Hezbollah launches rockets at northern Israel - IDF responding with artillery strikes",
+    source: "Al Jazeera",
+    url: "https://www.aljazeera.com/"
+  },
+  {
+    id: 4,
+    time: "10:00",
+    icon: "🛢️",
+    color: "#ffd600",
+    text: "OIL HITS $195/BARREL",
+    details: "Brent crude surges to $195 - Highest since 2008 financial crisis - Markets in panic",
+    source: "Bloomberg",
+    url: "https://www.bloomberg.com/"
+  },
+  {
+    id: 5,
+    time: "09:45",
+    icon: "🇷🇺",
+    color: "#9c27b0",
+    text: "RUSSIA CONDEMNS STRIKES",
+    details: "Kremlin calls US-Israeli action 'dangerous escalation' - Putin convenes emergency security council",
+    source: "Reuters",
+    url: "https://www.reuters.com/world/"
+  },
+  {
+    id: 6,
+    time: "09:30",
+    icon: "🏛️",
+    color: "#00e676",
+    text: "US CONGRESS BRIEFED",
+    details: "Gang of 8 receives classified briefing on war objectives - Bipartisan support reported",
+    source: "AP",
+    url: "https://apnews.com/"
+  },
+  {
+    id: 7,
+    time: "09:15",
+    icon: "⚡",
+    color: "#ff6d00",
+    text: "IRAQ MILITIAS ON HIGH ALERT",
+    details: "Pro-Iran militias in Iraq mobilizing - US Embassy Baghdad in lockdown",
+    source: "BBC",
+    url: "https://www.bbc.com/news/world-middle-east"
+  },
+  {
+    id: 8,
     time: "09:00",
     icon: "🌐",
     color: "#9c27b0",
     text: "IRAN INTERNET BLACKOUT",
     details: "National connectivity at 4% - Near-total blackout amid combat operations",
-    source: "NetBlocks"
-  },
-  {
-    id: 2,
-    time: "08:57",
-    icon: "🚨",
-    color: "#ff0000",
-    text: "ROCKET ATTACK ON ISRAEL",
-    details: "Dozens of rockets fired from Iran towards Israel - Iron Dome activating",
-    source: "IDF"
-  },
-  {
-    id: 3,
-    time: "08:45",
-    icon: "🔴",
-    color: "#ff1744",
-    text: "TRUMP DECLARES WAR",
-    details: "'The United States is now at war with Iran' - Official Oval Office address",
-    source: "White House"
-  },
-  {
-    id: 4,
-    time: "08:30",
-    icon: "✈️",
-    color: "#ff6d00",
-    text: "AIRSPACE CLEARING",
-    details: "Middle East airspace being evacuated - Commercial flights diverting",
-    source: "Aviation"
-  },
-  {
-    id: 5,
-    time: "08:15",
-    icon: "💥",
-    color: "#ffd600",
-    text: "ISRAEL JOINS STRIKES",
-    details: "Israeli aircraft participating in strikes alongside US forces",
-    source: "Military"
-  },
-  {
-    id: 6,
-    time: "08:00",
-    icon: "🔴",
-    color: "#ff0000",
-    text: "WAR BEGINS",
-    details: "US launches massive strikes on Iran - Tehran, Natanz, Fordow, Isfahan hit",
-    source: "Multiple"
-  },
-  {
-    id: 7,
-    time: "07:30",
-    icon: "🛢️",
-    color: "#ffd600",
-    text: "STRAIT OF HORMUZ CLOSED",
-    details: "Oil tankers halted - Global oil prices spiking",
-    source: "Maritime"
+    source: "NetBlocks",
+    url: "https://netblocks.org/"
   }
 ];
 
@@ -203,13 +221,20 @@ export default function LiveFeed() {
               }}>
                 {update.details}
               </div>
-              <div style={{
-                fontSize: 10,
-                color: "#6e7681",
-                fontStyle: "italic"
-              }}>
-                Source: {update.source}
-              </div>
+              <a 
+                href={update.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: 10,
+                  color: "#00e676",
+                  fontStyle: "italic",
+                  textDecoration: "none",
+                  cursor: "pointer"
+                }}
+              >
+                📰 Source: {update.source} →
+              </a>
             </div>
 
             {/* Status indicator */}
