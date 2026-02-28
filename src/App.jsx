@@ -8,10 +8,8 @@ import IranLiveCams from "./components/IranLiveCams.jsx";
 import IranianTargets from "./components/IranianTargets.jsx";
 import PredictionMarkets from "./components/PredictionMarkets.jsx";
 import SatelliteTracker from "./components/SatelliteTracker.jsx";
-import StrikeScenarioSimulator from "./components/StrikeScenarioSimulator.jsx";
 import EvacuationTracker from "./components/EvacuationTracker.jsx";
 import CrisisCalendar from "./components/CrisisCalendar.jsx";
-import TrumpSimulator from "./components/TrumpSimulator.jsx";
 
 // New enhanced UI components
 import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
@@ -639,8 +637,6 @@ export default function App({ navigateTo }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [liveNews, setLiveNews] = useState(null);
   const [lastNewsUpdate, setLastNewsUpdate] = useState(null);
-  const [showSimulator, setShowSimulator] = useState(false);
-
   // Fetch live news on mount and refresh every 5 minutes
   useEffect(() => {
     // Temporarily disabled live news to show updated static news
@@ -745,29 +741,6 @@ export default function App({ navigateTo }) {
         {/* Crisis Calendar — Countdown to key dates */}
         <CrisisCalendar />
 
-        {/* Play Simulator Button */}
-        <div style={{ background: "#0d1117", padding: "16px 24px", textAlign: "center" }}>
-          <button 
-            onClick={() => setShowSimulator(true)}
-            style={{
-              display: "inline-flex", 
-              alignItems: "center", 
-              gap: 8,
-              padding: "12px 24px", 
-              background: "linear-gradient(135deg, #ff1744 0%, #ff6d00 100%)",
-              border: "none", 
-              borderRadius: 8,
-              color: "#fff", 
-              fontSize: 14, 
-              fontWeight: 700,
-              cursor: "pointer",
-              letterSpacing: 1
-            }}
-          >
-            🎮 BE THE PRESIDENT — What would YOU do?
-          </button>
-        </div>
-
         {/* Evacuation Tracker — TIME SENSITIVE */}
         <EvacuationTracker />
 
@@ -797,9 +770,6 @@ export default function App({ navigateTo }) {
 
         {/* War Economy Dashboard */}
         <WarEconomyDashboard />
-
-        {/* Strike Scenario Simulator */}
-        <StrikeScenarioSimulator />
 
         {/* Satellite Imagery Tracker */}
         <SatelliteTracker />
@@ -833,9 +803,6 @@ export default function App({ navigateTo }) {
 
       {/* Live News TV Widget */}
       <LiveNewsTV />
-
-      {/* Trump Simulator Modal */}
-      {showSimulator && <TrumpSimulator onClose={() => setShowSimulator(false)} />}
     </div>
   );
 }
