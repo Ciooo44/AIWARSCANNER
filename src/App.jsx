@@ -22,6 +22,7 @@ import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
 import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
 import WarStartedBanner from "./components/WarStartedBanner.jsx";
+import NothingEverHappensIndex from "./components/NothingEverHappensIndex.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -722,6 +723,9 @@ export default function App({ navigateTo }) {
 
         {/* Pentagon Pizza Index — The famous indicator */}
         <PentagonPizzaIndex />
+
+        {/* Nothing Ever Happens Index — Tracking wrong predictions */}
+        <NothingEverHappensIndex />
 
         {/* Force Comparison Counters — US vs Iran */}
         <ForceComparisonCounters />
