@@ -59,7 +59,7 @@ export default function ImpactVisualization() {
         letterSpacing: 1,
         marginBottom: 16
       }}>
-        📊 STRIKE IMPACT SIMULATION
+        📊 WAR IMPACT SIMULATION
       </div>
 
       {/* Scenario Selector */}
