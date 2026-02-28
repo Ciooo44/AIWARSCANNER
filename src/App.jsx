@@ -23,6 +23,7 @@ import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
 import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
 import WarStartedBanner from "./components/WarStartedBanner.jsx";
 import NothingEverHappensIndex from "./components/NothingEverHappensIndex.jsx";
+import LiveFeed from "./components/LiveFeed.jsx";
 import { fetchLiveNews, startNewsRefresh } from "./data/newsFetcher.js";
 import {
   CURRENT_THREAT,
@@ -677,7 +678,10 @@ export default function App({ navigateTo }) {
       
       {/* WAR STARTED BANNER */}
       <WarStartedBanner />
-      
+
+      {/* Live Feed - Real-time updates */}
+      <LiveFeed />
+
       {/* New Enhanced UI Components */}
       <LiveAlertTicker />
       
