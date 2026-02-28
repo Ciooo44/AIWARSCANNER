@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "17:37",
+    icon: "🛡️",
+    color: "#00e676",
+    text: "IRANIAN MISSILE INTERCEPTED OVER TEL AVIV",
+    details: "BREAKING: Iranian ballistic missile intercepted over Tel Aviv by Israeli air defense — Major population center protected — Iron Dome/Arrow system successful",
+    source: "IDF / Israeli Defense",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "15:26",
     icon: "🏨",
     color: "#ff0000",

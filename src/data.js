@@ -107,6 +107,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 28, 2026", event: "🛢️ OIL $195: Brent crude hits $195/barrel - Highest since 2008 crisis", severity: "critical" },
   { date: "Feb 28, 2026", event: "🌐 IRAN INTERNET BLACKOUT: National connectivity at 4% — Near-total blackout amid combat operations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚨🚨🚀 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🛡️ MISSILE INTERCEPTED OVER TEL AVIV: Iranian ballistic missile intercepted by Israeli air defense — Iron Dome/Arrow successful", severity: "critical" },
   { date: "Feb 28, 2026", event: "🇸🇦 SAUDI ARABIA JOINS WAR: Saudi Arabia announces ready to join US war effort against Iran — Gulf coalition expands", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚀 IRAN MISSILE RETALIATION: Iran launches ballistic missile wave — Dubai reportedly hit — Major civilian casualties expected", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'United States is now at war with Iran. We will not stop until the threat is eliminated.' Official Oval Office address", severity: "critical" },
@@ -118,6 +119,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
+  { time: "🛡️🟢 17:37", source: "IDF / Israeli Defense", title: "🛡️ IRANIAN MISSILE INTERCEPTED OVER TEL AVIV: Iranian ballistic missile intercepted over Tel Aviv by Israeli air defense — Major population center protected — Iron Dome/Arrow system successful", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🏨🔴 15:26", source: "Dubai Civil Defense / Breaking", title: "🏨 PALM HOTEL DUBAI STRUCK: CONFIRMED — Iranian attack hit the 'Palm Hotel & Resort' in Dubai — Luxury civilian target struck — Multiple casualties reported", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇸🇦🔴 15:25", source: "Saudi Government / Official", title: "🇸🇦 SAUDI ARABIA JOINS US WAR EFFORT: Saudi Arabia announces it is ready to join US in the war against Iran — Gulf powerhouse officially entering the conflict", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🚀🔴 15:22", source: "Iranian Military / Breaking", title: "🚀 IRAN BALLISTIC MISSILE RETALIATION: Iran launches first wave of ballistic missile retaliation against multiple targets — Dubai reportedly hit — Major escalation in progress", category: "military", url: "https://www.reuters.com/world/middle-east/" },
