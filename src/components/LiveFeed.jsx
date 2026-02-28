@@ -5,6 +5,26 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "15:22",
+    icon: "🚀",
+    color: "#ff0000",
+    text: "IRAN BALLISTIC MISSILE RETALIATION",
+    details: "Iran launches first wave of ballistic missile retaliation against multiple targets. Dubai reportedly hit. Major escalation in progress.",
+    source: "Iranian Military / Breaking",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
+    time: "15:20",
+    icon: "🇦🇪",
+    color: "#ff0000",
+    text: "DUBAI HIT BY IRANIAN MISSILES",
+    details: "Reports indicate Iran has managed to hit Dubai with ballistic missiles. Major civilian center struck. Casualties expected.",
+    source: "Multiple / Regional",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 3,
     time: "12:34",
     icon: "✈️",
     color: "#ff0000",
@@ -14,7 +34,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
-    id: 2,
+    id: 4,
     time: "12:33",
     icon: "🇨🇳",
     color: "#ff0000",

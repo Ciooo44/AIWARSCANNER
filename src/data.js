@@ -107,6 +107,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 28, 2026", event: "🛢️ OIL $195: Brent crude hits $195/barrel - Highest since 2008 crisis", severity: "critical" },
   { date: "Feb 28, 2026", event: "🌐 IRAN INTERNET BLACKOUT: National connectivity at 4% — Near-total blackout amid combat operations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚨🚨🚀 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🚀 IRAN MISSILE RETALIATION: Iran launches ballistic missile wave — Dubai reportedly hit — Major civilian casualties expected", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'United States is now at war with Iran. We will not stop until the threat is eliminated.' Official Oval Office address", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability war continues past this date", severity: "prediction" },
   { date: "Mar 15, 2026", event: "🔮 POLYMARKET: $355M volume — 42% YES probability regime change by this date", severity: "prediction" },
@@ -116,6 +117,8 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
+  { time: "🚀🔴 15:22", source: "Iranian Military / Breaking", title: "🚀 IRAN BALLISTIC MISSILE RETALIATION: Iran launches first wave of ballistic missile retaliation against multiple targets — Dubai reportedly hit — Major escalation in progress", category: "military", url: "https://www.reuters.com/world/middle-east/" },
+  { time: "🇦🇪🔴 15:20", source: "Multiple / Regional", title: "🇦🇪 DUBAI HIT BY IRANIAN MISSILES: Reports indicate Iran has managed to hit Dubai with ballistic missiles — Major civilian center struck — Casualties expected", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "✈️🔴 12:34", source: "Israeli Officials", title: "✈️ ISRAELI OFFICIALS EVACUATING: Airplanes departing Ben Gurion Airport in fear of Iranian missile strikes targeting top Israeli leadership — Emergency evacuation underway", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇨🇳 12:33", source: "China Foreign Ministry", title: "🇨🇳 CHINA: 'US IS A WAR ADDICT' — 'US has 800 overseas military bases in 80+ countries. US is the main cause of international disorder, global turbulence, and regional instability.' Direct condemnation of US military action", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🚨🚨🚨 12:32", source: "Multiple / Breaking", title: "🚨 ABU DHABI CITY CENTRE STRUCK BY MISSILE: Iran fires missile at UAE capital — Major escalation, Iran now attacking multiple nations simultaneously", category: "military", url: "https://www.reuters.com/world/middle-east/" },
