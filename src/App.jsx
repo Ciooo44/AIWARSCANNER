@@ -16,7 +16,7 @@ import TrumpSimulator from "./components/TrumpSimulator.jsx";
 // New enhanced UI components
 import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
 import WarRiskGauge from "./components/WarRiskGauge.jsx";
-import StrikeCountdown from "./components/StrikeCountdown.jsx";
+import WarProgressTimer from "./components/WarProgressTimer.jsx";
 import SocialFeed from "./components/SocialFeed.jsx";
 import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
@@ -682,7 +682,7 @@ export default function App({ navigateTo }) {
       
       <div style={{ marginTop: 60 }}> {/* Spacer for fixed ticker */}
         <WarRiskGauge />
-        <StrikeCountdown />
+        <WarProgressTimer />
       </div>
       
       <AlertTicker />
