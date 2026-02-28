@@ -183,13 +183,6 @@ const CRISIS_DATES = [
   },
 ];
 
-const STRIKE_WINDOWS = [
-  { period: "This week (Feb 26-28)", probability: 35, bars: 6 },
-  { period: "Next week (Mar 1-7)", probability: 55, bars: 9, peak: true },
-  { period: "Mid-March (Mar 8-15)", probability: 15, bars: 3 },
-  { period: "Post-Ramadan (Apr 27+)", probability: 5, bars: 1 },
-];
-
 export default function CrisisCalendar() {
   const [selectedEvent, setSelectedEvent] = useState(null);
 
@@ -338,59 +331,6 @@ export default function CrisisCalendar() {
         </div>
       )}
 
-      {/* Strike Window Probability */}
-      <div style={{
-        background: "#161b22",
-        borderRadius: 12,
-        padding: 20,
-        border: "1px solid #1a2332"
-      }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "#e6edf3", marginBottom: 16, letterSpacing: 1 }}>
-          STRIKE WINDOW PROBABILITY
-        </div>
-        <div style={{ display: "grid", gap: 12 }}>
-          {STRIKE_WINDOWS.map((window, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <div style={{ width: 180, fontSize: 11, color: "#8b949e" }}>
-                {window.period}
-              </div>
-              <div style={{ flex: 1, display: "flex", gap: 4, alignItems: "center" }}>
-                {Array.from({ length: 10 }).map((_, j) => (
-                  <div key={j} style={{
-                    flex: 1,
-                    height: 8,
-                    background: j < window.bars 
-                      ? window.peak ? "#ff1744" : "#ff6d00"
-                      : "#1a2332",
-                    borderRadius: 2
-                  }} />
-                ))}
-              </div>
-              <div style={{
-                width: 50,
-                fontSize: 12,
-                fontWeight: 700,
-                color: window.peak ? "#ff1744" : "#c9d1d9",
-                textAlign: "right"
-              }}>
-                {window.probability}%
-              </div>
-              {window.peak && (
-                <span style={{
-                  fontSize: 8,
-                  padding: "2px 6px",
-                  background: "#ff174420",
-                  color: "#ff1744",
-                  borderRadius: 4,
-                  fontWeight: 600
-                }}>
-                  PEAK
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
