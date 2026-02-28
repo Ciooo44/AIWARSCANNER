@@ -13,7 +13,6 @@ import EvacuationTracker from "./components/EvacuationTracker.jsx";
 import LiveAlertTicker from "./components/LiveAlertTicker.jsx";
 import WarProgressTimer from "./components/WarProgressTimer.jsx";
 import SocialFeed from "./components/SocialFeed.jsx";
-import ImpactVisualization from "./components/ImpactVisualization.jsx";
 import PentagonPizzaIndex from "./components/PentagonPizzaIndex.jsx";
 import ForceComparisonCounters from "./components/ForceComparisonCounters.jsx";
 import NothingEverHappensIndex from "./components/NothingEverHappensIndex.jsx";
@@ -662,8 +661,8 @@ export default function App({ navigateTo }) {
           <AssetDetail asset={selectedAsset} onClose={() => setSelectedAsset(null)} />
         </div>
 
-        {/* Impact Visualization */}
-        <ImpactVisualization />
+        {/* Prediction Markets — POLYMARKET */}
+        <PredictionMarkets />
 
         {/* Pentagon Pizza Index — The famous indicator */}
         <PentagonPizzaIndex />
@@ -686,11 +685,8 @@ export default function App({ navigateTo }) {
         {/* Social Feed */}
         <SocialFeed />
 
-        {/* Prediction Markets — POLYMARKET */}
-        <PredictionMarkets />
-
-        {/* News + Timeline/Forces — two column */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
+        {/* News + Timeline/Forces — two column (NewsFeed 30% smaller) */}
+        <div style={{ display: "grid", gridTemplateColumns: "0.7fr 1fr", gap: 1 }}>
           <NewsFeed 
             news={newsItems} 
             filter={newsFilter} 
