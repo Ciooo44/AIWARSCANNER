@@ -64,7 +64,7 @@ export default function WarProgressTimer() {
         marginBottom: 24,
         fontWeight: 700
       }}>
-        🇺🇸 UNITED STATES vs 🇮🇷 IRAN
+        🇺🇸🇮🇱 US & ISRAEL vs 🇮🇷 IRAN
       </div>
 
       <div style={{

@@ -289,7 +289,7 @@ export default function LiveFlightRadar() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
         <div>
           <div style={{ fontSize: 14, fontWeight: 800, color: "#ff1744", letterSpacing: 2 }}>
-            🔴 WAR TIME FLIGHT RADAR — LIVE MILITARY TRACKING
+            🔴 WAR TIME FLIGHT RADAR — AIRSPACE CLEARING IN PROGRESS
           </div>
           {lastUpdate && (
             <div style={{ fontSize: 9, color: "#00e676", marginTop: 2 }}>

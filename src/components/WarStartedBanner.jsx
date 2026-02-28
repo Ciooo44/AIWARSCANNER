@@ -59,7 +59,7 @@ export default function WarStartedBanner() {
           textShadow: "0 0 40px rgba(255,235,59,0.8), 0 0 80px rgba(255,235,59,0.5)",
           letterSpacing: 4
         }}>
-          🇺🇸 PRESIDENT TRUMP DECLARES WAR 🇮🇷
+          🇺🇸🇮🇱 US & ISRAEL STRIKE IRAN 🇮🇷
         </div>
         
         <div style={{
