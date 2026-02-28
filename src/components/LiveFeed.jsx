@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 const LIVE_UPDATES = [
   {
     id: 1,
+    time: "12:32",
+    icon: "🚨",
+    color: "#ff0000",
+    text: "ABU DHABI CITY CENTRE STRUCK BY MISSILE",
+    details: "IRAN FIRES MISSILE AT UAE CAPITAL: Abu Dhabi city centre hit - Major escalation, Iran attacking multiple nations",
+    source: "Multiple / Breaking",
+    url: "https://www.reuters.com/world/middle-east/"
+  },
+  {
+    id: 2,
     time: "12:30",
     icon: "🇸🇦",
     color: "#00e676",
@@ -14,7 +24,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
-    id: 2,
+    id: 3,
     time: "10:45",
     icon: "🔥",
     color: "#ff0000",
@@ -24,7 +34,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/middle-east/"
   },
   {
-    id: 2,
+    id: 4,
     time: "10:30",
     icon: "🇺🇸",
     color: "#2979ff",
@@ -34,7 +44,7 @@ const LIVE_UPDATES = [
     url: "https://www.cnn.com/"
   },
   {
-    id: 3,
+    id: 5,
     time: "10:15",
     icon: "🚀",
     color: "#ff1744",
@@ -44,7 +54,7 @@ const LIVE_UPDATES = [
     url: "https://www.aljazeera.com/"
   },
   {
-    id: 4,
+    id: 6,
     time: "10:00",
     icon: "🛢️",
     color: "#ffd600",
@@ -54,7 +64,7 @@ const LIVE_UPDATES = [
     url: "https://www.bloomberg.com/"
   },
   {
-    id: 5,
+    id: 7,
     time: "09:45",
     icon: "🇷🇺",
     color: "#9c27b0",
@@ -64,7 +74,7 @@ const LIVE_UPDATES = [
     url: "https://www.reuters.com/world/"
   },
   {
-    id: 6,
+    id: 8,
     time: "09:30",
     icon: "🏛️",
     color: "#00e676",
@@ -74,7 +84,7 @@ const LIVE_UPDATES = [
     url: "https://apnews.com/"
   },
   {
-    id: 7,
+    id: 9,
     time: "09:15",
     icon: "⚡",
     color: "#ff6d00",
@@ -84,7 +94,7 @@ const LIVE_UPDATES = [
     url: "https://www.bbc.com/news/world-middle-east"
   },
   {
-    id: 8,
+    id: 10,
     time: "09:00",
     icon: "🌐",
     color: "#9c27b0",

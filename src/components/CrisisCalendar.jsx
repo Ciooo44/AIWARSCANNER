@@ -4,6 +4,15 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
+    title: "🚨 ABU DHABI STRUCK BY MISSILE",
+    details: "IRAN FIRES MISSILE AT UAE CAPITAL: Abu Dhabi city centre hit. Iran now attacking multiple nations simultaneously - Israel, US bases, and UAE. Major escalation to multi-front war.",
+    status: "active",
+    color: "#ff0000",
+    icon: "🚨",
+  },
+  {
+    date: "2026-02-28",
+    label: "NOW",
     title: "🇸🇦 SAUDI ARABIA MOBILIZES",
     details: "BREAKING: Saudi Arabia deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, and Jordan. Gulf coalition forming against Iranian threat. Major regional escalation.",
     status: "active",

@@ -98,6 +98,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 27, 2026", event: "🌍 GLOBAL EVACUATION WAVE: 15+ countries (US, UK, Germany, Canada, Australia, China, India, etc.) tell citizens to LEAVE IRAN NOW", severity: "critical" },
   { date: "Feb 27, 2026", event: "🇨🇳 CHINA JOINS EVACUATION: Beijing orders all citizens to immediately evacuate Iran — major escalation signal", severity: "critical" },
   { date: "Feb 27, 2026", event: "🏠 ISRAEL OPENS ALL PUBLIC SHELTERS: Be'er Sheva deputy mayor warns 'could unfold this weekend'", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🚨 ABU DHABI STRUCK: Iran fires missile at UAE capital city centre — Major escalation, attacking multiple nations", severity: "critical" },
   { date: "Feb 28, 2026", event: "🇸🇦 SAUDI ARABIA MOBILIZES: Deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, Jordan — Gulf coalition forming", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔥 NATANZ DESTROYED: Satellite imagery confirms complete destruction of Iran's main uranium enrichment plant", severity: "critical" },
   { date: "Feb 28, 2026", event: "🚀 HEZBOLLAH JOINS: Lebanese Hezbollah launches rockets at northern Israel - Northern front opens", severity: "critical" },
@@ -114,6 +115,7 @@ export const CRISIS_TIMELINE = [
 // ── Live News Feed ─────────────────────────────────────────────
 // Latest updates from BBC, Reuters, AP, Al Jazeera, CNN, Bloomberg
 export const NEWS_ITEMS = [
+  { time: "🚨🚨🚨 12:32", source: "Multiple / Breaking", title: "🚨 ABU DHABI CITY CENTRE STRUCK BY MISSILE: Iran fires missile at UAE capital — Major escalation, Iran now attacking multiple nations simultaneously", category: "military", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇸🇦🔴 12:30", source: "Saudi Foreign Ministry", title: "🇸🇦 SAUDI ARABIA MOBILIZES: Deploying ALL available resources to support UAE, Bahrain, Qatar, Kuwait, and Jordan — Gulf coalition forming against Iranian threat", category: "diplomacy", url: "https://www.reuters.com/world/middle-east/" },
   { time: "🇺🇸 10:30", source: "CNN / Biden Statement", title: "🇺🇸 BIDEN: 'WE STAND WITH ISRAEL' - Former President Biden issues statement supporting military action: 'No choice but to eliminate nuclear threat'", category: "diplomacy", url: "https://www.cnn.com/" },
   { time: "🚀🚨 10:15", source: "Al Jazeera", title: "🚀 HEZBOLLAH JOINS THE FIGHT: Lebanese Hezbollah launches rockets at northern Israel - IDF responding with artillery strikes - Northern front opens", category: "military", url: "https://www.aljazeera.com/" },
