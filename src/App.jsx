@@ -36,7 +36,7 @@ import {
 
 // ── Escalation Gauge ───────────────────────────────────────────
 function EscalationGauge() {
-  const level = 87;
+  const level = 100; // War has started - max escalation
   const circumference = 2 * Math.PI * 54;
   const offset = circumference - (level / 100) * circumference * 0.75;
 
@@ -48,7 +48,7 @@ function EscalationGauge() {
             <stop offset="0%" stopColor="#00e676" />
             <stop offset="35%" stopColor="#ffd600" />
             <stop offset="65%" stopColor="#ff6d00" />
-            <stop offset="100%" stopColor="#ff1744" />
+            <stop offset="100%" stopColor="#ff0000" />
           </linearGradient>
         </defs>
         <circle cx="65" cy="65" r="54" fill="none" stroke="#1a2332" strokeWidth="8"
@@ -58,10 +58,10 @@ function EscalationGauge() {
           strokeDasharray={circumference * 0.75} strokeDashoffset={offset}
           strokeLinecap="round" transform="rotate(135, 65, 65)"
           style={{ transition: "stroke-dashoffset 1s ease" }} />
-        <text x="65" y="58" textAnchor="middle" fill="#ff1744" fontSize="26" fontWeight="700" fontFamily="'JetBrains Mono', monospace">{level}</text>
+        <text x="65" y="58" textAnchor="middle" fill="#ff0000" fontSize="26" fontWeight="700" fontFamily="'JetBrains Mono', monospace">{level}</text>
         <text x="65" y="76" textAnchor="middle" fill="#8b949e" fontSize="8" fontFamily="'JetBrains Mono', monospace" letterSpacing="1">ESCALATION</text>
       </svg>
-      <div style={{ fontSize: 7, color: "#ff8a80", letterSpacing: 1, marginTop: -6 }}>CRITICAL THRESHOLD: 90</div>
+      <div style={{ fontSize: 7, color: "#ff1744", letterSpacing: 1, marginTop: -6 }}>🔴 ACTIVE WAR</div>
     </div>
   );
 }
