@@ -4,8 +4,8 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
-    title: "🔴🔴🔴 WAR STARTED — US strikes Iran",
-    details: "WAR BEGINS: US launches massive strikes on Iran. Explosions in Tehran, Natanz, Fordow, Isfahan. Iran retaliating with ballistic missiles. Israel under attack. Strait of Hormuz CLOSED. Oil $180. This is not a drill.",
+    title: "🔴🔴🔴 TRUMP DECLARES WAR",
+    details: "PRESIDENT TRUMP: 'The United States is now at war with Iran. We will not stop until the threat is eliminated.' Official war declaration from Oval Office. US strikes ongoing. Iran retaliating. This is not a drill.",
     status: "active",
     color: "#ff0000",
     icon: "🔴",

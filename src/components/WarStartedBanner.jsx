@@ -59,7 +59,26 @@ export default function WarStartedBanner() {
           textShadow: "0 0 40px rgba(255,235,59,0.8), 0 0 80px rgba(255,235,59,0.5)",
           letterSpacing: 4
         }}>
-          🇺🇸 U.S. STRIKES IRAN 🇮🇷
+          🇺🇸 PRESIDENT TRUMP DECLARES WAR 🇮🇷
+        </div>
+        
+        <div style={{
+          fontSize: 20,
+          fontWeight: 700,
+          color: "#fff",
+          marginBottom: 24,
+          padding: "16px 24px",
+          background: "rgba(0,0,0,0.5)",
+          borderRadius: 8,
+          border: "2px solid #ffeb3b",
+          maxWidth: 900,
+          margin: "0 auto 24px",
+          fontStyle: "italic"
+        }}>
+          "The United States is now at war with Iran. We will not stop until the threat is eliminated."
+          <div style={{ fontSize: 12, color: "#8b949e", marginTop: 8, fontStyle: "normal" }}>
+            — President Donald J. Trump, Oval Office Address
+          </div>
         </div>
 
         <div style={{
