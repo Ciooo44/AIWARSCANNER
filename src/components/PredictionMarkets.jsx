@@ -1,94 +1,126 @@
 import { useState } from 'react';
 
-// Polymarket Iran Predictions - Extended
+// Polymarket Iran Predictions - WAR STARTED MODE
 const POLYMARKET_BETS = [
   {
     id: 1,
-    question: "US strikes Iran by March 7?",
-    probability: 41,
-    volume: "$378M",
+    question: "Will Iran close Strait of Hormuz >7 days?",
+    probability: 68,
+    volume: "$45M",
     trend: "up",
-    change: "+8%",
-    url: "https://polymarket.com/event/us-strikes-iran-by",
-    category: "STRIKE TIMING",
-    icon: "🎯"
+    change: "+33%",
+    url: "https://polymarket.com/event/hormuz",
+    category: "HORMUZ",
+    icon: "🌊",
+    status: "ACTIVE WAR"
   },
   {
     id: 2,
-    question: "US strikes Iran by March 15?",
+    question: "Will Khamenei be removed by March 31?",
     probability: 52,
-    volume: "$378M",
+    volume: "$28M",
     trend: "up",
-    change: "+10%",
-    url: "https://polymarket.com/event/us-strikes-iran-by",
-    category: "STRIKE TIMING",
-    icon: "🎯"
+    change: "+28%",
+    url: "https://polymarket.com/event/khamenei-out-as-supreme-leader-of-iran-by-march-31",
+    category: "REGIME CHANGE",
+    icon: "👑",
+    status: "ACTIVE WAR"
   },
   {
     id: 3,
-    question: "Khamenei out by March 31?",
-    probability: 24,
-    volume: "$18M",
+    question: "Will Iran use chemical weapons?",
+    probability: 18,
+    volume: "$12M",
     trend: "up",
-    change: "+3%",
-    url: "https://polymarket.com/event/khamenei-out-as-supreme-leader-of-iran-by-march-31",
-    category: "REGIME CHANGE",
-    icon: "👑"
+    change: "+5%",
+    url: "https://polymarket.com/event/iran-chemical",
+    category: "WMD",
+    icon: "☣️",
+    status: "ACTIVE WAR"
   },
   {
     id: 4,
-    question: "Iran closes Strait of Hormuz >7 days?",
-    probability: 35,
-    volume: "$15M",
+    question: "Will US strike Iranian nuclear facilities?",
+    probability: 95,
+    volume: "$52M",
     trend: "up",
-    change: "+7%",
-    url: "https://polymarket.com/event/hormuz",
-    category: "HORMUZ",
-    icon: "🌊"
+    change: "+45%",
+    url: "https://polymarket.com/event/us-strikes-iran-by",
+    category: "STRIKES",
+    icon: "💥",
+    status: "✅ RESOLVED YES"
   },
   {
     id: 5,
-    question: "Israel strikes Iran independently?",
-    probability: 44,
-    volume: "$12M",
+    question: "Will Israel strike Iran independently?",
+    probability: 100,
+    volume: "$18M",
     trend: "up",
-    change: "+6%",
+    change: "+56%",
     url: "https://polymarket.com/event/israel-iran",
     category: "ISRAEL",
-    icon: "🇮🇱"
+    icon: "🇮🇱",
+    status: "✅ RESOLVED YES"
   },
   {
     id: 6,
-    question: "Iran nuclear deal by June 2026?",
-    probability: 12,
-    volume: "$5M",
-    trend: "down",
-    change: "-3%",
-    url: "https://polymarket.com/event/iran-deal",
-    category: "DIPLOMACY",
-    icon: "🕊️"
+    question: "Will Russia directly support Iran militarily?",
+    probability: 35,
+    volume: "$22M",
+    trend: "up",
+    change: "+15%",
+    url: "https://polymarket.com/event/russia-iran",
+    category: "RUSSIA",
+    icon: "🇷🇺",
+    status: "ACTIVE WAR"
   },
   {
     id: 7,
-    question: "Pentagon Pizza Index spike?",
-    probability: 28,
-    volume: "$2M",
+    question: "Will China intervene to protect Iran?",
+    probability: 12,
+    volume: "$15M",
     trend: "up",
     change: "+3%",
-    url: "https://www.pizzint.watch/",
-    category: "OSINT",
-    icon: "🍕"
+    url: "https://polymarket.com/event/china-iran",
+    category: "CHINA",
+    icon: "🇨🇳",
+    status: "ACTIVE WAR"
   },
   {
     id: 8,
-    question: "Iran attacks US base in Gulf?",
-    probability: 45,
-    volume: "$6M",
+    question: "Will Iran attack Saudi oil facilities?",
+    probability: 41,
+    volume: "$19M",
     trend: "up",
-    change: "+7%",
-    url: "https://polymarket.com/event/iran-retaliation",
-    category: "RETALIATION",
-    icon: "⚔️"
+    change: "+18%",
+    url: "https://polymarket.com/event/iran-saudi",
+    category: "ESCALATION",
+    icon: "🛢️",
+    status: "ACTIVE WAR"
+  },
+  {
+    id: 9,
+    question: "Will war expand beyond Iran/Iraq?",
+    probability: 38,
+    volume: "$25M",
+    trend: "up",
+    change: "+12%",
+    url: "https://polymarket.com/event/war-expansion",
+    category: "ESCALATION",
+    icon: "⚔️",
+    status: "ACTIVE WAR"
+  },
+  {
+    id: 10,
+    question: "Will US deploy ground troops to Iran?",
+    probability: 22,
+    volume: "$31M",
+    trend: "up",
+    change: "+8%",
+    url: "https://polymarket.com/event/us-ground-troops",
+    category: "GROUND WAR",
+    icon: "🪖",
+    status: "ACTIVE WAR"
   },
 ];
 
@@ -191,8 +223,34 @@ export default function PredictionMarkets() {
     return sum + num;
   }, 0);
 
+  const resolvedCount = bets.filter(b => b.status.includes("RESOLVED")).length;
+
   return (
     <div style={{ background: "#0d1117", padding: 24, borderBottom: "2px solid #1a2332" }}>
+      {/* WAR MODE HEADER */}
+      <div style={{
+        background: "linear-gradient(135deg, #8b0000 0%, #ff0000 100%)",
+        borderRadius: 16,
+        padding: 20,
+        marginBottom: 24,
+        border: "3px solid #ffeb3b",
+        textAlign: "center"
+      }}>
+        <div style={{
+          fontSize: 18,
+          fontWeight: 900,
+          color: "#ffeb3b",
+          letterSpacing: 3,
+          marginBottom: 8,
+          textShadow: "0 0 20px rgba(255,235,59,0.5)"
+        }}>
+          🔴 PREDICTION MARKETS — WAR MODE 🔴
+        </div>
+        <div style={{ fontSize: 12, color: "#fff" }}>
+          Strike predictions RESOLVED. Now tracking war escalation scenarios.
+        </div>
+      </div>
+
       {/* Header with Stats */}
       <div style={{ 
         display: "flex", justifyContent: "space-between", alignItems: "flex-start", 
@@ -203,7 +261,7 @@ export default function PredictionMarkets() {
             📊 POLYMARKET PREDICTIONS
           </div>
           <div style={{ fontSize: 12, color: "#8b949e", marginTop: 4 }}>
-            Iran Conflict Markets • ${totalVolume.toFixed(0)}M+ Total Volume • Wisdom of the Crowd
+            War Escalation Markets • ${totalVolume.toFixed(0)}M Total Volume • {resolvedCount} RESOLVED
           </div>
         </div>
         
@@ -214,6 +272,13 @@ export default function PredictionMarkets() {
           }}>
             <div style={{ fontSize: 10, color: "#6e7681" }}>MARKETS</div>
             <div style={{ fontSize: 18, fontWeight: "bold", color: "#00e676" }}>{bets.length}</div>
+          </div>
+          <div style={{
+            padding: "12px 20px", background: "#ff174420", borderRadius: 8,
+            border: "1px solid #ff1744", textAlign: "center"
+          }}>
+            <div style={{ fontSize: 10, color: "#ff6d00" }}>RESOLVED</div>
+            <div style={{ fontSize: 18, fontWeight: "bold", color: "#ff1744" }}>{resolvedCount}</div>
           </div>
           <a 
             href="https://polymarket.com" 
@@ -239,9 +304,9 @@ export default function PredictionMarkets() {
             style={{
               padding: "6px 14px", borderRadius: 20, border: "none",
               fontSize: 10, fontWeight: 600, cursor: "pointer",
-              background: selectedCategory === cat ? "#2979ff" : "#161b22",
+              background: selectedCategory === cat ? "#ff1744" : "#161b22",
               color: selectedCategory === cat ? "#fff" : "#8b949e",
-              border: `1px solid ${selectedCategory === cat ? "#2979ff" : "#1a2332"}`
+              border: `1px solid ${selectedCategory === cat ? "#ff1744" : "#1a2332"}`
             }}
           >
             {cat === "ALL" ? "🔍 All Markets" : cat}
@@ -254,6 +319,7 @@ export default function PredictionMarkets() {
         {filteredBets.map((bet) => {
           const color = getColor(bet.probability);
           const isHovered = hoveredBet === bet.id;
+          const isResolved = bet.status.includes("RESOLVED");
           
           return (
             <a
@@ -264,19 +330,22 @@ export default function PredictionMarkets() {
               onMouseEnter={() => setHoveredBet(bet.id)}
               onMouseLeave={() => setHoveredBet(null)}
               style={{
-                padding: 16, background: isHovered ? "#1c2128" : "#161b22", 
+                padding: 16, 
+                background: isResolved ? "#00e67610" : (isHovered ? "#1c2128" : "#161b22"), 
                 borderRadius: 12,
-                border: `2px solid ${isHovered ? color : "#1a2332"}`, 
+                border: `2px solid ${isResolved ? "#00e676" : (isHovered ? color : "#1a2332")}`, 
                 textDecoration: "none",
                 display: "flex", gap: 14, alignItems: "center",
-                transition: "all 0.2s", boxShadow: isHovered ? `0 4px 24px ${color}15` : "none"
+                transition: "all 0.2s", 
+                boxShadow: isResolved ? "0 0 20px rgba(0,230,118,0.3)" : (isHovered ? `0 4px 24px ${color}15` : "none"),
+                opacity: isResolved ? 0.9 : 1
               }}
             >
               {/* Icon */}
-              <div style={{ fontSize: 28 }}>{bet.icon}</div>
+              <div style={{ fontSize: 28, opacity: isResolved ? 0.7 : 1 }}>{bet.icon}</div>
               
               {/* Circular Chart */}
-              <CircularProgress percentage={bet.probability} color={color} size={60} strokeWidth={5} />
+              <CircularProgress percentage={bet.probability} color={isResolved ? "#00e676" : color} size={60} strokeWidth={5} />
               
               {/* Info */}
               <div style={{ flex: 1 }}>
@@ -285,14 +354,21 @@ export default function PredictionMarkets() {
                 }}>
                   <span style={{
                     fontSize: 8, padding: "2px 6px", borderRadius: 4,
-                    background: `${color}20`, color, fontWeight: 600,
+                    background: isResolved ? "#00e67620" : `${color}20`, 
+                    color: isResolved ? "#00e676" : color, 
+                    fontWeight: 600,
                     textTransform: "uppercase", letterSpacing: 0.5
                   }}>
-                    {bet.category}
+                    {isResolved ? "✅ " + bet.status : bet.category}
                   </span>
+                </span>
                 </div>
                 
-                <div style={{ fontSize: 12, color: "#e6edf3", fontWeight: 600, lineHeight: 1.4, marginBottom: 8 }}>
+                <div style={{ 
+                  fontSize: 12, color: "#e6edf3", fontWeight: 600, lineHeight: 1.4, marginBottom: 8,
+                  textDecoration: isResolved ? "line-through" : "none",
+                  opacity: isResolved ? 0.7 : 1
+                }}>
                   {bet.question}
                 </div>
                 
@@ -301,7 +377,7 @@ export default function PredictionMarkets() {
                   <div style={{ height: 6, background: "#21262d", borderRadius: 3, overflow: "hidden" }}>
                     <div style={{
                       height: "100%", width: `${bet.probability}%`,
-                      background: `linear-gradient(90deg, ${color}60, ${color})`,
+                      background: isResolved ? "#00e676" : `linear-gradient(90deg, ${color}60, ${color})`,
                       borderRadius: 3, transition: "width 0.5s ease"
                     }} />
                   </div>
@@ -309,7 +385,9 @@ export default function PredictionMarkets() {
 
                 {/* Stats row */}
                 <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 10, color }}>{getRiskLevel(bet.probability)}</span>
+                  <span style={{ fontSize: 10, color: isResolved ? "#00e676" : color }}>
+                    {isResolved ? "✅ RESOLVED YES" : getRiskLevel(bet.probability)}
+                  </span>
                   <span style={{ fontSize: 9, color: "#6e7681" }}>•</span>
                   <span style={{ fontSize: 10, color: "#8b949e" }}>Vol: {bet.volume}</span>
                   <span style={{ fontSize: 9, color: "#6e7681" }}>•</span>
@@ -319,7 +397,7 @@ export default function PredictionMarkets() {
                   }}>
                     {bet.trend === "up" ? "📈" : bet.trend === "down" ? "📉" : "➡️"} {bet.change}
                   </span>
-                  <Sparkline trend={bet.trend} color={bet.trend === "up" ? "#ff1744" : bet.trend === "down" ? "#00e676" : "#6e7681"} />
+                  {!isResolved && <Sparkline trend={bet.trend} color={bet.trend === "up" ? "#ff1744" : bet.trend === "down" ? "#00e676" : "#6e7681"} />}
                 </div>
               </div>
             </a>
@@ -327,35 +405,34 @@ export default function PredictionMarkets() {
         })}
       </div>
 
-      {/* Nothing Ever Happens Index */}
+      {/* War Markets Summary */}
       <div style={{
-        marginTop: 20, padding: 20, background: "linear-gradient(135deg, #161b22 0%, #1a2332 100%)",
-        borderRadius: 12, border: "2px solid #30363d",
-        display: "flex", alignItems: "center", gap: 20
+        marginTop: 24, 
+        padding: 20, 
+        background: "linear-gradient(135deg, #1a0000 0%, #2d1b1b 100%)",
+        borderRadius: 12, 
+        border: "2px solid #ff1744"
       }}>
-        <div style={{
-          width: 70, height: 70, borderRadius: "50%",
-          background: "#00e67620", display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 36, border: "3px solid #00e67640"
-        }}>
-          😴
+        <div style={{ fontSize: 14, fontWeight: 700, color: "#ff1744", marginBottom: 12 }}>
+          📈 ESCALATION PROBABILITIES (WAR ACTIVE)
         </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 14, color: "#e6edf3", fontWeight: 600, marginBottom: 4 }}>
-            Nothing Ever Happens Index
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12 }}>
+          <div style={{ padding: 12, background: "rgba(0,0,0,0.3)", borderRadius: 8 }}>
+            <div style={{ fontSize: 10, color: "#8b949e" }}>HORMUZ CLOSURE</div>
+            <div style={{ fontSize: 24, fontWeight: 900, color: "#ff1744" }}>68%</div>
           </div>
-          <div style={{ fontSize: 11, color: "#8b949e", lineHeight: 1.5 }}>
-            A satirical counter-indicator to balance prediction market anxiety. 
-            Historically, most geopolitical crises resolve without WWIII. 
-            Stay informed, not panicked.
+          <div style={{ padding: 12, background: "rgba(0,0,0,0.3)", borderRadius: 8 }}>
+            <div style={{ fontSize: 10, color: "#8b949e" }}>REGIME CHANGE</div>
+            <div style={{ fontSize: 24, fontWeight: 900, color: "#ffd600" }}>52%</div>
           </div>
-        </div>
-        <div style={{
-          padding: "10px 20px", background: "#00e67620", borderRadius: 8,
-          border: "1px solid #00e67640", textAlign: "center"
-        }}>
-          <div style={{ fontSize: 10, color: "#8b949e" }}>STATUS</div>
-          <div style={{ fontSize: 14, color: "#00e676", fontWeight: 600 }}>Nothing Ever Happens</div>
+          <div style={{ padding: 12, background: "rgba(0,0,0,0.3)", borderRadius: 8 }}>
+            <div style={{ fontSize: 10, color: "#8b949e" }}>WAR EXPANSION</div>
+            <div style={{ fontSize: 24, fontWeight: 900, color: "#ffd600" }}>38%</div>
+          </div>
+          <div style={{ padding: 12, background: "rgba(0,0,0,0.3)", borderRadius: 8 }}>
+            <div style={{ fontSize: 10, color: "#8b949e" }}>GROUND INVASION</div>
+            <div style={{ fontSize: 24, fontWeight: 900, color: "#2979ff" }}>22%</div>
+          </div>
         </div>
       </div>
 
