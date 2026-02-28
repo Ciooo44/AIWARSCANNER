@@ -4,10 +4,19 @@ const CRISIS_DATES = [
   {
     date: "2026-02-28",
     label: "NOW",
+    title: "🚨🚨🚨 ROCKET ATTACK ON ISRAEL",
+    details: "IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran. Massive barrage underway. Israel's Iron Dome activating. US & Israel striking Iranian nuclear and military facilities. Full regional war escalating.",
+    status: "active",
+    color: "#ff0000",
+    icon: "🚨",
+  },
+  {
+    date: "2026-02-28",
+    label: "NOW",
     title: "🔴🔴🔴 TRUMP DECLARES WAR",
     details: "PRESIDENT TRUMP: 'The United States is now at war with Iran. We will not stop until the threat is eliminated.' Official war declaration from Oval Office. US strikes ongoing. Iran retaliating. This is not a drill.",
     status: "active",
-    color: "#ff0000",
+    color: "#ff1744",
     icon: "🔴",
   },
   {

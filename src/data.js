@@ -98,6 +98,7 @@ export const CRISIS_TIMELINE = [
   { date: "Feb 27, 2026", event: "🌍 GLOBAL EVACUATION WAVE: 15+ countries (US, UK, Germany, Canada, Australia, China, India, etc.) tell citizens to LEAVE IRAN NOW", severity: "critical" },
   { date: "Feb 27, 2026", event: "🇨🇳 CHINA JOINS EVACUATION: Beijing orders all citizens to immediately evacuate Iran — major escalation signal", severity: "critical" },
   { date: "Feb 27, 2026", event: "🏠 ISRAEL OPENS ALL PUBLIC SHELTERS: Be'er Sheva deputy mayor warns 'could unfold this weekend'", severity: "critical" },
+  { date: "Feb 28, 2026", event: "🚨🚨🚨 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway. Iron Dome activating.", severity: "critical" },
   { date: "Feb 28, 2026", event: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'United States is now at war with Iran. We will not stop until the threat is eliminated.' Official Oval Office address", severity: "critical" },
   { date: "Mar 1, 2026", event: "⚠️ DEADLINE: Trump ultimatum expires — 85% action probability window opens", severity: "critical" },
   { date: "Mar 7, 2026", event: "🔮 POLYMARKET: $355M volume — 33% YES probability US strikes Iran by this date", severity: "prediction" },
@@ -107,6 +108,7 @@ export const CRISIS_TIMELINE = [
 
 // ── Live News Feed ─────────────────────────────────────────────
 export const NEWS_ITEMS = [
+  { time: "🚨🚨🚨 NOW", source: "IDF / Regional", title: "🚨🚨🚨 IT HAS BEGUN: Dozens of rockets fired towards Israel from Iran — Massive barrage underway. Israel's Iron Dome activating. THIS IS NOT A DRILL.", category: "military", url: "https://www.bbc.com/news/world-middle-east" },
   { time: "🔴🔴🔴 LIVE", source: "White House / Trump", title: "🔴🔴🔴 PRESIDENT TRUMP DECLARES WAR: 'The United States is now at war with Iran. We will not stop until the threat is eliminated.' Official declaration from Oval Office.", category: "military", url: "https://www.bbc.com/news/world-middle-east" },
   { time: "🌍🚨 BREAKING", source: "FCDO / State Dept / Multiple", title: "🌍 GLOBAL EVACUATION WAVE: 15+ countries tell citizens to GET OUT OF IRAN NOW — Australia, Brazil, Canada, China, Germany, India, Poland, UK, US, and more. Coordinated rush before war.", category: "military", url: "https://www.bbc.com/news/world/middle-east" },"FCDO / State Dept / Multiple", title: "🌍 GLOBAL EVACUATION WAVE: 15+ countries tell citizens to GET OUT OF IRAN NOW — Australia, Brazil, Canada, China, Germany, India, Poland, UK, US, and more. Coordinated rush before war.", category: "military", url: "https://www.bbc.com/news/world/middle-east" },
   { time: "💀🚨 BREAKING", source: "Iran State Media / Khamenei", title: "💀 KHAMENEI CALLS FOR TRUMP'S DEATH: 'Death to America means death to Trump and his team' — Supreme Leader's direct threat to US President", category: "diplomacy", url: "https://www.bbc.com/news/world/middle-east" },

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 
 // Breaking news ticker component - WAR STARTED
 const BREAKING_ALERTS = [
-  { id: 1, text: "🔴🔴🔴 WAR STARTED: US & ISRAEL strike Iran - explosions in Tehran, Natanz, Fordow", time: "LIVE", priority: "war" },
-  { id: 2, text: "✈️ AIRSPACE CLEARING: Middle East airspace being evacuated after strikes", time: "LIVE", priority: "war" },
-  { id: 3, text: "💥 Iran retaliating with ballistic missiles at US bases in region", time: "LIVE", priority: "war" },
-  { id: 4, text: "🚨 Israel under missile attack from Iran and Hezbollah", time: "LIVE", priority: "war" },
+  { id: 1, text: "🚨🚨🚨 BREAKING: Dozens of rockets fired towards Israel from Iran - It has begun", time: "NOW", priority: "war" },
+  { id: 2, text: "🔴🔴🔴 WAR STARTED: US & ISRAEL strike Iran - explosions in Tehran, Natanz, Fordow", time: "LIVE", priority: "war" },
+  { id: 3, text: "✈️ AIRSPACE CLEARING: Middle East airspace being evacuated after strikes", time: "LIVE", priority: "war" },
+  { id: 4, text: "💥 Iran retaliating with ballistic missiles at US bases in region", time: "LIVE", priority: "war" },
   { id: 5, text: "🛢️ Strait of Hormuz CLOSED - oil tankers halted", time: "LIVE", priority: "critical" },
   { id: 6, text: "📈 Oil jumps to $180/barrel - global markets crashing", time: "LIVE", priority: "critical" },
 ];
